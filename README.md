@@ -1,6 +1,6 @@
 # Thông tin về Tác giả
-Mã sinh viên: ...
-Họ tên: ...
+Mã sinh viên: D20198
+Họ tên: Hà Văn Linh
 
 # Hướng dẫn cách sử dụng dự án
 ## Step 1: Clone source dự án
@@ -15,13 +15,14 @@ Hiệu chỉnh file .env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=tendatabase
+DB_DATABASE=laravel
 DB_USERNAME=root
-DB_PASSWORD=matkhau
+DB_PASSWORD=
 ```
 
 ## Step 3: Tạo database, thực hiện migrate
 - Tạo database <tengido>, chuẩn bảng mã `utf8mb4_unicode_ci`
+- database: laravel
 - Thực thi câu lệnh khởi tạo cấu trúc bảng
 ```
 php artisan migrate
@@ -35,7 +36,7 @@ php artisan db:seed
 
 ## Step 5: tạo domain ảo
 - Tạo domain ảo với <tengido.local>
-
+- Ten miền ảo: http://cacanh.local/
 ## Step 6: thông tin tài khoản truy cập hệ thống
 Tài khoản Admin:
 admin / 123456
