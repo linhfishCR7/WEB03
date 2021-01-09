@@ -22,6 +22,7 @@ class CreateDanhmuc extends Migration
                 $table->tinyInteger('dm_trangThai')->default('2')->comment('Trạng thái # Trạng thái danh mục sản phẩm: 1-khóa, 2-khả dụng');    
                 $table->softDeletes()->comment('Xóa mềm');  // soft delete         
                 $table->unique(['dm_ten']);
+                
             });
             DB::statement("ALTER TABLE `danhmuc` comment 'Danh mục sản phẩm # Danh mục sản phẩm'");
     }
