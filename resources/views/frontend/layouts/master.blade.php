@@ -2,16 +2,17 @@
 <html lang="en" ng-app="thuongmaiApp">
 
 <head>
-    <title>@yield('title')</title>
+    <title>eCommerce | @yield('title')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon -->
     <link rel="icon" href="{{ asset('themes/westeros/images/favicon.ico') }}">
-    <title>Westeros | Home</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('themes/westeros/css/vendor/owl.carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('themes/westeros/css/vendor/magnific-popup.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('themes/westeros/css/style.css') }}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
 
     <!-- Các custom style của frontend -->
     <link rel="stylesheet" href="{{ asset('themes/westeros/css/custom-styles.css') }}">
@@ -23,13 +24,32 @@
 <body class="animsition">
 
     <!-- Header -->
-    @include('frontend.layouts.partials.header')
+    @include('frontend.partials.header')
+
+    <!-- mobile-menu-cover -->
+    @include('frontend.partials.mobile-menu-cover')
+
+    <!-- mobile-menu -->
+    @include('frontend.partials.mobile-menu')
+
+    <!-- main-menu -->
+    @include('frontend.partials.main-menu')
+
+    <!-- SECTION-NAV -->
+    <div id="section-nav-wrap">
+        <section id="section-nav">
+            <p>@yield('main')
+                <a href="contact.html">@yield('sub')</a></p>
+        </section>
+    </div>
+
+    <!-- SECTION-NAV -->
 
     <!-- Content -->
     @yield('main-content')
 
     <!-- Footer -->
-    @include('frontend.layouts.partials.footer')
+    @include('frontend.partials.footer')
 
     <!-- Back to top -->
     {{-- <div class="btn-back-to-top" id="myBtn">
@@ -47,13 +67,22 @@
     <script src="{{ asset('themes/westeros/js/vendor/jquery.magnific-popup.min.js') }}"></script>
     <!-- imgLiquid -->
     <script src="{{ asset('themes/westeros/js/vendor/imgLiquid-min.js') }}"></script>
+    <!-- Liquid -->
+    <script src="{{ asset('themes/westeros/js/liquid.js') }}"></script>
     <!-- Header -->
     <script src="{{ asset('themes/westeros/js/header.js') }}"></script>
     <!-- Menu -->
     <script src="{{ asset('themes/westeros/js/menu.js') }}"></script>
     <!-- Home -->
     <script src="{{ asset('themes/westeros/js/home.js') }}"></script>
-
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- Google Maps Config -->
+    <script src="{{ asset('themes/westeros/js/gmaps.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- Sweetalert -->
+    <script src="{{ asset('vendor/sweetalert2/sweetalert.js') }}"></script>
     <!-- Include AngularJS -->
     <script src="{{ asset('vendor/angularjs/angular.min.js') }}"></script>
     <!-- Include thư viện quản lý Cart - AngularJS -->

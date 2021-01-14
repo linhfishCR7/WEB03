@@ -2,7 +2,7 @@ function initialize() {
   	var mapCanvas = document.getElementById('map');
 
     var mapOptions = {
-      center: new google.maps.LatLng(40.755595, -73.987628),
+      center: new google.maps.LatLng(10.025300, 105.759370),
       disableDefaultUI: true,
       scrollwheel: false,
       zoom: 16,
@@ -13,10 +13,11 @@ function initialize() {
 
     //Create marker
     var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(40.754595, -73.987628),
+      
+      position: new google.maps.LatLng(10.025300, 105.759370),
       map: map,
       title: 'the Bebop',
-      icon: 'images/map-marker.png'
+      icon: "themes/westeros/images/map-marker.png"
  	});
 
     //Map marker info
