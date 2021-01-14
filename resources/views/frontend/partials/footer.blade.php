@@ -9,7 +9,7 @@
 					<!-- LOGO -->
 					<a href="index.html">
 						<figure class="logo">
-							<img src="images/logo-footer.png" alt="logo">
+							<img src="{{ asset('themes/westeros/images/logo-footer.png')}}" alt="logo">
 							<figcaption>Westeros</figcaption>
 						</figure>
 					</a>
@@ -48,37 +48,37 @@
 					<ul class="payment-methods">
 						<!-- METHOD -->
 						<li>
-							<img src="images/payment/method1.jpg" alt="method1">
+							<img src="{{ asset('themes/westeros/images/payment/method1.jpg')}}" alt="method1">
 						</li>
 						<!-- /METHOD -->
 
 						<!-- METHOD -->
 						<li>
-							<img src="images/payment/method2.jpg" alt="method2">
+							<img src="{{ asset('themes/westeros/images/payment/method2.jpg')}}" alt="method2">
 						</li>
 						<!-- /METHOD -->
 
 						<!-- METHOD -->
 						<li>
-							<img src="images/payment/method3.jpg" alt="method3">
+							<img src="{{ asset('themes/westeros/images/payment/method3.jpg')}}" alt="method3">
 						</li>
 						<!-- /METHOD -->
 
 						<!-- METHOD -->
 						<li>
-							<img src="images/payment/method4.jpg" alt="method4">
+							<img src="{{ asset('themes/westeros/images/payment/method4.jpg')}}" alt="method4">
 						</li>
 						<!-- /METHOD -->
 
 						<!-- METHOD -->
 						<li>
-							<img src="images/payment/method5.jpg" alt="method5">
+							<img src="{{ asset('themes/westeros/images/payment/method5.jpg')}}" alt="method5">
 						</li>
 						<!-- /METHOD -->
 
 						<!-- METHOD -->
 						<li>
-							<img src="images/payment/method6.jpg" alt="method6">
+							<img src="{{ asset('themes/westeros/images/payment/method6.jpg')}}" alt="method6">
 						</li>
 						<!-- /METHOD -->
 					</ul>
@@ -156,7 +156,7 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="images/items/02.png" alt="product1">
+									<img src="{{ asset('themes/westeros/images/items/02.png')}}" alt="product1">
 								</figure>
 							</a>
 							<a href="women-shop.html"><p class="highlighted category">T-Shirts</p></a>
@@ -206,7 +206,7 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="images/items/25.png" alt="product2">
+									<img src="{{ asset('themes/westeros/images/items/25.png')}}" alt="product2">
 								</figure>
 							</a>
 							<a href="women-shop.html"><p class="highlighted category">T-Shirts</p></a>
@@ -257,7 +257,7 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="images/items/32.png" alt="product3">
+									<img src="{{ asset('themes/westeros/images/items/32.png')}}" alt="product3">
 								</figure>
 							</a>
 							<a href="women-shop.html"><p class="highlighted category">Custom Sneakers</p></a>
@@ -314,7 +314,7 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="images/items/31.png" alt="product1">
+									<img src="{{ asset('themes/westeros/images/items/31.png')}}" alt="product1">
 								</figure>
 							</a>
 							<a href="men-shop.html"><p class="highlighted category">Custom Sneakers</p></a>
@@ -364,7 +364,7 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="images/items/16.png" alt="product1">
+									<img src="{{ asset('themes/westeros/images/items/16.png')}}" alt="product1">
 								</figure>
 							</a>
 							<a href="men-shop.html"><p class="highlighted category">T-Shirts</p></a>
@@ -414,7 +414,7 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="images/items/07.png" alt="product1">
+									<img src="{{ asset('themes/westeros/images/items/07.png')}}" alt="product1">
 								</figure>
 							</a>
 							<a href="women-shop.html"><p class="highlighted category">T-Shirts</p></a>
