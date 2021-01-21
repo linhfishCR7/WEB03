@@ -19,7 +19,7 @@ Contact
     <section id="contact" ng-controller="contactController">
         <!-- CONTACT FORM -->
         <div class="contact-form">
-            <h3 class="title">Contact</h3>
+            <h3 class="title">{{ __('eCommerce.contact') }}</h3>
             <!-- CONTACT DETAILS -->
             <div class="contact-details">
                 <p>Lorem ipsum dolor sit amet, consectetur er adipisicing elit, sed do eiusmod eru. Lorem ipsum dolor sit amet, consectetur.</p>
@@ -31,7 +31,7 @@ Contact
                             <use xlink:href="#svg-pin"></use>
                         </svg>
                         <!-- /SVG PIN -->
-                        <p>34th Street 1235, New York, NY</p>
+                        <p>3/2, Hung Loi, Ninh Kieu, Can Tho</p>
                     </li>
                     <li class="phone">
                         <!-- SVG PHONE -->
@@ -39,7 +39,7 @@ Contact
                             <use xlink:href="#svg-phone"></use>
                         </svg>
                         <!-- /SVG PHONE -->
-                        <p>(044) 555 123 1234/35</p>
+                        <p>(+84) 3428 78767</p>
                     </li>
                     <li class="email">
                         <!-- SVG ENVELOPE -->
@@ -47,19 +47,19 @@ Contact
                             <use xlink:href="#svg-envelope"></use>
                         </svg>
                         <!-- /SVG ENVELOPE -->
-                        <p><a href="mailto:questions@westeroscc.com">questions@westeroscc.com</a></p>
+                        <p><a href="mailto:linhfish10c1@gmail.com">linhfish10c1@gmail.com</a></p>
                     </li>
                 </ul>
                 <!-- /CONTACT INFO -->
-                <h5>Connect with us!</h5>
+                <h5>{{ __('eCommerce.connect-with-us') }}</h5>
                 <!-- SOCIAL LINKS -->
                 <ul class="social-links">
-                    <li class="fb"><a href="#"></a></li>
-                    <li class="twt"><a href="#"></a></li>
-                    <li class="gplus"><a href="#"></a></li>
-                    <li class="db"><a href="#"></a></li>
-                    <li class="rss"><a href="#"></a></li>
-                    <li class="vm"><a href="#"></a></li>
+                    <li class="fb"><a href="https://www.facebook.com/HaVanLinh1904/" target="_blank"></a></li>
+                    <li class="twt"><a href="https://twitter.com/LINHFISH6" target="_blank"></a></li>
+                    <li class="gplus"><a href="#" target="_blank"></a></li>
+                    <li class="db"><a href="#" target="_blank"></a></li>
+                    <li class="rss"><a href="#" target="_blank"></a></li>
+                    <li class="vm"><a href="#" target="_blank"></a></li>
                 </ul>
                 <!-- /SOCIAL LINKS -->
             </div>

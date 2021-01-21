@@ -47,7 +47,7 @@
 
     <!-- Content -->
     @yield('main-content')
-
+    
     <!-- Footer -->
     @include('frontend.partials.footer')
 
@@ -79,6 +79,8 @@
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <!-- Google Maps Config -->
     <script src="{{ asset('themes/westeros/js/gmaps.js') }}"></script>
+    <!-- Blog -->
+    <script src="{{ asset('themes/westeros/js/blog.js') }}"></script>
     <!-- Bootstrap -->
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- Sweetalert -->
