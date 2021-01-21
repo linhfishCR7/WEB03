@@ -7,11 +7,10 @@
 					Questions? Do you need help? Send us an email to: 
 					<a href="mailto:questions@westeroscc.com">questions@westeroscc.com</a>
 				</p>
-
 				<!-- WESTEROS DROPDOWN CONTAINER-->
 				<div class="westeros-dropdown-container small">
 					<p>
-						<span>English</span>
+						<span><a href="">Language</a></span>
 						<!-- SVG ARROW -->
 						<svg class="svg-arrow westeros-dropdown-control">
 							<use xlink:href="#svg-arrow"></use>
@@ -21,8 +20,8 @@
 
 					<!-- WESTEROS DROPDOWN -->
 					<ul class="westeros-dropdown default hide-on-click">
-						<li class="selected"><a>English</a></li>
-						<li><a>Spanish</a></li>
+						<li><a href="{{ route('app.setLocale', ['locale' => 'vi']) }}">Vietnamese</a></li>
+						<li><a href="{{ route('app.setLocale', ['locale' => 'en']) }}">English</a></li>
 						<li><a>French</a></li>
 						<li><a>German</a></li>
 					</ul>

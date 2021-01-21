@@ -22,8 +22,8 @@ function initialize() {
 
     //Map marker info
     var contentString = '<div id="map-info">'+
-      '<h3>Westeros</h3>'+
-      '<p style="text-align:left; margin:0;"><strong>Westeros</strong>, is the <strong>best clothing shop</strong> in the city.<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit maiores, incidunt quidem natus. Ut dolorum deleniti reiciendis tenetur illum, beatae cum, harum laborum, nisi omnis nulla laboriosam, ipsam nemo consectetur..</p>'+
+      '<h3>eCommerce</h3>'+
+      '<p style="text-align:left; margin:0;"><strong>eCommerce</strong>, is the <strong>best betta fish, orchid...</strong> in the area.<br>please visit our company..</p>'+
       '</div>';
 
     //Add info to marker 
