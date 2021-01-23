@@ -47,6 +47,8 @@ Thêm Danh mục
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary" ng-disabled="frmCreate.$invalid">Submit</button>
+                        <a href="{{route('backend.danhmuc.index')}}" class="btn btn-info">Quay về</a>
+
                     </form>
                 </div>
             </div>

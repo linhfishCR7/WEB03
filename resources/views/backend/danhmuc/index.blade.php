@@ -84,6 +84,8 @@ Danh mục
                                 </form>
                                 <a href="{{ route('backend.danhmuc.edit',['danhmuc'=> $danhmuc->dm_ma]) }}" class="btn btn-warning"><i class="remixicon-edit-box-line" data-toggle="tooltip" data-placement="top" title="Sửa"></i></a>
                                 {{-- <a href="{{ route('admin.danhmuc.destroy',['danhmuc' => $danhmuc->dm_ma]) }}" class="btn btn-danger"> Xóa </a> --}}
+                                <button data-url="{{ route('backend.danhmuc.show',$danhmuc->dm_ma) }}" ​ type="button" data-target="#show" data-toggle="modal" class="btn btn-info btn-show"><i class="remixicon-settings-5-fill" data-toggle="tooltip" data-placement="top" title="Chi tiết"></i></button>
+
                             </td>
 
                         </tr>
@@ -96,12 +98,55 @@ Danh mục
     </div><!-- end col-->
 </div>
 <!-- end row-->
+<!-- Show customer modal -->
+
+<div class="modal fade" id="show" data-animation="fadein">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Detail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h2>Thông tin sinh viên:</h2>
+                id: <h1 id="id"></h1>
+                Họ Tên: <h1 id="hoten"></h1>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @section('custom-scripts')
 <script>
     $(document).ready(function() {
         $('#selection-datatable').DataTable();
+    });
+
+</script>
+<script>
+    $(document).ready(function() {
+        /* Show customer */
+        $('.btn-show').click(function() {
+            var url = $(this).attr('data-url');
+            $.ajax({
+                type: 'get'
+                , url: url
+                , success: function(response) {
+                    console.log(response)
+                    $('h1#id').text(response.data.dm_ma)
+                    $('h1#hoten').text(response.data.dm_ten)
+                }
+                , error: function(jqXHR, textStatus, errorThrown) {
+                    //xử lý lỗi tại đây
+                }
+            })
+        })
     });
 
 </script>
@@ -166,6 +211,7 @@ Danh mục
             })
             ///
         });
+
     });
 
 </script>

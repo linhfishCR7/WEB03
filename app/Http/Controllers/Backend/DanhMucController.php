@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
+
 use App\DanhMuc;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class DanhMucController extends Controller
         //
         $dm_ten = $request->dm_ten;
         $dm_trangThai = $request->dm_trangThai;
-        
+
         $danhmuc = new DanhMuc();
         $danhmuc->dm_ten = $dm_ten;
         $danhmuc->dm_trangThai = $dm_trangThai;
@@ -55,7 +56,7 @@ class DanhMucController extends Controller
         $danhmuc->dm_capNhat = Carbon::now();
         $danhmuc->save();
 
-        $request->session()->flash('alert-success','Thêm thành công');
+        $request->session()->flash('alert-success', 'Thêm thành công');
         //dd($request);
         //điều hướng
         return redirect(route('backend.danhmuc.index'));
@@ -69,7 +70,9 @@ class DanhMucController extends Controller
      */
     public function show($id)
     {
-        //
+        $dm = DanhMuc::find($id);
+        return response()->json(['data'=>$dm],200); // 200 là mã lỗi
+
     }
 
     /**
@@ -80,7 +83,11 @@ class DanhMucController extends Controller
      */
     public function edit($id)
     {
-        //
+        //lấy lại dữ liệu 
+        $dm = DanhMuc::where("dm_ma", $id)->first();
+
+        return view('backend.danhmuc.edit')
+            ->with('dm', $dm);
     }
 
     /**
@@ -92,7 +99,18 @@ class DanhMucController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Tìm object Sản phẩm theo khóa chính
+        $dm = DanhMuc::where("dm_ma",  $id)->first();
+        $dm->dm_ten = $request->dm_ten;
+        $dm->dm_capNhat = Carbon::now();
+        $dm->dm_trangThai = $request->dm_trangThai;
+        $dm->save();
+
+        // Hiển thị câu thông báo 1 lần (Flash session)
+        $request->session()->flash('alert-info', 'Cập nhật thành công ^^~!!!');
+
+        // Điều hướng về trang index
+        return redirect()->route('backend.danhmuc.index');
     }
 
     /**
@@ -106,6 +124,5 @@ class DanhMucController extends Controller
         $danhmuc = DanhMuc::find($id);
         $danhmuc->delete();
         return redirect()->route('backend.danhmuc.index');
-
     }
 }
