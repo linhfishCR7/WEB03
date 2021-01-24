@@ -145,9 +145,9 @@
             $scope.submitForm = function () {
 
                 // kiểm tra các ràng buộc là hợp lệ
-                if ($scope.frmCreate.$valid) {
-                    alert('Hợp lệ, dữ liệu đã được gởi đăng ký.');
-                }
+                //if ($scope.frmCreate.$valid) {
+                //    alert('Hợp lệ, dữ liệu đã được gởi đăng ký.');
+                //}
             };
         });
 
