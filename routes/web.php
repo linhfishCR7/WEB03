@@ -21,6 +21,10 @@ backend route
 */
 
 Route::resource('backend/danhmuc','Backend\DanhMucController',['as'=>'backend']);
+Route::resource('backend/mau','Backend\MauController',['as'=>'backend']);
+Route::get('backend/mau/{id}/edit/','Backend\MauController@edit');
+
+
 
 /*
 -----------------------------------------------------------------------------------------------------------------
