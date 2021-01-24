@@ -20,7 +20,7 @@ class CreateChudeSanpham extends Migration
             $table->unsignedTinyInteger('cd_ma')->comment('Chủ để # cd_ma # cd_ten # Mã chủ đề');
             $table->timestamp('cdsp_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Thời điểm tạo # Thời điểm đầu tiên tạo chủ đề sản phẩm');
             $table->timestamp('cdsp_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Thời điểm cập nhật # Thời điểm cập nhật chủ đề sản phẩm gần nhất');
-            $table->unsignedTinyInteger('gy_trangThai')->default('3')->comment('Trạng thái # Trạng thái chủ đề sản phẩm: 1-khóa, 2-hiển thị, 3-chờ duyệt');
+            $table->unsignedTinyInteger('cdsp_trangThai')->default('3')->comment('Trạng thái # Trạng thái chủ đề sản phẩm: 1-khóa, 2-hiển thị, 3-chờ duyệt');
             $table->softDeletes()->comment('Xóa mềm');  // soft delete         
 
             $table->primary(['sp_ma', 'cd_ma']);

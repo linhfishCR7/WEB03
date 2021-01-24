@@ -19,4 +19,9 @@ class DanhMuc extends Model
 
     protected $dates        = ['dm_taoMoi', 'dm_capNhat','delete_at'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function loais()
+    {
+        return $this->hasMany('App\Loai', 'dm_ma', 'dm_ma');
+    }
 }
