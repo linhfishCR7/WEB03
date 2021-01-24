@@ -108,6 +108,7 @@
     <script src="{{ asset('themes/Minton_green/assets/libs/datatables/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/pdfmake/vfs_fonts.js') }}"></script>
+    
     <!-- third party js ends -->
 
     <!-- Plugins js -->
@@ -152,6 +153,7 @@
         });
 
     </script>
+
     <!-- Các custom script dành riêng cho từng view -->
     @yield('custom-scripts')
 </body>
