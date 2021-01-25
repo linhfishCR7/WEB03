@@ -29,6 +29,7 @@ class MauTableSeeder extends Seeder
             array_push($list, [
                 'm_ma'      => $i,
                 'm_ten'     => $colors[$i-1],
+                'm_hexan'  => '#'.$i.$i.'D'.$i.'A'.$i,
                 'm_trangThai'     => random_int(1,2),
                 'm_taoMoi'  => $today->format('Y-m-d H:i:s'),
                 'm_capNhat' => $today->format('Y-m-d H:i:s')

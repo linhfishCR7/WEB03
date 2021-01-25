@@ -63,9 +63,10 @@ class MauController extends Controller
         if ($mauId) {
 
             $mau->m_ten        = $request->m_ten;
+            $mau->m_hexan        = $request->hex_colorpicker;
+
             $mau->m_trangThai  = $request->m_trangThai;
             $mau->m_capNhat    = Carbon::now();
-
             $mau->save();
             $request->session()->flash('alert-info', 'Cập nhật thành công ^^~!!!');
 
@@ -73,6 +74,7 @@ class MauController extends Controller
             $mau = new Mau();
 
             $mau->m_ten        = $request->m_ten;
+            $mau->m_hexan        = $request->hex_colorpicker;
             $mau->m_trangThai  = $request->m_trangThai;
             $mau->m_taoMoi     = Carbon::now();
             $mau->m_capNhat    = Carbon::now();
@@ -90,9 +92,12 @@ class MauController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        return view('backend.mau.show', compact('mau'));
+        $where = array('m_ma' => $id);
+        $mau = Mau::where($where)->first();
+        return Response()->json($mau);
+        
     }
 
     /**

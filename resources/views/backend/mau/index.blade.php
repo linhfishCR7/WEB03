@@ -44,38 +44,32 @@ Màu
                 </div>
 
                 <table id="selection-datatable" class="table dt-responsive nowrap my-3">
-                                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>tạo mới</th>
-                        <th>cập nhật</th>
-                        <th width="280px">Action</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>tạo mới</th>
+                            <th>cập nhật</th>
+                            <th width="280px">Action</th>
+                        </tr>
                     </thead>
-                                        <tbody>
-                    @foreach ($mau as $mau)
-                    <tr id="customer_id_{{ $mau->m_ma }}">
-                        <td>{{ $mau->m_ma }}</td>
-                        <td>{{ $mau->m_ten }}</td>
-                        <td>{{ $mau->m_taoMoi }}</td>
-                        <td>{{ $mau->m_capNhat }}</td>
-                        <td>
-                            <form action="{{ route('backend.mau.destroy',$mau->m_ma) }}" method="POST">
-                                <a class="btn btn-info" id="show-customer" data-toggle="modal" data-id="{{ $mau->m_ma }}"><i class="remixicon-settings-5-fill" data-toggle="tooltip" data-placement="top" title="Chi tiết"></i></a>
-                                <a href="javascript:void(0)" class="btn btn-warning" id="edit-customer" data-toggle="modal" data-id="{{ $mau->m_ma }}"><i class="remixicon-edit-box-line" data-toggle="tooltip" data-placement="top" title="Sửa"></i> </a>
-                                <meta name="csrf-token" content="{{ csrf_token() }}">
-                                <a id="delete-customer" data-id="{{ $mau->m_ma }}" class="btn btn-danger delete-user"><i class="remixicon-delete-bin-6-line" data-toggle="tooltip" data-placement="top" title="Xóa"></i></a>
-                                {{-- <form method="POST" action="{{ route('backend.mau.destroy',['mau' => $mau->m_ma]) }}" class="frmDelete chucNang" data-id="{{$mau->m_ma}}">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="_method" value="DELETE" />
-                                <button class="btn btn-danger" type="submit"><i class="remixicon-delete-bin-6-line" data-toggle="tooltip" data-placement="top" title="Xóa"></i></button>
-                            </form> --}}
-                        </td>
-                        </form>
-                        </td>
-                    </tr>
-                    @endforeach
+                    <tbody>
+                        @foreach ($mau as $mau)
+                        <tr id="customer_id_{{ $mau->m_ma }}">
+                            <td>{{ $mau->m_ma }}</td>
+                            <td>{{ $mau->m_ten }}</td>
+                            <td>{{ $mau->m_taoMoi }}</td>
+                            <td>{{ $mau->m_capNhat }}</td>
+                            <td>
+                                <form action="{{ route('backend.mau.destroy',$mau->m_ma) }}" method="POST">
+                                    <a href="javascript:void(0)" class="btn btn-info" id="show-customer" data-toggle="modal" data-id="{{ $mau->m_ma }}"><i class="remixicon-settings-5-fill" data-toggle="tooltip" data-placement="top" title="Chi tiết"></i></a>
+                                    <a href="javascript:void(0)" class="btn btn-warning" id="edit-customer" data-toggle="modal" data-id="{{ $mau->m_ma }}"><i class="remixicon-edit-box-line" data-toggle="tooltip" data-placement="top" title="Sửa"></i> </a>
+                                    <meta name="csrf-token" content="{{ csrf_token() }}">
+                                    <a id="delete-customer" data-id="{{ $mau->m_ma }}" class="btn btn-danger delete-user"><i class="remixicon-delete-bin-6-line" data-toggle="tooltip" data-placement="top" title="Xóa"></i></a>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 {{-- {!! $mau->links() !!} --}}
@@ -98,24 +92,32 @@ Màu
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Name:</strong>
+                                <label>Màu:</label>
                                 <input type="text" name="m_ten" id="m_ten" class="form-control" placeholder="Name" onchange="validate()">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Trạng thái:</strong>
-                                <input type="text" name="m_trangThai" id="m_trangThai" class="form-control" placeholder="Trạng thái" onchange="validate()">
+                                <label for="hex-colorpicker">Màu Hexan:</label>
+                                <input type="text" name="hex_colorpicker" value="#4a81d4" id="hex-colorpicker" class="form-control" placeholder="Hexan" onchange="validate()">
                             </div>
                         </div>
-                        {{-- <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Cập nhật:</strong>
-                                <input type="text" name="m_capNhat" id="m_capNhat" class="form-control" placeholder="Address" onchange="validate()" onkeypress="validate()">
+                                <label for="m_trangThai">Trạng thái hiện tại:</label>
+                                <input type="text" name="m_trangThai" id="m_trangThai" value="<% m_trangThai %>" class="form-control" disabled placeholder="Vui lòng chọn trạng thái">
                             </div>
-                        </div> --}}
+                            <div class="form-group">
+                                <label for="m_trangThai">Chọn trạng thái: </label>
+                                <select name="m_trangThai" class="form-control" ng-model="m_trangThai">
+                                    <option value="1">KÍCH HOẠT</option>
+                                    <option value="2">KHÓA</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="modal-footer">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Submit</button>
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" >Submit</button>
                             {{-- <a href="{{ route('backend.mau.index') }}" class="btn btn-danger">Cancel</a> --}}
                             <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
 
@@ -136,36 +138,35 @@ Màu
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-xs-2 col-sm-2 col-md-2"></div>
-                    <div class="col-xs-10 col-sm-10 col-md-10 ">
-                        @if(isset($mau->m_ten))
-
-                        <table>
-                            <tr>
-                                <td><strong>Name:</strong></td>
-                                <td>{{$mau->m_ten}}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Trạng thái:</strong></td>
-                                <td>{{ $mau->m_trangThai }}</td>
-                            </tr>
-                            {{-- <tr>
-                                <td><strong>Cập nhật:</strong></td>
-                                <td>{{ $mau->m_capNhat }}</td>
-                            </tr> --}}
-                            {{-- <tr>
-                                <td colspan="2" style="text-align: right "><a href="{{ route('backend.mau.index') }}" class="btn btn-danger">OK</a> </td>
-                            </tr> --}}
-                        </table>
-                        @endif
+                    <div class="col-lg-12">
+                        <div class="card card-body">
+                            <div class="form-group">
+                                <label for="m_ma1">ID:</label>
+                                <input type="text" name="m_ma1" id="m_ma1" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="m_ten1">Màu:</label>
+                                <input type="text" name="m_ten1" id="m_ten1" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="m_hexan1">Màu Hexan:</label>
+                                <input type="text" name="m_hexan1" id="m_hexan1" class="form-control"  disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="m_trangThai1">Trạng thái:</label>
+                                <input type="text" name="m_trangThai1" id="m_trangThai1" class="form-control" disabled>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
 
@@ -176,18 +177,19 @@ Màu
     $(document).ready(function() {
         $('#selection-datatable').DataTable();
     });
+
 </script>
-<script>
+{{-- <script>
     error = false;
 
     function validate() {
-        if (document.custForm.m_ten.value != '' && document.custForm.m_trangThai.value != '')
+        if (document.custForm.m_ten.value != '' && document.custForm.m_trangThai.value != ''&& document.custForm.hex-colorpicker.value != '')
             document.custForm.btnsave.disabled = false
         else
             document.custForm.btnsave.disabled = true
     }
 
-</script>
+</script> --}}
 
 <script>
     $(document).ready(function() {
@@ -209,14 +211,22 @@ Màu
                 $('#crud-modal').modal('show');
                 $('#m_ma').val(data.m_ma);
                 $('#m_ten').val(data.m_ten);
+                $('#m_hexan').val(data.m_hexan);
                 $('#m_trangThai').val(data.m_trangThai);
-                //$('#m_capNhat').val(data.m_capNhat);
             })
         });
+
         /* Show customer */
         $('body').on('click', '#show-customer', function() {
-            $('#CrudModal-show').html("Customer Details");
-            $('#crud-modal-show').modal('show');
+            var m_ma = $(this).data('id');
+            $.get('mau/' + m_ma, function(data) {
+                $('#CrudModal-show').html("Show Mau");
+                $('#crud-modal-show').modal('show');
+                $('#m_ma1').val(data.m_ma);
+                $('#m_ten1').val(data.m_ten);
+                $('#m_hexan1').val(data.m_hexan);
+                $('#m_trangThai1').val(data.m_trangThai);
+            })
         });
 
         /* Delete customer */
