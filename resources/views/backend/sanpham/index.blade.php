@@ -18,7 +18,10 @@ Sản phẩm
         float: left;
         margin-right: 5px;
     }
-
+    .img-hinhdaidien {
+        width: 100px;
+        height: 100px;
+    }
 </style>
 @endsection
 
@@ -40,7 +43,11 @@ Sản phẩm
                     unlike the os and single options shown in other examples.
                 </p>
                 <div class="pull-right">
-                    <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-customer" data-toggle="modal"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a></a>
+                    <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-customer" data-toggle="modal"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a>
+                    <a href="{{ route('backend.sanpham.print') }}" class="btn btn-info mb-2"><i class="remixicon-printer-line" data-toggle="tooltip" data-placement="top" title="IN"></i></a>
+                    <a href="{{ route('backend.sanpham.pdf') }}" class="btn btn-danger mb-2"><i class="mdi mdi-file-pdf" data-toggle="tooltip" data-placement="top" title="PDF"></i></a>
+                    <a href="{{ route('backend.sanpham.excel') }}" class="btn btn-primary mb-2"><i class="remixicon-file-excel-2-line" data-toggle="tooltip" data-placement="top" title="EXCEL"></i></a>
+
                 </div>
 
                 <table id="selection-datatable" class="table dt-responsive nowrap my-3">
@@ -66,7 +73,7 @@ Sản phẩm
                             <td>{{ $sanpham->sp_ten }}</td>
                             <td>{{ $sanpham->sp_giaGoc }}</td>
                             <td>{{ $sanpham->sp_giaBan }}</td>
-                            <td><img src="{{ asset('storage/upload/'.$sanpham->sp_hinh) }}" alt="hinh san pham" class="img-fluid" ></td>
+                            <td><img src="{{ asset('storage/upload/'.$sanpham->sp_hinh) }}" alt="hinh san pham" class="img-fluid img-hinhdaidien" ></td>
                             <td>{{ $sanpham->sp_thongTin }}</td>
                             <td>{{ $sanpham->sp_danhGia }}</td>
                             <td>{{ $sanpham->loaisanpham->l_ten }}</td>

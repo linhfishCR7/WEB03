@@ -65,323 +65,12 @@ ul.product-list .list-item figure {
 	</div>
 	<!-- /ADVERTISING -->
 
-	<!-- PRODUCT SHOWCASE -->
-	<div class="product-showcase-wrap">
-		<section class="product-showcase">
-			<h3 class="title">Our Featured Products</h3>
-			<!-- SLIDE CONTROLS -->
-			<ul class="slide-controls">
-				<!-- LEFT CONTROL -->
-				<li>
-					<a href="#" class="button prev">
-						<!-- SVG ARROW -->
-						<svg class="svg-arrow">
-							<use xlink:href="#svg-arrow"></use>
-						</svg>
-						<!-- /SVG ARROW -->
-					</a>
-				</li>
-				<!-- /LEFT CONTROL -->
+	@include('frontend.widgets.featureProduct', [$ds_sanpham = $ds_sanpham])
 
-				<!-- RIGHT CONTROL -->
-				<li>
-					<a href="#" class="button next">
-						<!-- SVG ARROW -->
-						<svg class="svg-arrow">
-							<use xlink:href="#svg-arrow"></use>
-						</svg>
-						<!-- /SVG ARROW -->
-					</a>
-				</li>
-				<!-- /RIGHT CONTROL -->
-			</ul>
-			<!-- /SLIDE CONTROLS -->
-
-			<!-- COMPARE MODAL -->
-			<div id="compare-modal" class="compare-modal mfp-with-anim mfp-hide">
-				<img src="images/icons/compare-modal-logo.png" alt="logo">
-				<h5>The item <span>product name</span></h5>
-				<h6>Has been sucessfully added to compare</h6>
-				<div class="options">
-					<a class="button medium mfp-close">Return to store</a>
-					<a href="compare.html" class="button medium compare">Go to compare</a>
-				</div>
-			</div>
-			<!-- /COMPARE MODAL -->
-
-			<!-- PRODUCT LIST -->
-			<ul id="owl-f-products" class="product-list grid owl-carousel">
-                @foreach($ds_loaisanpham as $ds_loaisanpham)
-
-				<!-- PRODUCT -->
-				<li class="list-item">
-					<!-- ACTIONS -->
-					<div class="actions">
-						<figure class="liquid">
-							<img src="{{ asset('storage/upload/'.$ds_loaisanpham->sp_hinh) }}" alt="product1">
-						</figure>
-						<div>
-							<a href="#qv-p{{ $ds_loaisanpham->sp_ma }}" class="button quick-view" data-effect="mfp-3d-unfold">
-								<!-- SVG QUICKVIEW -->
-								<svg class="svg-quickview">
-									<use xlink:href="#svg-quickview"></use>
-								</svg>
-								<!-- /SVG QUICKVIEW -->
-							</a>
-							<!-- QUICK VIEW POPUP -->
-							<div id="qv-p{{ $ds_loaisanpham->sp_ma }}" class="product-quick-view mfp-with-anim mfp-hide">
-								<!-- PRODUCT PICTURES -->
-								<div class="product-pictures">
-									<div class="product-photo">
-										<figure class="liquid">
-											<img src="{{ asset('storage/upload/'.$ds_loaisanpham->sp_hinh) }}" alt="product-image">
-										</figure>
-									</div>
-									<ul class="picture-views">
-										<!-- VIEW -->
-										<li class="selected">
-											<figure class="liquid">
-												<img src="{{ asset('storage/upload/'.$ds_loaisanpham->sp_hinh) }}" alt="picture-view">
-											</figure>
-										</li>
-										<!-- /VIEW -->
-										
-										<!-- VIEW -->
-										<li>
-											<figure class="liquid">
-												<img src="images/items/01.png" alt="picture-view">
-											</figure>
-										</li>
-										<!-- /VIEW -->
-									</ul>
-								</div>
-								<!-- /PRODUCT PICTURES -->
-
-								<!-- PRODUCT DESCRIPTION -->
-								<div class="product-description">
-									<a href="#"><p class="highlighted category">{{ $ds_loaisanpham->l_ten }}</p></a>
-									<a href="#"><h6>{{ $ds_loaisanpham->sp_ten }}</h6></a>
-									<!-- RATING -->
-									<ul class="rating big">
-										<li class="filled">
-											<!-- SVG STAR -->
-											<svg class="svg-star">
-												<use xlink:href="#svg-star"></use>
-											</svg>
-											<!-- /SVG STAR -->
-										</li>
-										<li class="filled">
-											<!-- SVG STAR -->
-											<svg class="svg-star">
-												<use xlink:href="#svg-star"></use>
-											</svg>
-											<!-- /SVG STAR -->
-										</li>
-										<li class="filled">
-											<!-- SVG STAR -->
-											<svg class="svg-star">
-												<use xlink:href="#svg-star"></use>
-											</svg>
-											<!-- /SVG STAR -->
-										</li>
-										<li class="filled">
-											<!-- SVG STAR -->
-											<svg class="svg-star">
-												<use xlink:href="#svg-star"></use>
-											</svg>
-											<!-- /SVG STAR -->
-										</li>
-										<li>
-											<!-- SVG STAR -->
-											<svg class="svg-star">
-												<use xlink:href="#svg-star"></use>
-											</svg>
-											<!-- /SVG STAR -->
-										</li>
-									</ul>
-									<!-- /RATING -->
-									<p>{{ $ds_loaisanpham->sp_thongTin }}</p>
-									<p class="highlighted current">{{ $ds_loaisanpham->sp_giaBan }}</p>
-									<p class="highlighted previous">$90.25</p>
-									<h5 class="stock">Availability:
-										<!-- SVG CHECK -->
-										<svg class="svg-check">
-											<use xlink:href="#svg-check"></use>
-										</svg>
-										<!-- /SVG CHECK -->
-										<span class="available">In Stock</span>
-									</h5>
-									<h5>Select Size:</h5>
-									<form class="westeros-form">
-										<input id="small1" type="radio" name="size" value="small">
-										<label for="small1"><span class="radio"><span></span></span>Small</label>
-
-										<input id="medium1" type="radio" name="size" value="medium">
-										<label for="medium1"><span class="radio"><span></span></span>Medium</label>
-
-										<input id="large1" type="radio" name="size" value="large" checked>
-										<label for="large1"><span class="radio"><span></span></span>Large</label>
-
-										<input id="extralarge1" type="radio" name="size" value="extralarge">
-										<label for="extralarge1"><span class="radio"><span></span></span>Extra Large</label>
-									</form>
-									<div class="color-selection">
-										<h5>Select Base Color:</h5>
-										<!-- COLORPICKER -->
-										<ul class="colorpicker">
-											<li><span data-color="#008fbe"></span></li>
-											<li class="selected"><span data-color="#17ccac"></span></li>
-											<li><span data-color="#4c4cab"></span></li>
-											<li><span data-color="#252525"></span></li>
-										</ul>
-										<!-- /COLORPICKER -->
-									</div>
-									<div>
-										<h5>Quantity:</h5>
-										<!-- COUNTER -->
-										<div class="counter">
-											<div class="control left"></div>
-											<div class="value">
-												<h5>2</h5>
-											</div>
-											<div class="control right"></div>
-										</div>
-										<!-- /COUNTER -->
-									</div>
-									<div class="options">
-										<a href="#" class="button medium fb"></a>
-										<a href="#" class="button medium twt"></a>
-										<a href="#compare-modal" class="button medium compare cmp-popup" data-effect="mfp-3d-unfold">
-											<!-- SVG COMPARE -->
-											<svg class="svg-compare">
-												<use xlink:href="#svg-compare"></use>	
-											</svg>
-											<!-- /SVG COMPARE -->
-										</a>
-										<a href="#" class="button medium wishlist">
-											<!-- SVG WISHLIST -->
-											<svg class="svg-wishlist">
-												<use xlink:href="#svg-wishlist"></use>	
-											</svg>
-											<!-- /SVG WISHLIST -->
-										</a>
-										<a href="#" class="button cart-add">
-											<!-- SVG PLUS -->
-											<svg class="svg-plus">
-												<use xlink:href="#svg-plus"></use>
-											</svg>
-											<!-- /SVG PLUS -->
-											Add to Cart
-										</a>
-									</div>
-								</div>
-								<!-- /PRODUCT DESCRIPTION -->
-							</div>
-							<!-- /QUICK VIEW POPUP -->
-							<a href="full-view.html" class="button full-view">
-								<!-- SVG FULLVIEW -->
-								<svg class="svg-fullview">
-									<use xlink:href="#svg-fullview"></use>	
-								</svg>
-								<!-- /SVG FULLVIEW -->
-							</a>
-							<a href="#compare-modal" class="button compare cmp-popup" data-effect="mfp-3d-unfold">
-								<!-- SVG COMPARE -->
-								<svg class="svg-compare">
-									<use xlink:href="#svg-compare"></use>	
-								</svg>
-								<!-- /SVG COMPARE -->
-							</a>
-						</div>
-					</div>
-					<!-- /ACTIONS -->
-
-					<!-- DESCRIPTION -->
-					<div class="description">
-						<div class="clearfix">
-							<a href="#"><p class="highlighted category">{{ $ds_loaisanpham->l_ten }}</p></a>
-							<!-- RATING -->
-							<ul class="rating">
-								<li class="filled">
-									<!-- SVG STAR -->
-									<svg class="svg-star">
-										<use xlink:href="#svg-star"></use>
-									</svg>
-									<!-- /SVG STAR -->
-								</li>
-								<li class="filled">
-									<!-- SVG STAR -->
-									<svg class="svg-star">
-										<use xlink:href="#svg-star"></use>
-									</svg>
-									<!-- /SVG STAR -->
-								</li>
-								<li class="filled">
-									<!-- SVG STAR -->
-									<svg class="svg-star">
-										<use xlink:href="#svg-star"></use>
-									</svg>
-									<!-- /SVG STAR -->
-								</li>
-								<li class="filled">
-									<!-- SVG STAR -->
-									<svg class="svg-star">
-										<use xlink:href="#svg-star"></use>
-									</svg>
-									<!-- /SVG STAR -->
-								</li>
-								<li>
-									<!-- SVG STAR -->
-									<svg class="svg-star">
-										<use xlink:href="#svg-star"></use>
-									</svg>
-									<!-- /SVG STAR -->
-								</li>
-							</ul>
-							<!-- /RATING -->
-						</div>
-						<div class="clearfix">
-							<a href="#"><h6>{{ $ds_loaisanpham->sp_ten }}</h6></a>
-						</div>
-						<div class="clearfix">
-							<p>{{ $ds_loaisanpham->sp_thongTin }}</p>
-							<p class="highlighted current">{{ $ds_loaisanpham->sp_giaBan }}</p>
-						</div>
-
-						<!-- CART OPTIONS -->
-						<div class="cart-options">
-							<a href="#" class="button medium wishlist">
-								<!-- SVG WISHLIST -->
-								<svg class="svg-wishlist">
-									<use xlink:href="#svg-wishlist"></use>	
-								</svg>
-								<!-- /SVG WISHLIST -->
-							</a>
-							<a href="#" class="button cart-add">
-								<!-- SVG PLUS -->
-								<svg class="svg-plus">
-									<use xlink:href="#svg-plus"></use>
-								</svg>
-								<!-- /SVG PLUS -->
-								Add to Cart
-							</a>
-						</div>
-						<!-- /CART OPTIONS -->
-					</div>
-					<!-- /DESCRIPTION -->
-				</li>
-				<!-- /PRODUCT -->
-                @endforeach
-
-			</ul>
-			<!-- /PRODUCT LIST -->
-
-		</section>
-	</div>
 	<!-- /PRODUCT SHOWCASE -->
 
 	<!-- PRODUCT SHOWCASE -->
-	<div class="product-showcase-wrap">
+	{{-- <div class="product-showcase-wrap">
 		<section class="product-showcase">
 			<h3 class="title">Our Best Selling Products</h3>
 			<!-- SLIDE CONTROLS -->
@@ -1919,11 +1608,11 @@ ul.product-list .list-item figure {
 			</ul>
 			<!-- /PRODUCT LIST -->
 		</section>
-	</div>
+	</div> --}}
 	<!-- /PRODUCT SHOWCASE -->
 
 	<!-- INSTITUTIONAL -->
-	<div id="institutional-wrap">
+	{{-- <div id="institutional-wrap">
 		<section id="institutional">
 			<h3 class="title">Why Choose Us?</h3>
 			<!-- BULLETS -->
@@ -2002,11 +1691,11 @@ ul.product-list .list-item figure {
 			</ul>
 			<!-- /BULLETS -->
 		</section>
-	</div>
+	</div> --}}
 	<!-- /INSTITUTIONAL -->
 
 	<!-- LATEST BLOG POSTS -->
-	<div id="latest-blog-posts-wrap">
+	{{-- <div id="latest-blog-posts-wrap">
 		<section id="latest-blog-posts">
 			<h3 class="title">Latest Blog Posts</h3>
 			<div class="slidable">
@@ -2246,11 +1935,11 @@ ul.product-list .list-item figure {
 				<!-- /BLOG POST PREVIEW -->
 			</div>
 		</section>
-	</div>
+	</div> --}}
 	<!-- /LATEST BLOG POSTS -->
 
 	<!-- BILLBOARD -->
-	<div id="billboard-wrap">
+	{{-- <div id="billboard-wrap">
 		<section id="billboard">
 			<h3 class="title">Westeros Billboard</h3>
 			<!-- ACCORDION -->
@@ -2339,11 +2028,11 @@ ul.product-list .list-item figure {
 				</div>
 			</div>
 		</section>
-	</div>
+	</div> --}}
 	<!-- /BILLBOARD -->
 
 	<!-- BRANDS -->
-	<div id="brands-wrap">
+	{{-- <div id="brands-wrap">
 		<section id="brands">
 			<h3 class="title">Our Brands</h3>
 			<div class="slidable">
@@ -2443,7 +2132,7 @@ ul.product-list .list-item figure {
 				<!-- /BRANDS LIST -->
 			</div>
 		</section>
-	</div>
+	</div> --}}
 	<!-- /BRANDS -->
 @endsection
 @section('custom-scripts')

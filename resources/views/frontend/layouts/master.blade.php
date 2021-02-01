@@ -39,7 +39,7 @@
     <div id="section-nav-wrap">
         <section id="section-nav">
             <p>@yield('main')
-                <a href="contact.html">@yield('sub')</a></p>
+                <a href="">@yield('sub')</a></p>
         </section>
     </div>
 
@@ -47,7 +47,7 @@
 
     <!-- Content -->
     @yield('main-content')
-    
+
     <!-- Footer -->
     @include('frontend.partials.footer')
 
@@ -59,6 +59,7 @@
     </div> --}}
     <!-- jQuery -->
     <script src="{{ asset('themes/westeros/js/vendor/jquery-1.11.1.min.js') }}"></script>
+    
     <!-- XM Accordion -->
     <script src="{{ asset('themes/westeros/js/vendor/jquery.xmaccordion.min.js') }}"></script>
     <!-- Owl Carrousel -->
@@ -69,12 +70,14 @@
     <script src="{{ asset('themes/westeros/js/vendor/imgLiquid-min.js') }}"></script>
     <!-- Liquid -->
     <script src="{{ asset('themes/westeros/js/liquid.js') }}"></script>
+    
     <!-- Header -->
     <script src="{{ asset('themes/westeros/js/header.js') }}"></script>
     <!-- Menu -->
     <script src="{{ asset('themes/westeros/js/menu.js') }}"></script>
     <!-- Home -->
     <script src="{{ asset('themes/westeros/js/home.js') }}"></script>
+
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <!-- Google Maps Config -->
@@ -101,6 +104,9 @@
             });
 
     </script>
+
+
+
     <!-- Các custom script dành riêng cho từng view -->
     @yield('custom-scripts')
 
