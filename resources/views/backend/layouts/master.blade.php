@@ -14,9 +14,15 @@
     <link href="{{ asset('themes/Minton_green/assets/libs/datatables/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('themes/Minton_green/assets/libs/datatables/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('themes/Minton_green/assets/libs/datatables/select.bootstrap4.css') }}" rel="stylesheet" type="text/css">
+
     <!-- third party css end -->
-    <!-- Plugins css -->
+    <!-- Plugins css-->
+    <link href="{{ asset('themes/Minton_green/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('themes/Minton_green/assets/libs/clockpicker/bootstrap-clockpicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('themes/Minton_green/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('themes/Minton_green/assets/libs/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('themes/Minton_green/assets/libs/x-editable/bootstrap-editable.css')}}" rel="stylesheet" type="text/css">
+
     <!-- App css -->
     <link rel="stylesheet" href="{{ asset('themes/Minton_green/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('themes/Minton_green/assets/css/icons.min.css') }}">
@@ -108,17 +114,21 @@
     <script src="{{ asset('themes/Minton_green/assets/libs/datatables/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/pdfmake/vfs_fonts.js') }}"></script>
-    
+
     <!-- third party js ends -->
 
     <!-- Plugins js -->
     <script src="{{ asset('themes/Minton_green/assets/libs/moment/moment.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/x-editable/bootstrap-editable.min.js') }}"></script>
+    <script src="{{ asset('themes/Minton_green/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js') }}"></script>
+    <script src="{{ asset('themes/Minton_green/assets/libs/clockpicker/bootstrap-clockpicker.min.js') }}"></script>
+    <script src="{{ asset('themes/Minton_green/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('themes/Minton_green/assets/libs/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
     <!-- Init js-->
     <script src="{{ asset('themes/Minton_green/assets/js/pages/form-xeditable.init.js')}}"></script>
-    <!-- init js -->
     <script src="{{ asset('themes/Minton_green/assets/js/pages/dashboard-1.init.js') }}"></script>
+    <script src="{{ asset('themes/Minton_green/assets/js/pages/form-pickers.init.js')}}"></script>
 
     <!-- App js -->
     <script src="{{ asset('themes/Minton_green/assets/js/app.min.js') }}"></script>
@@ -140,10 +150,10 @@
                 $interpolateProvider.startSymbol('<%');
                 $interpolateProvider.endSymbol('%>');
             });
-            
-        app.controller('mainController', function ($scope) {
+
+        app.controller('mainController', function($scope) {
             // hàm submit form sau khi đã kiểm tra các ràng buộc (validate)
-            $scope.submitForm = function () {
+            $scope.submitForm = function() {
 
                 // kiểm tra các ràng buộc là hợp lệ
                 //if ($scope.frmCreate.$valid) {

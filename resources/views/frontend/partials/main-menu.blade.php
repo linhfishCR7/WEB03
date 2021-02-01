@@ -741,7 +741,9 @@
 				<!-- SUBMENU SMALL -->
 			</li>
 			<li><a href="blog.html">Blog</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li class="{{ Request::is('lien-he') ? 'active-menu' : '' }}">
+				<a href="{{ route('frontend.pages.contact') }}">Contact</a>
+			</li>
 		</ul>
 	</nav>
 	<!-- /MAIN MENU -->

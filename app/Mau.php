@@ -14,7 +14,7 @@ class Mau extends Model
 
 
     protected $table        = 'mau';
-    protected $fillable     = ['m_ten', 'm_taoMoi', 'm_capNhat', 'm_trangThai','delete_at'];
+    protected $fillable     = ['m_ten','m_hexan' ,'m_taoMoi', 'm_capNhat', 'm_trangThai','delete_at'];
     protected $guarded      = ['m_ma'];
 
     protected $primaryKey   = 'm_ma';

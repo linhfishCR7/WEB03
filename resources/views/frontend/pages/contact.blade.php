@@ -134,7 +134,6 @@ Contact
                     , "message": $scope.contactForm.message.$viewValue
                     , "_token": "{{ csrf_token() }}"
                 , };
-
                 // sử dụng service $http của AngularJS để gởi request POST đến route `frontend.contact.sendMailContactForm`
                 $http({
                     url: "{{ route('frontend.pages.contact.sendMail') }}"

@@ -108,9 +108,9 @@ Danh mục
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <h2>Thông tin sinh viên:</h2>
-                id: <h1 id="id"></h1>
-                Họ Tên: <h1 id="hoten"></h1>
+                <h2>Thông tin danh mục:</h2>
+                ID: <h1 id="id"></h1>
+                Name: <h1 id="hoten"></h1>
 
             </div>
             <div class="modal-footer">
@@ -135,12 +135,14 @@ Danh mục
         $('.btn-show').click(function() {
             var url = $(this).attr('data-url');
             $.ajax({
+                
                 type: 'get'
-                , url: url
+                , url: url 
                 , success: function(response) {
-                    console.log(response)
-                    $('h1#id').text(response.data.dm_ma)
-                    $('h1#hoten').text(response.data.dm_ten)
+                    //console.log(response)
+                    $('#id').text(response.data.dm_ma)
+                    $('#hoten').text(response.data.dm_ten)
+                    
                 }
                 , error: function(jqXHR, textStatus, errorThrown) {
                     //xử lý lỗi tại đây

@@ -27,7 +27,7 @@ class SanPhamTableSeeder extends Seeder
                 'sp_trangThai'            => random_int(1,2),
                 'sp_taoMoi'               => $today->format('Y-m-d H:i:s'),
                 'sp_capNhat'              => $today->format('Y-m-d H:i:s'),
-                'sp_trangThai'            => $i,
+                'sp_trangThai'            => random_int(1,2),
                 'l_ma'                    => random_int(1,6),
             ]);
         }

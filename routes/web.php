@@ -19,10 +19,23 @@ Route::get('/dashboard', function () {
 /*
 backend route
 */
+//in ấn
+Route::get('/backend/sanpham/print', 'Backend\SanPhamController@print')->name('backend.sanpham.print');
+Route::get('/backend/sanpham/excel', 'Backend\SanPhamController@excel')->name('backend.sanpham.excel');
+Route::get('/backend/sanpham/pdf', 'Backend\SanPhamController@pdf')->name('backend.sanpham.pdf');
 
 Route::resource('backend/danhmuc','Backend\DanhMucController',['as'=>'backend']);
 Route::resource('backend/mau','Backend\MauController',['as'=>'backend']);
 Route::get('backend/mau/{id}/edit/','Backend\MauController@edit');
+Route::resource('backend/sanpham','Backend\SanPhamController',['as'=>'backend']);
+//Báo cáo Đơn hàng
+Route::get('/backend/baocao/donhang', 'Backend\BaoCaoController@donhang')->name('backend.baocao.donhang');
+Route::get('/backend/baocao/donhang/data', 'Backend\BaoCaoController@donhangData')->name('backend.baocao.donhang.data');
+
+
+//api-thống kê
+Route::get('backend/thongke_3_sanpham_moinhat', 'Backend\BackendController@thongke_3_sanpham_moinhat')->name('backend.pages.thongke_3_sanpham_moinhat');
+
 
 
 
@@ -34,7 +47,13 @@ Route::get('backend/mau/{id}/edit/','Backend\MauController@edit');
 frontend route
 */
 //trang chủ
-Route::get('index','Frontend\FrontendController@index')->name('frontend.index');
+Route::get('/','Frontend\FrontendController@index')->name('frontend.index');
+Route::get('/san-pham/{id}', 'Frontend\FrontendController@productDetail')->name('frontend.productDetail');
+Route::get('/gio-hang', 'Frontend\FrontendController@cart')->name('frontend.cart');
+Route::post('/dat-hang', 'Frontend\FrontendController@order')->name('frontend.order');
+Route::get('/dat-hang/hoan-tat', 'Frontend\FrontendController@orderFinish')->name('frontend.orderFinish');
+//api-tìm kiếm sản phẩm
+Route::get('timkiem', 'Frontend\FrontendController@timkiem')->name('frontend.pages.timkiem');
 
 //trang chức năng
 Route::get('lien-he','Frontend\FrontendController@contact')->name('frontend.pages.contact');
