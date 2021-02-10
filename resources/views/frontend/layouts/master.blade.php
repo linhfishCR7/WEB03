@@ -24,16 +24,16 @@
 <body class="animsition">
 
     <!-- Header -->
-    @include('frontend.partials.header')
+    @include('frontend.layouts.partials.header')
 
     <!-- mobile-menu-cover -->
-    @include('frontend.partials.mobile-menu-cover')
+    @include('frontend.layouts.partials.mobile-menu-cover')
 
     <!-- mobile-menu -->
-    @include('frontend.partials.mobile-menu')
+    @include('frontend.layouts.partials.mobile-menu')
 
     <!-- main-menu -->
-    @include('frontend.partials.main-menu')
+    @include('frontend.layouts.partials.main-menu')
 
     <!-- SECTION-NAV -->
     <div id="section-nav-wrap">
@@ -47,9 +47,10 @@
 
     <!-- Content -->
     @yield('main-content')
+    @include('frontend.layouts.partials.flash-message')
 
     <!-- Footer -->
-    @include('frontend.partials.footer')
+    @include('frontend.layouts.partials.footer')
 
     <!-- Back to top -->
     {{-- <div class="btn-back-to-top" id="myBtn">

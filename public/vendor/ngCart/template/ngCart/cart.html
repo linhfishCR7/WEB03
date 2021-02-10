@@ -5,8 +5,8 @@
 </div>
 <!-- /SHOP -->
 
-
-<!-- SHOP -->
+<form class="ngCart">
+    <!-- SHOP -->
 <div id="shop-wrap"  ng-show="ngCart.getTotalItems() > 0">
     <section id="shop" class="right">
         <!-- SIDEBAR CONTROL -->
@@ -20,61 +20,6 @@
                 <use xlink:href="#svg-plus"></use>
             </svg>
             <!-- /SIDEBAR CONTROL -->
-
-            <h3 class="title">Calculate Shipping</h3>
-            <form class="westeros-form">
-                <!-- SELECT BLOCK -->
-                <label class="select-block" for="country">
-                    <select name="country" id="country">
-                        <option value="0">Select your country...</option>
-                        <option value="1">United States</option>
-                        <option value="2">Canada</option>
-                    </select>
-                    <!-- SVG ARROW -->
-                    <svg class="svg-arrow select-arrow">
-                        <use xlink:href="#svg-arrow"></use>
-                    </svg>
-                    <!-- /SVG ARROW -->
-                </label>
-                <!-- /SELECT BLOCK -->
-
-                <!-- SELECT BLOCK -->
-                <label class="select-block" for="state">
-                    <select name="state" id="state">
-                        <option value="0">Select your state...</option>
-                        <option value="1">New York</option>
-                    </select>
-                    <!-- SVG ARROW -->
-                    <svg class="svg-arrow select-arrow">
-                        <use xlink:href="#svg-arrow"></use>
-                    </svg>
-                    <!-- /SVG ARROW -->
-                </label>
-                <!-- /SELECT BLOCK -->
-
-                <!-- SELECT BLOCK -->
-                <label class="select-block last" for="city">
-                    <select name="city" id="city">
-                        <option value="0">Select your city...</option>
-                        <option value="1">New York</option>
-                        <option value="2">San Francisco</option>
-                    </select>
-                    <!-- SVG ARROW -->
-                    <svg class="svg-arrow select-arrow">
-                        <use xlink:href="#svg-arrow"></use>
-                    </svg>
-                    <!-- /SVG ARROW -->
-                </label>
-                <!-- /SELECT BLOCK -->
-
-                <button class="button small">Update Shipping</button>
-            </form>
-
-            <h3 class="title">Coupon Code</h3>
-            <form class="westeros-form">
-                <input type="text" placeholder="Enter your promotional code here...">
-                <button class="button small">Redeem Code</button>
-            </form>
 
             <h3 class="title">Cart Total</h3>
             <!-- CART TOTAL -->
@@ -98,7 +43,7 @@
                 <!-- SUBTOTAL -->
                 <div class="subtotal">
                     <h5>Coupon Code</h5>
-                    <h5>-$5.00</h5>
+                    <h5></h5>
                 </div>
                 <!-- /SUBTOTAL -->
 
@@ -113,7 +58,7 @@
             </div>
             <!-- /CART TOTAL -->
 
-            <a href="checkout.html" class="button">Proceed to Checkout</a>
+            <a href="#" class="button">Proceed to Checkout</a>
         </aside>
         <!-- /SHOP SIDEBAR -->
 
@@ -257,3 +202,4 @@
     </section>
 </div>
 <!-- /SHOP -->
+</form>

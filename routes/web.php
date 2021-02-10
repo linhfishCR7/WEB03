@@ -52,6 +52,13 @@ Route::get('/san-pham/{id}', 'Frontend\FrontendController@productDetail')->name(
 Route::get('/gio-hang', 'Frontend\FrontendController@cart')->name('frontend.cart');
 Route::post('/dat-hang', 'Frontend\FrontendController@order')->name('frontend.order');
 Route::get('/dat-hang/hoan-tat', 'Frontend\FrontendController@orderFinish')->name('frontend.orderFinish');
+//xác nhận khách hàng
+Route::get('/xac-thuc', 'Frontend\FrontendController@xacThuc')->name('frontend.xacThuc');
+Route::post('/dang-ky-tai-khoan', 'Frontend\FrontendController@register')->name('frontend.register');
+Route::post('/dang-nhap', 'Frontend\FrontendController@login')->name('frontend.login');
+Route::get('/dang-xuat', 'Frontend\FrontendController@logout')->name('frontend.logout');
+Route::get('/profile', 'Frontend\FrontendController@profile')->name('frontend.profile');
+
 //api-tìm kiếm sản phẩm
 Route::get('timkiem', 'Frontend\FrontendController@timkiem')->name('frontend.pages.timkiem');
 

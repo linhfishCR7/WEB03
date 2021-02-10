@@ -1,3 +1,4 @@
+
 <div ng-hide="attrs.id">
     <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"
         ng-disabled="true" ng-transclude>
@@ -13,6 +14,6 @@
     ng-click="ngCart.addItem(id, name, price, q, data)" ng-transclude>
 </button>
 <mark ng-show="inCart()" style="color: blue;">
-    <b>Sản phẩm đã có trong giỏ hàng. <a ng-click="ngCart.removeItemById(id)" class="btn btn-danger" >Xóa</a></b>
+    <b>Sản phẩm đã có trong giỏ hàng. <a ng-click="ngCart.removeItemById(id)" class="btn btn-danger">Xóa</a></b>
 </mark>
 </div>
