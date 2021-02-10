@@ -9,7 +9,7 @@ use App\Loai;
 use App\Mau;
 use App\Sanpham;
 use App\Vanchuyen;
-use App\Khachhang;
+use App\KhachHang;
 use App\Donhang;
 use App\Thanhtoan;
 use App\Chitietdonhang;
@@ -19,6 +19,9 @@ use App\Mail\ContactMailer;
 use App\Mail\OrderMailer;
 use Illuminate\Validation\ValidationException;
 use PHPUnit\Exception;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\KhachhangCreateRequest;
+
 class FrontendController extends Controller
 {
     public function contact()
@@ -92,33 +95,84 @@ class FrontendController extends Controller
             ->with('danhsachvanchuyen', $danhsachvanchuyen)
             ->with('danhsachphuongthucthanhtoan', $danhsachphuongthucthanhtoan);
     }
+    public function xacThuc()
+    {
+        return view('frontend.pages.shop.xacThuc');
+    }
+
+    public function register(Request $request)
+    {
+
+        // Tạo mới khách hàng
+        $khachhang = new Khachhang();
+        $khachhang->kh_taiKhoan = $request->khachhang['kh_taiKhoan'];
+        $khachhang->kh_matKhau = bcrypt($request->khachhang['kh_matKhau']);
+        $khachhang->kh_hoTen = $request->khachhang['kh_hoTen'];
+        $khachhang->kh_gioiTinh = $request->khachhang['kh_gioiTinh'];
+        $khachhang->kh_email = $request->khachhang['kh_email'];
+        $khachhang->kh_ngaySinh = $request->khachhang['kh_ngaySinh'];
+        if (!empty($request->khachhang['kh_diaChi'])) {
+            $khachhang->kh_diaChi = $request->khachhang['kh_diaChi'];
+        }
+        if (!empty($request->khachhang['kh_dienThoai'])) {
+            $khachhang->kh_dienThoai = $request->khachhang['kh_dienThoai'];
+        }
+        $khachhang->kh_trangThai = 2; // Khả dụng
+        $khachhang->save();
+    }
+
+    public function login(Request $request)
+    {
+        $request->session()->put('data', $request->input());
+        return redirect('/profile');
+    }
+
+    public function logout(Request $request)
+    {
+        session()->forget('data');
+        return redirect('xac-thuc');
+    }
+    public function profile(Request $request)
+    {
+        if (Session::has('data')) {
+            $data = array();
+            $data = $request->session()->get('data');
+            $kh_email = $data['kh_email'];
+            //$kh = KhachHang::find($kh_email);
+            $kh = KhachHang::where('kh_email', $kh_email)->get();
+
+            //$sql = "SELECT * FROM khachhang where kh_email = '$kh_email'";
+            //$kh = DB::select($sql);
+            //dd($kh);
+            return view('frontend.profile')->with('kh', $kh);
+        }
+        else{
+            return view('errors.440');
+        }
+
+        //dd($kh);
+        //$kh = Khachhang::find('$kh_email');
+       
+    }
 
     /**
      * Action Đặt hàng
      */
     public function order(Request $request)
     {
-        // dd($request);
+        //session('data')['kh_email'];
         // Data gởi mail
         $dataMail = [];
         try {
-            // Tạo mới khách hàng
-            $khachhang = new Khachhang();
-            $khachhang->kh_taiKhoan = $request->khachhang['kh_taiKhoan'];
-            $khachhang->kh_matKhau = bcrypt('123456');
-            $khachhang->kh_hoTen = $request->khachhang['kh_hoTen'];
-            $khachhang->kh_gioiTinh = $request->khachhang['kh_gioiTinh'];
-            $khachhang->kh_email = $request->khachhang['kh_email'];
-            $khachhang->kh_ngaySinh = $request->khachhang['kh_ngaySinh'];
-            if (!empty($request->khachhang['kh_diaChi'])) {
-                $khachhang->kh_diaChi = $request->khachhang['kh_diaChi'];
+            $kh_email = session('data')['kh_email'];
+            if (!empty($kh_email)) {
+                $khachhang = Khachhang::find($kh_email);
+                // Hiển thị câu thông báo 1 lần (Flash session)
+                $dataMail['khachhang'] = $khachhang->toArray();
+            } else {
+                $request->session()->flash('alert-info', 'Vui lòng đăng nhập, nếu chưa có tài khoản vui lòng đăng ký');
+                return redirect('gio-hang');
             }
-            if (!empty($request->khachhang['kh_dienThoai'])) {
-                $khachhang->kh_dienThoai = $request->khachhang['kh_dienThoai'];
-            }
-            $khachhang->kh_trangThai = 2; // Khả dụng
-            $khachhang->save();
-            $dataMail['khachhang'] = $khachhang->toArray();
 
             // Tạo mới đơn hàng
             $donhang = new Donhang();
@@ -160,7 +214,7 @@ class FrontendController extends Controller
             return response()->json(array(
                 'code'  => 500,
                 'message' => $e,
-                'redirectUrl' => route('frontend.home')
+                'redirectUrl' => route('frontend.cart')
             ));
         } catch (Exception $e) {
             throw $e;

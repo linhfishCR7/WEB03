@@ -1,4 +1,4 @@
-<div class="description" >
+<div class="description">
     <div class="clearfix">
         <a href="#">
             <p class="highlighted category">{{ $ds_sanpham->l_ten }}</p>
@@ -53,7 +53,6 @@
         <p class="highlighted current">{{ $ds_sanpham->sp_giaBan }}</p>
     </div>
     <ngcart-addtocart template-url="{{ asset('vendor/ngCart/template/ngCart/addtocart.html') }}" id="{{ $ds_sanpham->sp_ma }}" name="{{ $ds_sanpham->sp_ten }}" price="{{ $ds_sanpham->sp_giaBan }}" quantity="1" quantity-max="30" data="{ sp_hinh_url: '{{ asset('storage/upload/' . $ds_sanpham->sp_hinh) }}' }">
-
         <!-- CART OPTIONS -->
         <div class="cart-options">
             <a href="#" class="button medium wishlist">
@@ -77,3 +76,4 @@
     </ngcart-addtocart>
 
 </div>
+

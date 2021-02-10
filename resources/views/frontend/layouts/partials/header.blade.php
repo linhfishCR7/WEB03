@@ -49,12 +49,90 @@
                 <!-- /WESTEROS DROPDOWN -->
             </div>
             <!-- /WESTEROS DROPDOWN CONTAINER-->
-
+            @if(session()->has('data'))
+            <!-- WESTEROS DROPDOWN CONTAINER-->
+            <div class="westeros-dropdown-container">
+                <p class="login logged">
+                    <!-- SVG LOGGED -->
+                    <svg class="svg-logged">
+                        <use xlink:href="#svg-logged"></use>
+                    </svg>
+                    <!-- /SVG LOGGED -->
+                    Welcome Back
+                    <a href="profile">{{session('data')['kh_email']}}</a>
+                    <!-- SVG ARROW -->
+                    <svg class="svg-arrow westeros-dropdown-control">
+                        <use xlink:href="#svg-arrow"></use>
+                    </svg>
+                    <!-- /SVG ARROW -->
+                </p>
+                <!-- WESTEROS DROPDOWN -->
+                <ul class="westeros-dropdown default hide-on-click">
+                    <li>
+                        <a href="profile">
+                            <!-- SVG GEAR -->
+                            <svg class="svg-gear">
+                                <use xlink:href="#svg-gear"></use>
+                            </svg>
+                            <!-- /SVG GEAR -->
+                            Your Account
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wishlist.html">
+                            <!-- SVG WISHLIST -->
+                            <svg class="svg-wishlist">
+                                <use xlink:href="#svg-wishlist"></use>
+                            </svg>
+                            <!-- /SVG WISHLIST -->
+                            Your Wishlist
+                        </a>
+                    </li>
+                    <li>
+                        <a href="compare.html">
+                            <!-- SVG COMPARE -->
+                            <svg class="svg-compare">
+                                <use xlink:href="#svg-compare"></use>
+                            </svg>
+                            <!-- /SVG COMPARE -->
+                            Compare
+                        </a>
+                    </li>
+                    <li>
+                        <a href="gio-hang">
+                            <!-- SVG CART -->
+                            <svg class="svg-cart">
+                                <use xlink:href="#svg-cart"></use>
+                            </svg>
+                            <!-- /SVG CART -->
+                            Your Order
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dang-xuat">
+                            <!-- SVG CART -->
+                            <svg class="svg-cart">
+                                <use xlink:href="#svg-cart"></use>
+                            </svg>
+                            <!-- /SVG CART -->
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+                <!-- /WESTEROS DROPDOWN -->
+            </div>
+            <!-- /WESTEROS DROPDOWN CONTAINER-->
+            @else
             <p class="login">
                 Welcome visitor, if you have an account
-                <a href="register-login.html">Login</a>, or
-                <a href="register-login.html">Register</a>
+                <a href="xac-thuc">Login</a>, or
+                <a href="xac-thuc">Register</a>
             </p>
+            @endif
+
+            
+
+
         </section>
         <!-- /HEADER TOP -->
     </div>
