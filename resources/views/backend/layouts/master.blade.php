@@ -28,6 +28,11 @@
     <link rel="stylesheet" href="{{ asset('themes/Minton_green/assets/css/icons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('themes/Minton_green/assets/css/app.min.css') }}">
 
+    <!-- Các css dành cho thư viện bootstrap-fileinput -->
+    <link href="{{ asset('vendor/bootstrap-fileinput/css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+    <link href="{{ asset('vendor/bootstrap-fileinput/themes/explorer-fas/theme.css') }}" media="all" rel="stylesheet" type="text/css" />
+
     <!-- Custom CSS -->
     {{-- <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"> --}}
 
@@ -116,7 +121,13 @@
     <script src="{{ asset('themes/Minton_green/assets/libs/pdfmake/vfs_fonts.js') }}"></script>
 
     <!-- third party js ends -->
-
+    <!-- Các script dành cho thư viện bootstrap-fileinput -->
+    <script src="{{ asset('vendor/bootstrap-fileinput/js/plugins/sortable.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap-fileinput/js/fileinput.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap-fileinput/js/locales/vi.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap-fileinput/themes/fas/theme.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap-fileinput/themes/explorer-fas/theme.js') }}" type="text/javascript"></script>
+    
     <!-- Plugins js -->
     <script src="{{ asset('themes/Minton_green/assets/libs/moment/moment.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/x-editable/bootstrap-editable.min.js') }}"></script>
