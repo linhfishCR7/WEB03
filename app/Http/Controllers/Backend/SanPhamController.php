@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Backend;
 use App\Exports\SanPhamExport;
 use Maatwebsite\Excel\Facades\Excel as Excel;
 use Barryvdh\DomPDF\Facade as PDF;
-
 use App\Http\Controllers\Controller;
 use App\SanPham;
 use App\Loai;
+use App\HinhAnh;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class SanPhamController extends Controller
 {
@@ -20,9 +23,11 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        $sanpham = SanPham::all();
+        $sanpham = SanPham::paginate();
+        $sanpham->count();
+
         return view('backend.sanpham.index')
-            ->with('sanpham', $sanpham);
+            ->with('sanpham1', $sanpham);
     }
 
     /**
@@ -32,7 +37,8 @@ class SanPhamController extends Controller
      */
     public function create()
     {
-        //
+        $loai = Loai::all();
+        return view('backend.sanpham.create')->with('loai', $loai);
     }
 
     /**
@@ -43,7 +49,60 @@ class SanPhamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Bổ sung ràng buộc Validate
+        $validation = $request->validate([
+            'sp_hinh' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048',
+
+            // Cú pháp dùng upload nhiều file
+            'sp_hinhanhlienquan.*' => 'file|image|mimes:jpeg,png,gif,webp|max:2048'
+        ]);
+
+        // Tạo mới object SanPham
+        $sp = new SanPham();
+        $sp->sp_ten = $request->sp_ten;
+        $sp->sp_giaGoc = $request->sp_giaGoc;
+        $sp->sp_giaBan = $request->sp_giaBan;
+        $sp->sp_thongTin = $request->sp_thongTin;
+        $sp->sp_danhGia = $request->sp_danhGia;
+        $sp->sp_taoMoi = Carbon::now();
+        $sp->sp_trangThai = $request->sp_trangThai;
+        $sp->l_ma = $request->l_ma;
+
+        // Kiểm tra xem người dùng có upload hình ảnh Đại diện hay không?
+        if ($request->hasFile('sp_hinh')) {
+            $file = $request->sp_hinh;
+
+            // Lưu tên hình vào column sp_hinh
+            $sp->sp_hinh = $file->getClientOriginalName();
+
+            // Chép file vào thư mục "storate/public/photos"
+            $fileSaved = $file->storeAs('public/upload', $sp->sp_hinh);
+        }
+        $sp->save();
+
+        // Lưu hình ảnh liên quan
+        if ($request->hasFile('sp_hinhanhlienquan')) {
+            $files = $request->sp_hinhanhlienquan;
+
+            // duyệt từng ảnh và thực hiện lưu
+            foreach ($request->sp_hinhanhlienquan as $index => $file) {
+
+                $file->storeAs('public/upload', $file->getClientOriginalName());
+
+                // Tạo đối tưọng HinhAnh
+                $hinhAnh = new HinhAnh();
+                $hinhAnh->sp_ma = $sp->sp_ma;
+                $hinhAnh->ha_stt = ($index + 1);
+                $hinhAnh->ha_ten = $file->getClientOriginalName();
+                $hinhAnh->save();
+            }
+        }
+
+        // Hiển thị câu thông báo 1 lần (Flash session)
+        $request->session()->flash('alert-success', 'Thêm thành công');
+
+        // Điều hướng về route index
+        return redirect()->route('backend.sanpham.index');
     }
 
     /**
@@ -66,7 +125,12 @@ class SanPhamController extends Controller
      */
     public function edit($id)
     {
-        //
+        //lấy lại dữ liệu 
+        $sp = SanPham::where("sp_ma", $id)->first();
+        $loai = Loai::all();
+        return view('backend.sanpham.edit')
+            ->with('sp', $sp)
+            ->with('loai', $loai);
     }
 
     /**
@@ -78,7 +142,72 @@ class SanPhamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Bổ sung ràng buộc Validate
+        $validation = $request->validate([
+            'sp_hinh' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
+
+            // Cú pháp dùng upload nhiều file
+            'sp_hinhanhlienquan.*' => 'image|mimes:jpeg,png,gif,webp|max:2048'
+        ]);
+
+        // Tìm object Sản phẩm theo khóa chính
+        $sp = SanPham::where("sp_ma",  $id)->first();
+        $sp->sp_ten = $request->sp_ten;
+        $sp->sp_giaGoc = $request->sp_giaGoc;
+        $sp->sp_giaBan = $request->sp_giaBan;
+        $sp->sp_thongTin = $request->sp_thongTin;
+        $sp->sp_danhGia = $request->sp_danhGia;
+        $sp->sp_capNhat = Carbon::now();
+        $sp->sp_trangThai = $request->sp_trangThai;
+        $sp->l_ma = $request->l_ma;
+
+        // Kiểm tra xem người dùng có upload hình ảnh Đại diện hay không?
+        if ($request->hasFile('sp_hinh')) {
+            // Xóa hình cũ để tránh rác
+            Storage::delete('public/upload/' . $sp->sp_hinh);
+
+            // Upload hình mới
+            // Lưu tên hình vào column sp_hinh
+            $file = $request->sp_hinh;
+            $sp->sp_hinh = $file->getClientOriginalName();
+
+            // Chép file vào thư mục "photos"
+            $fileSaved = $file->storeAs('public/upload', $sp->sp_hinh);
+        }
+
+        // Lưu hình ảnh liên quan
+        if ($request->hasFile('sp_hinhanhlienquan')) {
+            // DELETE các dòng liên quan trong table `HinhAnh`
+            foreach ($sp->hinhanhlienquan()->get() as $hinhAnh) {
+                // Xóa hình cũ để tránh rác
+                Storage::delete('public/upload/' . $hinhAnh->ha_ten);
+
+                // Xóa record
+                $hinhAnh->delete();
+            }
+
+            $files = $request->sp_hinhanhlienquan;
+
+            // duyệt từng ảnh và thực hiện lưu
+            foreach ($request->sp_hinhanhlienquan as $index => $file) {
+
+                $file->storeAs('public/upload', $file->getClientOriginalName());
+
+                // Tạo đối tưọng HinhAnh
+                $hinhAnh = new HinhAnh();
+                $hinhAnh->sp_ma = $sp->sp_ma;
+                $hinhAnh->ha_stt = ($index + 1);
+                $hinhAnh->ha_ten = $file->getClientOriginalName();
+                $hinhAnh->save();
+            }
+        }
+        $sp->save();
+
+        // Hiển thị câu thông báo 1 lần (Flash session)
+        $request->session()->flash('alert-info','Cập nhật thành công');
+
+        // Điều hướng về trang index
+        return redirect()->route('backend.sanpham.index');
     }
 
     /**
@@ -89,7 +218,9 @@ class SanPhamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sanpham = SanPham::find($id);
+        $sanpham->delete();
+        //return view('backend.sanpham.index');
     }
     /**
      * Action hiển thị biểu mẫu xem trước khi in trên Web
@@ -131,14 +262,14 @@ class SanPhamController extends Controller
             'danhsachsanpham' => $ds_sanpham,
             'danhsachloai'    => $ds_loai,
         ];
-    
+
         /* Code dành cho việc debug
         - Khi debug cần hiển thị view để xem trước khi Export PDF
         */
         // return view('backend.sanpham.pdf')
         //     ->with('danhsachsanpham', $ds_sanpham)
         //     ->with('danhsachloai', $ds_loai);
-    
+
         $pdf = PDF::loadView('backend.sanpham.pdf', $data);
         return $pdf->download('DanhMucSanPham.pdf');
     }

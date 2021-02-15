@@ -18,10 +18,12 @@ Sản phẩm
         float: left;
         margin-right: 5px;
     }
+
     .img-hinhdaidien {
         width: 100px;
         height: 100px;
     }
+
 </style>
 @endsection
 
@@ -43,11 +45,10 @@ Sản phẩm
                     unlike the os and single options shown in other examples.
                 </p>
                 <div class="pull-right">
-                    <a href="javascript:void(0)" class="btn btn-success mb-2" id="new-customer" data-toggle="modal"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a>
+                    <a href="{{ route('backend.sanpham.create') }}" class="btn btn-primary mb-2"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a>
                     <a href="{{ route('backend.sanpham.print') }}" class="btn btn-info mb-2"><i class="remixicon-printer-line" data-toggle="tooltip" data-placement="top" title="IN"></i></a>
                     <a href="{{ route('backend.sanpham.pdf') }}" class="btn btn-danger mb-2"><i class="mdi mdi-file-pdf" data-toggle="tooltip" data-placement="top" title="PDF"></i></a>
                     <a href="{{ route('backend.sanpham.excel') }}" class="btn btn-primary mb-2"><i class="remixicon-file-excel-2-line" data-toggle="tooltip" data-placement="top" title="EXCEL"></i></a>
-
                 </div>
 
                 <table id="selection-datatable" class="table dt-responsive nowrap my-3">
@@ -67,156 +68,52 @@ Sản phẩm
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sanpham as $sanpham)
+
+                        @foreach ($sanpham1 as $sanpham)
                         <tr id="customer_id_{{ $sanpham->sp_ma }}">
                             <td>{{ $sanpham->sp_ma }}</td>
                             <td>{{ $sanpham->sp_ten }}</td>
                             <td>{{ $sanpham->sp_giaGoc }}</td>
                             <td>{{ $sanpham->sp_giaBan }}</td>
-                            <td><img src="{{ asset('storage/upload/'.$sanpham->sp_hinh) }}" alt="hinh san pham" class="img-fluid img-hinhdaidien" ></td>
+                            <td><img src="{{ asset('storage/upload/'.$sanpham->sp_hinh) }}" alt="hinh san pham" class="img-fluid img-hinhdaidien"></td>
                             <td>{{ $sanpham->sp_thongTin }}</td>
                             <td>{{ $sanpham->sp_danhGia }}</td>
                             <td>{{ $sanpham->loaisanpham->l_ten }}</td>
                             <td>{{ $sanpham->sp_taoMoi }}</td>
                             <td>{{ $sanpham->sp_capNhat }}</td>
                             <td>
-                                <form action="{{ route('backend.sanpham.destroy',$sanpham->sp_ma) }}" method="POST">
-                                    <a class="btn btn-info" id="show-customer" data-toggle="modal" data-id="{{ $sanpham->sp_ma }}"><i class="remixicon-settings-5-fill" data-toggle="tooltip" data-placement="top" title="Chi tiết"></i></a>
-                                    <a href="javascript:void(0)" class="btn btn-warning" id="edit-customer" data-toggle="modal" data-id="{{ $sanpham->sp_ma }}"><i class="remixicon-edit-box-line" data-toggle="tooltip" data-placement="top" title="Sửa"></i> </a>
-                                    <meta name="csrf-token" content="{{ csrf_token() }}">
-                                    <a id="delete-customer" data-id="{{ $sanpham->sp_ma }}" class="btn btn-danger delete-user"><i class="remixicon-delete-bin-6-line" data-toggle="tooltip" data-placement="top" title="Xóa"></i></a>
-                            </form>
+                                <form method="POST" action="{{ route('backend.sanpham.destroy',['sanpham' => $sanpham->sp_ma]) }}" class="frmDelete chucNang" data-id="{{$sanpham->sp_ma}}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="DELETE" />
+                                    <button class="btn btn-danger" type="submit"><i class="remixicon-delete-bin-6-line" data-toggle="tooltip" data-placement="top" title="Xóa"></i></button>
+                                </form>
+                                <a href="{{ route('backend.sanpham.edit',['sanpham' => $sanpham->sp_ma]) }}" class="btn btn-warning"><i class="remixicon-edit-box-line" data-toggle="tooltip" data-placement="top" title="Sửa"></i></a>
                             </td>
                         </tr>
+
                         @endforeach
                     </tbody>
                 </table>
-                {{-- {!! $mau->links() !!} --}}
+        {{ $sanpham1->links() }}
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
 </div>
 <!-- end row-->
-<!-- Add and Edit customer modal -->
-{{-- <div class="modal fade" id="crud-modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="CrudModal"></h4>
-            </div>
-            <div class="modal-body">
-                <form name="custForm" action="{{ route('backend.sanpham.store') }}" method="POST">
-                    <input type="hidden" name="m_ma" id="m_ma">
-                    @csrf
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Name:</strong>
-                                <input type="text" name="m_ten" id="m_ten" class="form-control" placeholder="Name" onchange="validate()">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Trạng thái:</strong>
-                                <input type="text" name="m_trangThai" id="m_trangThai" class="form-control" placeholder="Trạng thái" onchange="validate()">
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Submit</button>
-                            <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div> --}}
-<!-- Show customer modal -->
-<div class="modal fade" id="crud-modal-show" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="CrudModal-show"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-body">
-                            @if(isset($sanpham->sp_ten))
-                            <table>
-                                <tr>
-                                    <th>ID</th>
-                                    <td>{{ $sanpham->sp_ma }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Tên</th>
-                                    <td>{{ $sanpham->sp_ten }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Giá góc</th>
-                                    <td>{{ $sanpham->sp_giaGoc }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Giá bán</th>
-                                    <td>{{ $sanpham->sp_giaBan }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Hình ảnh</th>
-                                    <td><img src="{{ asset('storage/upload/'.$sanpham->sp_hinh) }}" alt="hinh san pham" class="img-fluid" ></td>
-                                </tr>
-                                <tr>
-                                    <th>Thông tin</th>
-                                    <td>{{ $sanpham->sp_thongTin }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Đánh giá</th>
-                                    <td>{{ $sanpham->sp_danhGia }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Loại</th>
-                                    <td>{{ $sanpham->loaisanpham->l_ten }}</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Trạng thái:</strong></td>
-                                    <td>
-                                        <?php
-                                            $tenTrangThai='';
-                                            if($sanpham->sp_trangThai == 1){
-                                                $tenTrangThai='Khóa';
-                                            }else if($sanpham->sp_trangThai == 2){
-                                                $tenTrangThai='Còn bán';
-                                            }
-                                        ?>
-                                    {{$tenTrangThai}}
-                                    <td>                                      
-                                </tr>                                                                                                                                                                                                                                                          
-                            </table>
-                            @endif
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection
 
 
 
 @section('custom-scripts')
-<script>
+
+{{-- <script>
     $(document).ready(function() {
         $('#selection-datatable').DataTable();
     });
 
-</script>
+</script> --}}
+
 {{-- <script>
     error = false;
 
@@ -228,49 +125,15 @@ Sản phẩm
     }
 
 </script> --}}
-
 <script>
-    $(document).ready(function() {
-        /* When click New customer button */
-        $('#new-customer').click(function() {
-            $('#btn-save').val("create-customer");
-            $('#customer').trigger("reset");
-            $('#CrudModal').html("Add New Customer");
-            $('#crud-modal').modal('show');
-        });
-
-        /* Edit customer */
-        $('body').on('click', '#edit-customer', function() {
-            var sp_ma = $(this).data('id');
-            $.get('sanpham/' + sp_ma + '/edit', function(data) {
-                $('#CrudModal').html("Edit product");
-                $('#btn-update').val("Update");
-                $('#btn-save').prop('disabled', false);
-                $('#crud-modal').modal('show');
-                $('#sp_ma').val(data.sp_ma);
-                $('#sp_giaGoc').val(data.sp_giaGoc);
-                $('#sp_giaBan').val(data.sp_giaBan);
-                $('#sp_hinh').val(data.sp_hinh);
-                $('#sp_thongTin').val(data.sp_thongTin);
-                $('#sp_danhGia').val(data.sp_danhGia);
-                $('#l_ma').val(data.l_ma);
-                $('#sp_trangThai').val(data.sp_trangThai);
-                //$('#m_capNhat').val(data.m_capNhat);
-            })
-        });
-        /* Show customer */
-        $('body').on('click', '#show-customer', function() {
-            $('#CrudModal-show').html("Prodcut Details");
-            $('#crud-modal-show').modal('show');
-        });
-
-        /* Delete customer */
-        $('body').on('click', '#delete-customer', function(e) {
-
+    $(function() {
+        //class frmDelete thêm vào chỗ nút delete
+        $('.frmDelete').submit(function(e) {
+            //dừng các sự kiện mặc định
             e.preventDefault();
-            var id = $(this).data("id");
-            var token = $("meta[name='csrf-token']").attr("content");
-            //confirm("Are You sure want to delete !");
+            //lấy dữ liệu từ data-id trên form của nút xóa
+            var sanpham = $(this).data('id');
+            //debugger;
             Swal.fire({
                 title: 'Are you sure?'
                 , text: "You won't be able to revert this!"
@@ -281,14 +144,27 @@ Sản phẩm
                 , confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) { //nếu yes thì sử lý
+                    //hàm lấy tất cả dữ liệu
+                    //xóa dữ liệu dạng điều hướng
+                    //var sendData = $(this).serialize();
+
+                    //gửi yêu câu đi
                     $.ajax({
-                        type: "DELETE"
-                        , url: '{{ route('backend.sanpham.destroy',['sanpham' => $sanpham->sp_ma ]) }}'
-                        , data: {
-                            "id": id
-                            , "_token": token
-                        , }
-                        , success: function(data, textStatus, jqXHR) {
+                        type: $(this).attr('method'), //loại gửi đi post,get....
+                        url: $(this).attr('action'), //đường dẫn đến nới xóa dữ liệu
+                        //data: sendData,
+                        //gửi dữ liệu bằng tay
+
+                        data: {
+                            //id là phải cùng với para trong action destroy
+                            sanpham: sanpham
+                            , _token: $(this).find('[name=_token').val()
+                            , _method: $(this).find('[name=_method').val(),
+
+                        },
+                        //dataType: 'JSON'
+                        // success hay fail có hay không cũng không sao
+                        success: function(data, textStatus, jqXHR) {
                             //load lại trang khi đã xóa
                             Swal.fire(
                                 'Deleted!'
@@ -308,9 +184,10 @@ Sản phẩm
                     );
                 }
             })
+            ///
         });
+
     });
 
 </script>
-
 @endsection
