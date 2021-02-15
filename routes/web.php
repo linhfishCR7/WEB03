@@ -39,6 +39,12 @@ Route::resource('backend/vanchuyen','Backend\VanChuyenController',['as'=>'backen
 Route::resource('backend/thanhtoan','Backend\ThanhToanController',['as'=>'backend']);
 //Quyền
 Route::resource('backend/quyen','Backend\QuyenController',['as'=>'backend']);
+//Phiếu nhập
+Route::resource('backend/phieunhap','Backend\PhieuNhapController',['as'=>'backend']);
+//Khách hàng
+Route::resource('backend/khachhang','Backend\KhachHangController',['as'=>'backend']);
+//Chủ đề
+Route::resource('backend/chude','Backend\ChuDeController',['as'=>'backend']);
 
 //api-thống kê
 Route::get('backend/thongke_3_sanpham_moinhat', 'Backend\BackendController@thongke_3_sanpham_moinhat')->name('backend.pages.thongke_3_sanpham_moinhat');
