@@ -31,7 +31,20 @@ Route::resource('backend/sanpham','Backend\SanPhamController',['as'=>'backend'])
 //Báo cáo Đơn hàng
 Route::get('/backend/baocao/donhang', 'Backend\BaoCaoController@donhang')->name('backend.baocao.donhang');
 Route::get('/backend/baocao/donhang/data', 'Backend\BaoCaoController@donhangData')->name('backend.baocao.donhang.data');
-
+//Xuất xứ
+Route::resource('backend/xuatxu','Backend\XuatXuController',['as'=>'backend']);
+//Vận chuyển
+Route::resource('backend/vanchuyen','Backend\VanChuyenController',['as'=>'backend']);
+//Thanh toán
+Route::resource('backend/thanhtoan','Backend\ThanhToanController',['as'=>'backend']);
+//Quyền
+Route::resource('backend/quyen','Backend\QuyenController',['as'=>'backend']);
+//Phiếu nhập
+Route::resource('backend/phieunhap','Backend\PhieuNhapController',['as'=>'backend']);
+//Khách hàng
+Route::resource('backend/khachhang','Backend\KhachHangController',['as'=>'backend']);
+//Chủ đề
+Route::resource('backend/chude','Backend\ChuDeController',['as'=>'backend']);
 
 //api-thống kê
 Route::get('backend/thongke_3_sanpham_moinhat', 'Backend\BackendController@thongke_3_sanpham_moinhat')->name('backend.pages.thongke_3_sanpham_moinhat');
