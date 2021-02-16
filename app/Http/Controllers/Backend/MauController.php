@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 class MauController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -69,7 +78,6 @@ class MauController extends Controller
             $mau->m_capNhat    = Carbon::now();
             $mau->save();
             $request->session()->flash('alert-info', 'Cập nhật thành công ^^~!!!');
-
         } else {
             $mau = new Mau();
 
@@ -81,7 +89,6 @@ class MauController extends Controller
 
             $mau->save();
             $request->session()->flash('alert-success', 'Thêm thành công');
-
         }
         return redirect()->route('backend.mau.index');
     }
@@ -97,7 +104,6 @@ class MauController extends Controller
         $where = array('m_ma' => $id);
         $mau = Mau::where($where)->first();
         return Response()->json($mau);
-        
     }
 
     /**

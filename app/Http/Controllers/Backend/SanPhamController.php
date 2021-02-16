@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\Validator;
 class SanPhamController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -204,7 +213,7 @@ class SanPhamController extends Controller
         $sp->save();
 
         // Hiển thị câu thông báo 1 lần (Flash session)
-        $request->session()->flash('alert-info','Cập nhật thành công');
+        $request->session()->flash('alert-info', 'Cập nhật thành công');
 
         // Điều hướng về trang index
         return redirect()->route('backend.sanpham.index');
