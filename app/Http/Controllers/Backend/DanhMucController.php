@@ -10,6 +10,15 @@ use Carbon\Carbon;
 class DanhMucController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -71,7 +80,7 @@ class DanhMucController extends Controller
     public function show($id)
     {
         $dm = DanhMuc::find($id);
-        return response()->json(['data'=>$dm],200); // 200 là mã lỗi
+        return response()->json(['data' => $dm], 200); // 200 là mã lỗi
 
     }
 
