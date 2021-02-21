@@ -25,6 +25,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('director-users',function($user){
+            return $user->hasAnyRoles(['Quản trị','Giám đốc']);
+        });
+
+        Gate::define('edit-users',function($user){
+            return $user->hasRole('Quản trị');
+        });
+
+        Gate::define('delete-users',function($user){
+            return $user->hasRole('Quản trị');
+        });
     }
 }

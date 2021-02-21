@@ -67,6 +67,21 @@
                     <label for="password-confirm">{{ __('Confirm Password') }}</label>
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Enter your Confirm password" required autocomplete="new-password">
                 </div>
+
+                {{-- <div class="form-group">
+                    <label for="q_ma">Role</label>
+                    <select name="q_ma" id="q_ma" class="form-control">
+                        <option value="">Please choose role</option>
+                        @foreach($quyen as $quyen)
+                            @if(old('q_ma') == $quyen->q_ma)
+                                <option value="{{ $quyen->q_ma }}" selected>{{ $quyen->q_ten }}</option>
+                            @else
+                                <option value="{{ $quyen->q_ma }}">{{ $quyen->q_ten }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div> --}}
+
                 <div class="form-group">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="checkbox-signup">

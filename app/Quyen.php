@@ -14,10 +14,14 @@ class Quyen extends Model
 
     protected $table        = 'quyen';
     protected $fillable     = ['q_ten', 'q_dienGiai', 'q_taoMoi', 'q_capNhat', 'q_trangThai','delete_at'];
-    protected $guarded      = ['q_ma'];
+    protected $guarded      = ['id'];
 
-    protected $primaryKey   = 'q_ma';
+    protected $primaryKey   = 'id';
 
     protected $dates        = ['q_taoMoi', 'q_capNhat','delete_at'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function users(){
+        return $this->belongsToMany('App\User');
+    } 
 }
