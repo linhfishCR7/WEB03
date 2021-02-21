@@ -6,7 +6,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes; // add soft delete
-
 class User extends Authenticatable
 {
     use Notifiable,
@@ -38,4 +37,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function quyens(){
+
+        return $this->belongsToMany('App\Quyen');
+    } 
+    public function hasAnyRoles($roles)
+    {
+        if($this->quyens()->whereIn('q_ten',$roles)->first()){
+            return true;
+        }
+        return false;
+    }
+    public function hasRole($role)
+    {
+        if($this->quyens()->where('q_ten',$role)->first()){
+            return true;
+        }
+        return false;
+    }
 }

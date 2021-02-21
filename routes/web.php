@@ -96,5 +96,8 @@ Route::get('setLocale/{locale}', function ($locale) {
 */
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::namespace('Backend')->prefix('backend')->name('backend.')->middleware('can:director-users')->group(function(){
+  Route::resource('/user', 'UserController',[ 'except' => ['show','create','store']]);
+});
+
