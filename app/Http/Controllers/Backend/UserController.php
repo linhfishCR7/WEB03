@@ -94,6 +94,10 @@ class UserController extends Controller
     {
         // // Tìm object Sản phẩm theo khóa chính
         $user->name = $request->name;
+        $user->username = $request->username;
+        $user->genre = $request->genre;
+        $user->birthday = $request->birthday;
+        $user->phone = $request->phone;
         $user->email = $request->email;
         $user->address = $request->address;
         $user->updated_at = Carbon::now();

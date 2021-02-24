@@ -21,4 +21,9 @@ class Mau extends Model
 
     protected $dates        = ['m_taoMoi', 'm_capNhat','delete_at'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function ctn_m()
+    {
+        return $this->hasMany('App\ChiTietNhap', 'm_ma', 'm_ma');
+    }
 }

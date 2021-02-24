@@ -41,6 +41,7 @@ Route::resource('backend/thanhtoan','Backend\ThanhToanController',['as'=>'backen
 Route::resource('backend/quyen','Backend\QuyenController',['as'=>'backend']);
 //Phiếu nhập
 Route::resource('backend/phieunhap','Backend\PhieuNhapController',['as'=>'backend']);
+Route::get('backend/phieunhap/print/{id}','Backend\PhieuNhapController@print')->name('backend.phieunhap.print');;
 //Khách hàng
 Route::resource('backend/khachhang','Backend\KhachHangController',['as'=>'backend']);
 //Chủ đề

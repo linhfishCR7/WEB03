@@ -16,7 +16,7 @@ class XuatXuController extends Controller
      */
     public function index()
     {
-        $dsxuatXu = XuatXu::all(); 
+        $dsxuatXu = XuatXu::paginate(5); 
         return view('backend.xuatxu.index')
             ->with('danhsachxuatxu', $dsxuatXu);
     }

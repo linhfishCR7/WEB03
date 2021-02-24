@@ -16,6 +16,7 @@
     <link href="{{ asset('themes/Minton_green/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('themes/Minton_green/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('themes/Minton_green/assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('themes/Minton_green/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -86,6 +87,8 @@
 
     <!-- App js -->
     <script src="{{ asset('themes/Minton_green/assets/js/app.min.js') }}"></script>
+        <script src="{{ asset('themes/Minton_green/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+
 
     @yield('custom-script')
 

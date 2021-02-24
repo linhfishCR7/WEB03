@@ -1,15 +1,15 @@
 @extends('backend.layouts.master')
 
 @section('title')
-User
+Vận chuyển
 @endsection
 
 @section('feature-title')
-User
+Vận chuyển
 @endsection
 
 @section('feature-description')
-User
+Vận chuyển
 @endsection
 
 @section('custom-css')
@@ -34,25 +34,16 @@ User
         <div class="card">
             <div class="card-body">
 
-                <h4 class="header-title">List User</h4>
-                <p class="text-muted font-13 mb-4">
-                    This example shows the multi option. Note how a click on a row will toggle its selected state without effecting other rows,
-                    unlike the os and single options shown in other examples.
-                </p>
-                {{-- <a href="{{ route('backend.user.create') }}" class="btn btn-primary"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a><br><br> --}}
-
-                <table id="selection-datatable" class="table dt-responsive table-responsive nowrap my-3">
+                <h4 class="header-title">Danh sách vận chuyển</h4>
+                <p class="text-muted font-13 mb-4"></p>
+                <a href="{{ route('backend.vanchuyen.create') }}" class="btn btn-primary"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a><br><br>
+                <table id="selection-datatable" class="table dt-responsive nowrap my-3">
                     <thead>
                         <tr>
                             <th>Mã</th>
                             <th>Tên</th>
-                            <th>Tài khoản</th>
-                            <th>Giới tính</th>
-                            <th>Ngày sinh</th>
-                            <th>Số điện thoại</th>
-                            <th>Email</th>
-                            <th>Địa chỉ</th>
-                            <th>Vai trò</th>
+                            <th>Chi phí</th>
+                            <th>Diễn giải</th>
                             <th>Tạo mới</th>
                             <th>Cập nhật</th>
                             <th>Trạng thái</th>
@@ -61,51 +52,40 @@ User
                     </thead>
 
                     <tbody>
-                        @foreach ( $users as $user)
+                        @foreach ( $danhsachvanchuyen as $vanchuyen)
                         <tr>
-                            <td>{{$user['id']}}</td>
-                            <td>{{$user['name']}}</td>
-                            <td>{{$user['username']}}</td>
-                            <td>{{$user['genre']}}</td>
-                            <td>{{$user['birthday']}}</td>
-                            <td>{{$user['phone']}}</td>
-                            <td>{{$user['email']}}</td>
-                            <td>{{$user['address']}}</td>
-                            <td>{{implode(', ',$user->quyens()->get()->pluck('q_ten')->toArray())}}</td>
-                            <td>{{$user['created_at']}}</td>
-                            <td>{{$user['updated_at']}}</td>
+                            <td>{{$vanchuyen->vc_ma}}</td>
+                            <td>{{$vanchuyen->vc_ten}}</td>
+                            <td>{{$vanchuyen->vc_chiPhi}}</td>
+                            <td>{{$vanchuyen->vc_dienGiai}}</td>
+                            <td>{{$vanchuyen->vc_taoMoi}}</td>
+                            <td>{{$vanchuyen->vc_capNhat}}</td>
                             <td>
                                 <?php
                                     $tenTrangThai='';
-                                    if($user['active'] == 0){
-                                        $tenTrangThai='Block';
-                                    }else if($user['active'] == 1){
-                                        $tenTrangThai='Active';
+                                    if($vanchuyen->vc_trangThai == 1){
+                                        $tenTrangThai='BLOCK';
+                                    }else if($vanchuyen->vc_trangThai == 2){
+                                        $tenTrangThai='ACTIVE';
                                     }
                                     
                                 ?>
                                 {{$tenTrangThai}}
                             <td>
-                                @can('edit-users', $user)
 
-                                <form method="POST" action="{{ route('backend.user.destroy',$user->id) }}" class="frmDelete chucNang" data-id="{{$user->id}}">
+                                <form method="POST" action="{{ route('backend.vanchuyen.destroy',['vanchuyen' => $vanchuyen->vc_ma]) }}" class="frmDelete chucNang" data-id="{{$vanchuyen->vc_ma}}">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="DELETE" />
                                     <button class="btn btn-danger" type="submit"><i class="remixicon-delete-bin-6-line" data-toggle="tooltip" data-placement="top" title="Xóa"></i></button>
                                 </form>
-                                @endcan
-                                @can('delete-users', $user)
-                                <a href="{{ route('backend.user.edit',$user->id) }}" class="btn btn-warning "><i class="remixicon-edit-box-line" data-toggle="tooltip" data-placement="top" title="Sửa"></i></a>
-                                {{-- <button data-url="{{ route('backend.user.show',$user->id) }}" ​ type="button" data-target="#show" data-toggle="modal" class="btn btn-info btn-show"><i class="remixicon-settings-5-fill" data-toggle="tooltip" data-placement="top" title="Chi tiết"></i></button> --}}
-                                @endcan
+                                <a href="{{ route('backend.vanchuyen.edit',['vanchuyen'=> $vanchuyen->vc_ma]) }}" class="btn btn-warning"><i class="remixicon-edit-box-line" data-toggle="tooltip" data-placement="top" title="Sửa"></i></a>
                             </td>
 
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-        {{ $users->links() }}
-
+        {{ $danhsachvanchuyen->links() }}
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
@@ -121,29 +101,6 @@ User
     });
 
 </script> --}}
-{{-- <script>
-    $(document).ready(function() {
-        /* Show customer */
-        $('.btn-show').click(function() {
-            var url = $(this).attr('data-url');
-            $.ajax({
-                
-                type: 'get'
-                , url: url 
-                , success: function(response) {
-                    //console.log(response)
-                    $('#id').text(response.data.dm_ma)
-                    $('#hoten').text(response.data.dm_ten)
-                    
-                }
-                , error: function(jqXHR, textStatus, errorThrown) {
-                    //xử lý lỗi tại đây
-                }
-            })
-        })
-    });
-
-</script>--}}
 <script>
     $(function() {
         //class frmDelete thêm vào chỗ nút delete
@@ -151,7 +108,7 @@ User
             //dừng các sự kiện mặc định
             e.preventDefault();
             //lấy dữ liệu từ data-id trên form của nút xóa
-            var user = $(this).data('id');
+            var vanchuyen = $(this).data('id');
             //debugger;
             Swal.fire({
                 title: 'Are you sure?'
@@ -176,7 +133,7 @@ User
 
                         data: {
                             //id là phải cùng với para trong action destroy
-                            user: user
+                            vanchuyen: vanchuyen
                             , _token: $(this).find('[name=_token').val()
                             , _method: $(this).find('[name=_method').val(),
 
@@ -190,7 +147,7 @@ User
                                 , 'Your file has been deleted.'
                                 , 'success'
                             );
-                            location.href = '{{ route('backend.user.index')}}'
+                            location.href = '{{ route('backend.vanchuyen.index')}}'
                         }
                         , error: function(jqXHR, textStatus, errorThrown) {}
                     , });
@@ -208,6 +165,6 @@ User
 
     });
 
-</script> 
+</script>
 
 @endsection

@@ -15,7 +15,7 @@ class QuyenController extends Controller
      */
     public function index()
     {
-        $dsquyen = Quyen::all(); 
+        $dsquyen = Quyen::paginate(5); 
         return view('backend.quyen.index')
             ->with('danhsachquyen', $dsquyen);
     }
@@ -72,7 +72,7 @@ class QuyenController extends Controller
      */
     public function edit($id)
     {
-        $q = Quyen::where("q_ma", $id)->first();
+        $q = Quyen::where("id", $id)->first();
         return view('backend.quyen.edit')
             ->with('q', $q);
     }
@@ -87,7 +87,7 @@ class QuyenController extends Controller
     public function update(Request $request, $id)
     {
         // Tìm object Sản phẩm theo khóa chính
-        $q = Quyen::where("q_ma",  $id)->first();
+        $q = Quyen::where("id",  $id)->first();
         $q->q_ten = $request->q_ten;
         $q->q_dienGiai = $request->q_dienGiai;
         $q->q_capNhat = Carbon::now();

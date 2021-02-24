@@ -15,7 +15,7 @@ class VanChuyenController extends Controller
      */
     public function index()
     {
-        $dsvanChuyen = VanChuyen::all(); 
+        $dsvanChuyen = VanChuyen::paginate(5); 
         return view('backend.vanchuyen.index')
             ->with('danhsachvanchuyen', $dsvanChuyen);
     }
@@ -44,7 +44,7 @@ class VanChuyenController extends Controller
         $vanchuyen->vc_chiPhi = $request->vc_chiPhi;
         $vanchuyen->vc_dienGiai = $request->vc_dienGiai;
         $vanchuyen->vc_trangThai = $request->vc_trangThai;
-        $vanchuyen->tt_taoMoi = Carbon::now();
+        $vanchuyen->vc_taoMoi = Carbon::now();
         $vanchuyen->save();
 
         $request->session()->flash('alert-success', 'Thêm thành công');
