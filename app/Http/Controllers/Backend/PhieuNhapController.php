@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\ChiTietNhap;
 use App\Http\Controllers\Controller;
 use App\NhaCungCap;
 use App\NhanVien;
@@ -20,8 +21,8 @@ class PhieuNhapController extends Controller
     {
         $phieunhap = PhieuNhap::all();
 
-        return view('backend.phieunhap.index')
-            ->with('phieunhap', $phieunhap);
+        return view('backend.nhapkho.index')
+            ->with('dsphieunhap', $phieunhap);
     }
 
     /**
@@ -78,8 +79,11 @@ class PhieuNhapController extends Controller
      */
     public function show($id)
     {
-        $pn = PhieuNhap::find($id);
-        return response()->json(['data'=>$pn],200); // 200 là mã lỗi    }
+        $pn = PhieuNhap::where("pn_ma", $id)->first();
+        $ctn = ChiTietNhap::where("pn_ma", $id)->get();
+        return view('backend.nhapkho.show')
+            ->with('phieunhap', $pn)
+            ->with('chitietnhap', $ctn);
     }
     /**
      * Show the form for editing the specified resource.
@@ -141,11 +145,24 @@ class PhieuNhapController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $phieunhap = PhieuNhap::find($id);
         $phieunhap->delete();
-        //return view('backend.phieunhap.index');
+        $request->session()->flash('alert-danger', 'Xóa ' .$id.' thành công');
+        return view('backend.nhapkho.index');
+    }
+    /**
+     * Action hiển thị biểu mẫu xem trước khi in trên Web
+     */
+    public function print($id)
+    {
+        $pn = PhieuNhap::where("pn_ma", $id)->first();
+        $ctn = ChiTietNhap::where("pn_ma", $id)->first();
+
+        return view('backend.nhapkho.print')
+            ->with('phieunhap', $pn)
+            ->with('chitietnhap', $ctn);
     }
     
 }

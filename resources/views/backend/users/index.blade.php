@@ -41,11 +41,15 @@ User
                 </p>
                 {{-- <a href="{{ route('backend.user.create') }}" class="btn btn-primary"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a><br><br> --}}
 
-                <table id="selection-datatable" class="table dt-responsive nowrap my-3">
+                <table id="selection-datatable" class="table dt-responsive table-responsive nowrap my-3">
                     <thead>
                         <tr>
                             <th>Mã</th>
                             <th>Tên</th>
+                            <th>Tài khoản</th>
+                            <th>Giới tính</th>
+                            <th>Ngày sinh</th>
+                            <th>Số điện thoại</th>
                             <th>Email</th>
                             <th>Địa chỉ</th>
                             <th>Vai trò</th>
@@ -61,6 +65,10 @@ User
                         <tr>
                             <td>{{$user['id']}}</td>
                             <td>{{$user['name']}}</td>
+                            <td>{{$user['username']}}</td>
+                            <td>{{$user['genre']}}</td>
+                            <td>{{$user['birthday']}}</td>
+                            <td>{{$user['phone']}}</td>
                             <td>{{$user['email']}}</td>
                             <td>{{$user['address']}}</td>
                             <td>{{implode(', ',$user->quyens()->get()->pluck('q_ten')->toArray())}}</td>

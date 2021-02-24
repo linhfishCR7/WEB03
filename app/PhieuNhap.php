@@ -20,4 +20,26 @@ class PhieuNhap extends Model
 
     protected $dates        = ['pn_ngayXuatHoaDon', 'pn_ngayLapPhieu', 'pn_ngayXacNhan', 'pn_ngayNhapKho', 'pn_taoMoi', 'pn_capNhat','delete_at'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function nhapKho()
+    {
+        return $this->hasMany('App\ChiTietNhap', 'pn_ma', 'pn_ma');
+    }
+    public function phieuNhap_nhanVienLapPhieu()
+    {
+        return $this->belongsTo('App\User', 'nv_nguoiLapPhieu', 'id');
+    }
+    public function phieuNhap_nhanVienKeToan()
+    {
+        return $this->belongsTo('App\User', 'nv_keToan', 'id');
+    }
+    public function phieuNhap_nhanVienThuKho()
+    {
+        return $this->belongsTo('App\User', 'nv_thuKho', 'id');
+    }
+    public function nhaCungCap()
+    {
+        return $this->belongsTo('App\NhaCungCap', 'ncc_ma', 'ncc_ma');
+    }
+
 }

@@ -30,4 +30,9 @@ class SanPham extends Model
     {
         return $this->hasMany('App\HinhAnh', 'sp_ma', 'sp_ma');
     }
+    public function chiTietNhap()
+    {
+        return $this->hasMany('App\ChiTietNhap', 'sp_ma', 'sp_ma');
+    }
+
 }

@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','address','delete_at',
+        'name', 'email', 'password','address','username','genre','birthday','phone','delete_at',
     ];
 
     /**
@@ -54,5 +54,17 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+    public function nhanVienLapPhieu()
+    {
+        return $this->hasMany('App\PhieuNhap', 'id', 'nv_nguoiLapPhieu');
+    }
+    public function nhanVienKeToan()
+    {
+        return $this->hasMany('App\PhieuNhap', 'id', 'nv_keToan');
+    }
+    public function nhanVienThuKho()
+    {
+        return $this->hasMany('App\PhieuNhap', 'id', 'nv_thuKho');
     }
 }

@@ -20,4 +20,9 @@ class NhaCungCap extends Model
 
     protected $dates        = ['ncc_taoMoi', 'ncc_capNhat','delete_at'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function phieuNhap_ncc()
+    {
+        return $this->hasMany('App\PhieuNhap', 'ncc_ma', 'ncc_ma');
+    }
 }

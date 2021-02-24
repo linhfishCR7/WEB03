@@ -20,4 +20,17 @@ class ChiTietNhap extends Model
     protected $dates        = ['ctn_taoMoi', 'ctn_capNhat', 'delete_at'];
     protected $dateFormat   = 'Y-m-d H:i:s';
     public    $incrementing = false;
+
+    public function phieuNhap()
+    {
+        return $this->belongsTo('App\PhieuNhap', 'pn_ma', 'pn_ma');
+    }
+    public function sanPham()
+    {
+        return $this->belongsTo('App\SanPham', 'sp_ma', 'sp_ma');
+    }
+    public function mau()
+    {
+        return $this->belongsTo('App\Mau', 'm_ma', 'm_ma');
+    }
 }

@@ -38,6 +38,33 @@ Cập nhật User
                             <input type="text" name="name" class="form-control" id="name" value="{{  $user->name }}">
                         </div>
                         <div class="form-group">
+                            <label for="username">Tên tài khoản</label>
+                            <input type="text" name="username" class="form-control" id="username" value="{{  $user->username }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="genre">Giới tính</label>
+                            <select name="genre" id="genre" class="form-control form-control-md" >
+                                <option value="F" {{old('genre',$user->genre) == 'F' ? 'selected': ''}}>Female</option>
+                                <option value="M" {{old('genre',$user->genre) == 'M'? 'selected': ''}}>Male</option>
+                                <option value="O" {{old('genre',$user->genre) == 'O' ? 'selected': ''}}>Unknow</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday">Ngày sinh</label>
+                            {{-- <input type="text" data-provide="datepicker" name="birthday" class="form-control" id="birthday" value="{{  $user->birthday }}"> --}}
+                            <div class="input-group">
+                                <input type="text" name="birthday" class="form-control" id="birthday" value="{{  $user->birthday }}" data-provide="datepicker" data-date-format="yyyy/mm/dd">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="ti-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại</label>
+                            <input type="text" name="phone" class="form-control" id="phone" value="{{  $user->phone }}">
+                        </div>
+                        <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" name="email" class="form-control" id="email" value="{{  $user->email }}">
                         </div>
@@ -58,10 +85,9 @@ Cập nhật User
                                 @endif
                                 @endforeach --}}
                                 @foreach($quyen as $quyen)
-                                <input type="checkbox" name="quyen[]"  id="quyen" value="{{ $quyen->id }}"
-                                @if($user->quyens->pluck('id')->contains($quyen->id)) checked @endif>
+                                <input type="checkbox" name="quyen[]" id="quyen" value="{{ $quyen->id }}" @if($user->quyens->pluck('id')->contains($quyen->id)) checked @endif>
                                 <label for="q_ten">{{$quyen->q_ten}}</label> &nbsp;
-                                
+
                                 @endforeach
                             </div>
 
@@ -81,4 +107,6 @@ Cập nhật User
             </div>
         </div>
     </div>
+    @endsection
+    @section('custom-scripts')
     @endsection

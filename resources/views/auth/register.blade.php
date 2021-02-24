@@ -27,7 +27,54 @@
                     </span>
                     @enderror
                 </div>
+                <div class="form-group ">
+                    <label for="name">{{ __('User Name') }}</label>
 
+                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Enter your user name" required autocomplete="username" autofocus>
+
+                    @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group ">
+                    <label for="genre">{{ __('Genre') }}</label>
+                    <select name="genre" id="genre" class="form-control @error('genre') is-invalid @enderror" required>
+                        <option value="F" {{old('genre') == 'F' ? 'selected': ''}}>Female</option>
+                        <option value="M" {{old('genre') == 'M'? 'selected': ''}}>Male</option>
+                        <option value="O" {{old('genre') == 'O' ? 'selected': ''}}>Unknow</option>
+                    </select>
+                    {{-- <input id="genre" type="text" class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{ old('genre') }}" placeholder="Enter your genre" required autocomplete="genre" autofocus> --}}
+
+                    @error('genre')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group ">
+                    <label for="birthday">{{ __('Birthday') }}</label>
+
+                    <input id="birthday" data-provide="datepicker" data-date-format="yyyy-mm-dd" type="text" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" placeholder="Enter your birthday" required autocomplete="birthday" autofocus>
+
+                    @error('birthday')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group ">
+                    <label for="phone">{{ __('Your phone') }}</label>
+
+                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder="Enter your phone" required autocomplete="phone" autofocus>
+
+                    @error('phone')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
                 <div class="form-group ">
                     <label for="address">{{ __('Address') }}</label>
 
@@ -75,49 +122,49 @@
                         @foreach($quyen as $quyen)
                             @if(old('q_ma') == $quyen->q_ma)
                                 <option value="{{ $quyen->q_ma }}" selected>{{ $quyen->q_ten }}</option>
-                            @else
-                                <option value="{{ $quyen->q_ma }}">{{ $quyen->q_ten }}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                </div> --}}
+                @else
+                <option value="{{ $quyen->q_ma }}">{{ $quyen->q_ten }}</option>
+                @endif
+                @endforeach
+                </select>
+        </div> --}}
 
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="checkbox-signup">
-                        <label class="custom-control-label" for="checkbox-signup">I accept <a href="javascript: void(0);" class="text-dark">Terms and Conditions</a></label>
-                    </div>
-                </div>
-                <div class="form-group mb-0 text-center">
-                    <button type="submit" class="btn btn-primary btn-block">
-                        {{ __('Register') }}
-                    </button>
-                </div>
-            </form>
-            <div class="text-center">
-                <h5 class="mt-3 text-muted">Sign up using</h5>
-                <ul class="social-list list-inline mt-3 mb-0">
-                    <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github-circle"></i></a>
-                    </li>
-                </ul>
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="checkbox-signup">
+                <label class="custom-control-label" for="checkbox-signup">I accept <a href="javascript: void(0);" class="text-dark">Terms and Conditions</a></label>
             </div>
         </div>
+        <div class="form-group mb-0 text-center">
+            <button type="submit" class="btn btn-primary btn-block">
+                {{ __('Register') }}
+            </button>
+        </div>
+        </form>
+        <div class="text-center">
+            <h5 class="mt-3 text-muted">Sign up using</h5>
+            <ul class="social-list list-inline mt-3 mb-0">
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github-circle"></i></a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="row mt-3">
-        <div class="col-12 text-center">
-            <p class="text-muted">Already have account? <a href="{{ route('login') }}" class="text-muted font-weight-medium ml-1">Sign In</a></p>
-        </div> <!-- end col -->
-    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-12 text-center">
+        <p class="text-muted">Already have account? <a href="{{ route('login') }}" class="text-muted font-weight-medium ml-1">Sign In</a></p>
+    </div> <!-- end col -->
+</div>
 </div>
 </div>
 @endsection
