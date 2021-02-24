@@ -5,6 +5,7 @@ use App\KhachHang;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class KhachHangController extends Controller
 {
@@ -15,6 +16,7 @@ class KhachHangController extends Controller
      */
     public function index()
     {
+        //$dskhachHang = KhachHang::paginate(5); 
         $dskhachHang = KhachHang::all(); 
         return view('backend.khachhang.index')
             ->with('danhsachkhachhang', $dskhachHang);
@@ -41,7 +43,7 @@ class KhachHangController extends Controller
 
         $kh = new KhachHang();
         $kh->kh_taiKhoan = $request->kh_taiKhoan;
-        $kh->kh_matKhau = $request->kh_matKhau;
+        $kh->kh_matKhau = Hash::make($request->kh_matKhau);
         $kh->kh_hoTen = $request->kh_hoTen;
         $kh->kh_gioiTinh = $request->kh_gioiTinh;
         $kh->kh_email = $request->kh_email;
@@ -95,7 +97,12 @@ class KhachHangController extends Controller
         // Tìm object Sản phẩm theo khóa chính
         $kh = KhachHang::where("kh_ma",  $id)->first();
         $kh->kh_taiKhoan = $request->kh_taiKhoan;
-        $kh->kh_matKhau = $request->kh_matKhau;
+        if($kh->kh_matKhau == $request->kh_matKhau){
+            $kh->kh_matKhau = $kh->kh_matKhau;
+        }
+        else{
+            $kh->kh_matKhau = Hash::make($request->kh_matKhau);
+        }
         $kh->kh_hoTen = $request->kh_hoTen;
         $kh->kh_gioiTinh = $request->kh_gioiTinh;
         $kh->kh_email = $request->kh_email;
@@ -118,10 +125,12 @@ class KhachHangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $khachHang = KhachHang::find($id);
+        $name = $khachHang->kh_hoTen;
         $khachHang->delete();
-        return redirect()->route('backend.khachHang.index');
+        $request->session()->flash('alert-danger', 'Xóa tài khoản khách hàng '.$name.' thành công' );
+        return redirect()->route('backend.khachhang.index');
     }
 }

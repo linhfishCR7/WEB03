@@ -15,7 +15,7 @@ class ThanhToanController extends Controller
      */
     public function index()
     {
-        $dsthanhToan = ThanhToan::all(); 
+        $dsthanhToan = ThanhToan::paginate(5); 
         return view('backend.thanhtoan.index')
             ->with('danhsachthanhtoan', $dsthanhToan);
     }
