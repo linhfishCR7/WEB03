@@ -1,15 +1,15 @@
 @extends('backend.layouts.master')
 
 @section('title')
-3 sản phẩm mớ nhất
+3 sản phẩm mới nhất
 @endsection
 
 @section('feature-title')
-3 sản phẩm mớ nhất
+3 sản phẩm mới nhất
 @endsection
 
 @section('feature-description')
-3 sản phẩm mớ nhất
+3 sản phẩm mới nhất
 @endsection
 
 @section('custom-css')
@@ -28,14 +28,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Danh sách danh mục</h4>
-                <p class="text-muted font-13 mb-4">
-                    This example shows the multi option. Note how a click on a row will toggle its selected state without effecting other rows,
-                    unlike the os and single options shown in other examples.
-                </p>
-                <table  class="table table-responsive table-bordered">
+                <h4 class="header-title">Danh sách sản phẩm</h4>
+                
+                <table id="selection-datatable" class="table dt-responsive table-bordered">
                     <thead>
-                        <tr>
+                        <tr class="table-primary">
                             <th>STT</th>
                             <th>Hình đại diện</th>
                             <th>Tên sản phẩm</th>
@@ -59,7 +56,12 @@
 @endsection
 
 @section('custom-scripts')
+<script>
+    $(document).ready(function() {
+        $('#selection-datatable').DataTable();
+    });
 
+</script>
 <script>
   // Khai báo controller `thongKeSanPhamController`
   app.controller('thongKeSanPhamController', function($scope, $http) {

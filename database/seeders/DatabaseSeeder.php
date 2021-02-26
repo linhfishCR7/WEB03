@@ -36,6 +36,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KhuyenMaiTableSeeder::class);
         $this->call(KhuyenMaiSanPhamTableSeeder::class);
         $this->call(NhanVienTableSeeder::class);
-
+        
     }
 }

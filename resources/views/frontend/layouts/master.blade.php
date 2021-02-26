@@ -60,7 +60,7 @@
     </div> --}}
     <!-- jQuery -->
     <script src="{{ asset('themes/westeros/js/vendor/jquery-1.11.1.min.js') }}"></script>
-    
+
     <!-- XM Accordion -->
     <script src="{{ asset('themes/westeros/js/vendor/jquery.xmaccordion.min.js') }}"></script>
     <!-- Owl Carrousel -->
@@ -69,9 +69,11 @@
     <script src="{{ asset('themes/westeros/js/vendor/jquery.magnific-popup.min.js') }}"></script>
     <!-- imgLiquid -->
     <script src="{{ asset('themes/westeros/js/vendor/imgLiquid-min.js') }}"></script>
+    <!-- JRange -->
+    <script src="{{ asset('themes/westeros/js/vendor/jquery.range.min.js')}}"></script>
     <!-- Liquid -->
     <script src="{{ asset('themes/westeros/js/liquid.js') }}"></script>
-    
+
     <!-- Header -->
     <script src="{{ asset('themes/westeros/js/header.js') }}"></script>
     <!-- Menu -->

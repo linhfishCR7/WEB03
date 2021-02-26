@@ -3,7 +3,7 @@
 		<img class="pull-nav" src="{{ asset('themes/westeros/images/icons/pull-icon.png') }}" alt="pull-icon">
 		<ul>
 			<li><a href="/">Home</a></li>
-			<li>
+			{{-- <li>
 				<a href="#" class="submenu">New Arrivals</a>
 				<!-- SUBMENU MEDIUM -->
 				<ul class="submenu-medium">
@@ -304,10 +304,12 @@
 					</li>
 				</ul>
 				<!-- /SUBMENU MEDIUM -->
-			</li>
-			<li><a href="women-shop.html">Women</a></li>
-			<li><a href="men-shop.html">Men</a></li>
-			<li>
+			</li> --}}			
+			<li><a href="#">Sale</a></li>
+			<li><a href="#">Best Sale</a></li>
+			<li><a href="#">Best Betta</a></li>
+			<li><a href="#">Shop</a></li>
+			{{-- <li>
 				<a href="#" class="submenu">Shop</a>
 				<!-- SUBMENU LARGE -->
 				<ul class="submenu-large">
@@ -690,18 +692,18 @@
 					</li>
 				</ul>
 				<!-- /SUBMENU LARGE -->
-			</li>
+			</li> --}}
 			<li>
-				<a href="#" class="submenu">Features</a>
+				<a href="#" class="submenu">FAQs</a>
 				<!-- SUBMENU SMALL -->
 				<ul class="submenu-small">
 					<li>
-						<a href="register-login.html">Register / Login</a>
+						<a href="/xac-thuc">Register / Login</a>
 					</li>
 					<li>
-						<a href="profile.html">Profile Page</a>
+						<a href="/profile">Profile Page</a>
 					</li>
-					<li>
+					{{-- <li>
 						<a href="#">Two Level Dropdown
 							<!-- SVG ARROW -->
 							<svg class="svg-arrow">
@@ -715,20 +717,20 @@
 							<li><a href="#">Item 03</a></li>
 							<li><a href="#">Item 04</a></li>
 						</ul>
+					</li> --}}
+					<li>
+						<a href="/cau-hoi-thuong-gap">Câu hỏi thường gặp</a>
 					</li>
 					<li>
-						<a href="merchandising-shop.html">Merchandising (Grid V2)</a>
+						<a href="/huong-dan-su-dung">Hướng dẫn sử dụng</a>
 					</li>
 					<li>
-						<a href="no-banner-shop.html">No Banner Shop</a>
+						<a href="/rieng-tu">Riêng tư</a>
 					</li>
 					<li>
-						<a href="product-builder.html">Product Builder</a>
+						<a href="/boi-thuong">Bồi thường</a>
 					</li>
-					<li>
-						<a href="wishlist.html">Wishlist Page</a>
-					</li>
-					<li>
+					{{-- <li>
 						<a href="compare.html">Compare</a>
 					</li>
 					<li>
@@ -736,11 +738,11 @@
 					</li>
 					<li>
 						<a href="404.html">404 Error Page</a>
-					</li>
+					</li> --}}
 				</ul>
 				<!-- SUBMENU SMALL -->
 			</li>
-			<li><a href="blog.html">Blog</a></li>
+			<li><a href="/cau-hoi-thuong-gap">Blog</a></li>
 			<li class="{{ Request::is('lien-he') ? 'active-menu' : '' }}">
 				<a href="{{ route('frontend.pages.contact') }}">Contact</a>
 			</li>

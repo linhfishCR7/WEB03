@@ -11,19 +11,19 @@
                             <li class="menu-title">Navigation</li>
 
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect">
+                                <a href="#" class="waves-effect">
                                     <i class="remixicon-dashboard-line"></i>
-                                    <span class="badge badge-success badge-pill float-right">2</span>
+                                    {{-- <span class="badge badge-success badge-pill float-right">2</span> --}}
                                     <span> Dashboards </span>
                                 </a>
-                                <ul class="nav-second-level" aria-expanded="false">
+                                {{-- <ul class="nav-second-level" aria-expanded="false">
                                     <li>
                                         <a href="index.html">Dashboard 1</a>
                                     </li>
                                     <li>
                                         <a href="dashboard-2.html">Dashboard 2</a>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </li>
 
                             <li>
@@ -33,113 +33,53 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
+                                    
                                     <li>
-                                        <a href="apps-kanbanboard.html">Kanban Board</a>
+                                        <a href="#">Calendar</a>
                                     </li>
                                     <li>
-                                        <a href="apps-companies.html">Companies</a>
-                                    </li>
-                                    <li>
-                                        <a href="apps-calendar.html">Calendar</a>
-                                    </li>
-                                    <li>
-                                        <a href="apps-filemanager.html">File Manager</a>
-                                    </li>
-                                    <li>
-                                        <a href="apps-tickets.html">Tickets</a>
-                                    </li>
-                                    <li>
-                                        <a href="apps-team.html">Team Members</a>
+                                        <a href="/backend/team">Team Members</a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="remixicon-layout-line"></i>
-                                    <span class="badge badge-pink float-right">New</span>
-                                    <span> Layouts </span>
-                                </a>
-                                <ul class="nav-second-level" aria-expanded="false">
-                                    <li>
-                                        <a href="layouts-sidebar-sm.html">Small Sidebar</a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-dark-sidebar.html">Dark Sidebar</a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-light-topbar.html">Light Topbar</a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-preloader.html">Preloader</a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-sidebar-collapsed.html">Sidebar Collapsed</a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-boxed.html">Boxed</a>
-                                    </li>
-                                </ul>
-                            </li>
-                
-                            <li>
-                                <a href="javascript: void(0);" class="waves-effect">
-                                    <i class="remixicon-mail-open-line"></i>
-                                    <span> Email </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="nav-second-level" aria-expanded="false">
-                                    <li>
-                                        <a href="email-inbox.html">Inbox</a>
-                                    </li>
-                                    <li>
-                                        <a href="email-read.html">Read Email</a>
-                                    </li>
-                                    <li>
-                                        <a href="email-compose.html">Compose Email</a>
-                                    </li>
-                                    <li>
-                                        <a href="email-templates.html">Email Templates</a>
-                                    </li>
-                                </ul>
-                            </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="waves-effect">
                                     <i class="remixicon-file-copy-2-line"></i>
-                                    <span> Pages </span>
+                                    <span> Cập nhật </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li>
-                                        <a href="pages-starter.html">Starter</a>
+                                        <a href="/backend/xuatxu">Xuất xứ</a>
                                     </li>
                                     <li>
-                                        <a href="pages-login.html">Log In</a>
+                                        <a href="/backend/vanchuyen">Vận chuyển</a>
                                     </li>
                                     <li>
-                                        <a href="pages-register.html">Register</a>
+                                        <a href="/backend/thanhtoan">Thanh toán</a>
                                     </li>
                                     <li>
-                                        <a href="pages-recoverpw.html">Recover Password</a>
+                                        <a href="/backend/quyen">Quyền người dùng</a>
                                     </li>
                                     <li>
-                                        <a href="pages-lock-screen.html">Lock Screen</a>
+                                        <a href="/backend/khachhang'">Khách hàng</a>
                                     </li>
                                     <li>
-                                        <a href="pages-logout.html">Logout</a>
+                                        <a href="/backend/chude">Chủ đề</a>
                                     </li>
                                     <li>
-                                        <a href="pages-confirm-mail.html">Confirm Mail</a>
+                                        <a href="/backend/phieunhap">Kho hàng</a>
                                     </li>
                                     <li>
-                                        <a href="pages-404.html">Error 404</a>
+                                        <a href="/backend/danhmuc">Danh mục</a>
                                     </li>
                                     <li>
-                                        <a href="pages-404-alt.html">Error 404-alt</a>
+                                        <a href="/backend/mau">Màu sản phẩm</a>
                                     </li>
                                     <li>
-                                        <a href="pages-500.html">Error 500</a>
+                                        <a href="/backend/sanpham">Sản phẩm</a>
                                     </li>
                                 </ul>
                             </li>
@@ -147,43 +87,25 @@
                             <li>
                                 <a href="javascript: void(0);" class="waves-effect">
                                     <i class="remixicon-pages-line"></i>
-                                    <span> Extra Pages </span>
+                                    <span> Thống kê </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li>
-                                        <a href="extras-profile.html">Profile</a>
+                                        <a href="/backend/baocao/donhang">Đơn hàng</a>
                                     </li>
                                     <li>
-                                        <a href="extras-timeline.html">Timeline</a>
+                                        <a href="/backend/thongke_3_sanpham_moinhat">3 sản phẩm mới nhất</a>
                                     </li>
                                     <li>
-                                        <a href="extras-invoice.html">Invoice</a>
-                                    </li>
-                                    <li>
-                                        <a href="extras-faqs.html">FAQs</a>
-                                    </li>
-                                    <li>
-                                        <a href="extras-tour.html">Tour Page</a>
-                                    </li>
-                                    <li>
-                                        <a href="extras-pricing.html">Pricing</a>
-                                    </li>
-                                    <li>
-                                        <a href="extras-maintenance.html">Maintenance</a>
-                                    </li>
-                                    <li>
-                                        <a href="extras-coming-soon.html">Coming Soon</a>
-                                    </li>
-                                    <li>
-                                        <a href="extras-gallery.html">Gallery</a>
+                                        <a href="/backend/gallery">Gallery</a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="menu-title mt-2">Components</li>
 
-                            <li>
+                            {{-- <li>
                                 <a href="javascript: void(0);" class="waves-effect">
                                     <i class="remixicon-briefcase-5-line"></i>
                                     <span> UI Elements </span>
@@ -434,7 +356,7 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
 
                     </div>
