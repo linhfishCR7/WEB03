@@ -16,32 +16,32 @@
 					<!-- /LOGO -->
 
 					<!-- CONTACT INFO -->
-					<ul class="contact-info">
-						<li class="address">
-							<!-- SVG PIN -->
-							<svg class="svg-pin">
-								<use xlink:href="#svg-pin"></use>	
-							</svg>
-							<!-- /SVG PIN -->
-							<p>34th Street 1235, New York, NY</p>
-						</li>
-						<li class="phone">
-							<!-- SVG PHONE -->
-							<svg class="svg-phone">
-								<use xlink:href="#svg-phone"></use>	
-							</svg>
-							<!-- /SVG PHONE -->
-							<p>(044) 555 123 1234/35</p>
-						</li>
-						<li class="email">
-							<!-- SVG ENVELOPE -->
-							<svg class="svg-envelope">
-								<use xlink:href="#svg-envelope"></use>	
-							</svg>
-							<!-- /SVG ENVELOPE -->
-							<p><a href="mailto:questions@westeroscc.com">questions@westeroscc.com</a></p>
-						</li>
-					</ul>
+                <ul class="contact-info">
+                    <li class="address">
+                        <!-- SVG PIN -->
+                        <svg class="svg-pin">
+                            <use xlink:href="#svg-pin"></use>
+                        </svg>
+                        <!-- /SVG PIN -->
+                        <p>3/2, Hung Loi, Ninh Kieu, Can Tho</p>
+                    </li>
+                    <li class="phone">
+                        <!-- SVG PHONE -->
+                        <svg class="svg-phone">
+                            <use xlink:href="#svg-phone"></use>
+                        </svg>
+                        <!-- /SVG PHONE -->
+                        <p>(+84) 3428 78767</p>
+                    </li>
+                    <li class="email">
+                        <!-- SVG ENVELOPE -->
+                        <svg class="svg-envelope">
+                            <use xlink:href="#svg-envelope"></use>
+                        </svg>
+                        <!-- /SVG ENVELOPE -->
+                        <p><a href="mailto:linhfish10c1@gmail.com">linhfish10c1@gmail.com</a></p>
+                    </li>
+                </ul>
 					<!-- /CONTACT INFO -->
 
 					<!-- PAYMENT METHODS -->

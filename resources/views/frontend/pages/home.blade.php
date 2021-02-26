@@ -27,7 +27,7 @@ ul.product-list .list-item figure {
 			<div class="main-promo">
 				<h2>Welcome to<br><span>Westeros</span></h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eradum eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				<a href="women-shop.html" class="button secondary">Go to the Shop</a>
+				<a href="/" class="button secondary">Go to the Shop</a>
 			</div>
 			<div id="banner-monster">
 				<div class="speech-bubble">
