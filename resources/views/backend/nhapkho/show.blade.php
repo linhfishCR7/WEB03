@@ -42,6 +42,8 @@ Chi tiết phiếu nhập kho
 
                 <h4 class="header-title">Chi tiết phiếu nhập kho #{{$phieunhap->pn_ma}}</h4>
                 <p class="text-muted font-13 mb-4"></p>
+                <a href="{{ route('backend.phieunhap.print',$phieunhap->pn_ma) }}" class="btn btn-info mb-2"><i class="remixicon-printer-line" data-toggle="tooltip" data-placement="top" title="IN"></i></a>
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

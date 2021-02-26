@@ -26,9 +26,9 @@ class CreateDonhang extends Migration
             $table->string('dh_nguoiGui', 100)->comment('Người tặng quà # Người tặng (tên hiển thị)');
             $table->text('dh_loiChuc')->nullable()->comment('Lời chúc # Lời chúc ghi trên thiệp');
             $table->unsignedTinyInteger('dh_daThanhToan')->default('0')->comment('Đã thanh toán # Đã thanh toán tiền (trường hợp tặng quà)');
-            $table->unsignedSmallInteger('nv_xuLy')->default('1')->comment('Xử lý đơn hàng # nv_ma # nv_hoTen # Mã nhân viên (người xử lý đơn hàng), 1-chưa phân công');
+            $table->unsignedBigInteger('nv_xuLy')->default('1')->comment('Xử lý đơn hàng # nv_ma # nv_hoTen # Mã nhân viên (người xử lý đơn hàng), 1-chưa phân công');
             $table->dateTime('dh_ngayXuLy')->nullable()->default(NULL)->comment('Thời điểm xử lý # Thời điểm xử lý đơn hàng');
-            $table->unsignedSmallInteger('nv_giaoHang')->default('1')->comment('Giao hàng # nv_ma # nv_hoTen # Mã nhân viên (người lập phiếu giao hàng và giao hàng), 1-chưa phân công');
+            $table->unsignedBigInteger('nv_giaoHang')->default('1')->comment('Giao hàng # nv_ma # nv_hoTen # Mã nhân viên (người lập phiếu giao hàng và giao hàng), 1-chưa phân công');
             $table->dateTime('dh_ngayLapPhieuGiao')->nullable()->default(NULL)->comment('Thời điểm lập phiếu giao # Thời điểm lập phiếu giao');
             $table->dateTime('dh_ngayGiaoHang')->nullable()->default(NULL)->comment('Thời điểm khách nhận được hàng # Thời điểm khách nhận được hàng');
             $table->timestamp('dh_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Thời điểm tạo # Thời điểm đầu tiên tạo đơn hàng');
@@ -39,8 +39,8 @@ class CreateDonhang extends Migration
             $table->softDeletes()->comment('Xóa mềm');  // soft delete         
 
             $table->foreign('kh_ma')->references('kh_ma')->on('khachhang')->onDelete('RESTRICT')->onUpdate('CASCADE');
-            $table->foreign('nv_giaoHang')->references('nv_ma')->on('nhanvien')->onDelete('RESTRICT')->onUpdate('CASCADE');
-            $table->foreign('nv_xuLy')->references('nv_ma')->on('nhanvien')->onDelete('RESTRICT')->onUpdate('CASCADE');
+            $table->foreign('nv_giaoHang')->references('id')->on('users')->onDelete('RESTRICT')->onUpdate('CASCADE');
+            $table->foreign('nv_xuLy')->references('id')->on('users')->onDelete('RESTRICT')->onUpdate('CASCADE');
             $table->foreign('tt_ma')->references('tt_ma')->on('thanhtoan')->onDelete('RESTRICT')->onUpdate('CASCADE');
             $table->foreign('vc_ma')->references('vc_ma')->on('vanchuyen')->onDelete('RESTRICT')->onUpdate('CASCADE');
         });

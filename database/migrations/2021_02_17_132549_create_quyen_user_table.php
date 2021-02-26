@@ -17,7 +17,7 @@ class CreateQuyenUserTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedTinyInteger('quyen_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('quyen_id')->references('q_ma')->on('quyen')->onDelete('cascade');
+            $table->foreign('quyen_id')->references('id')->on('quyen')->onDelete('cascade');
 
             $table->primary(['user_id','quyen_id']);
         });

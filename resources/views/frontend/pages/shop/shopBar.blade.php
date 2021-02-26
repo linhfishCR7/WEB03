@@ -11,7 +11,7 @@
         <!--ACCORDION ITEM-->
         <li>
             <a href="#">
-                <h6>T-Shirts (26)</h6>
+                <h6>Cá Betta Fancy (26)</h6>
                 <svg class="plus">
                     <rect class="vertical" x="3" width="3" height="9" />
                     <rect y="3" width="9" height="3" />
@@ -61,7 +61,7 @@
         <!--ACCORDION ITEM-->
         <li>
             <a href="#">
-                <h6>Tank Tops (15)</h6>
+                <h6>Cá Betta Galaxy (15)</h6>
                 <svg class="plus">
                     <rect class="vertical" x="3" width="3" height="9" />
                     <rect y="3" width="9" height="3" />
@@ -111,7 +111,7 @@
         <!--ACCORDION ITEM-->
         <li>
             <a href="#">
-                <h6>Hoodies (20)</h6>
+                <h6>Cá Betta Giant (20)</h6>
                 <svg class="plus">
                     <rect class="vertical" x="3" width="3" height="9" />
                     <rect y="3" width="9" height="3" />
@@ -161,7 +161,7 @@
         <!--ACCORDION ITEM-->
         <li>
             <a href="#">
-                <h6>Pants / Skirts (28)</h6>
+                <h6>Cá Betta Halfmoon (28)</h6>
                 <svg class="plus">
                     <rect class="vertical" x="3" width="3" height="9" />
                     <rect y="3" width="9" height="3" />
@@ -211,7 +211,7 @@
         <!--ACCORDION ITEM-->
         <li>
             <a href="#">
-                <h6>Dresses (10)</h6>
+                <h6>Cá Betta Koi (10)</h6>
             </a>
         </li>
         <!--/ACCORDION ITEM-->
@@ -219,7 +219,7 @@
         <!--ACCORDION ITEM-->
         <li>
             <a href="#">
-                <h6>Custom Sneakers (17)</h6>
+                <h6>Cá Betta Koi nemo (17)</h6>
             </a>
         </li>
         <!--/ACCORDION ITEM-->
@@ -227,7 +227,7 @@
         <!--ACCORDION ITEM-->
         <li>
             <a href="#">
-                <h6>Nightgowns (6)</h6>
+                <h6>Others (6)</h6>
                 <svg class="plus">
                     <rect class="vertical" x="3" width="3" height="9" />
                     <rect y="3" width="9" height="3" />
@@ -282,11 +282,11 @@
         <li>
             <div class="picture">
                 <figure class="liquid">
-                    <img src="images/items/02.png" alt="product1">
+                    <img src="{{ asset('storage/upload/betta-21.jpg') }}" alt="product1">
                 </figure>
             </div>
             <a href="#">
-                <p class="highlighted category">T-Shirts</p>
+                <p class="highlighted category">Cá Betta Koi nemo</p>
             </a>
             <a href="#">
                 <h6>Crazy Bunny</h6>
@@ -336,11 +336,11 @@
         <li>
             <div class="picture">
                 <figure class="liquid">
-                    <img src="images/items/25.png" alt="product2">
+                    <img src="{{ asset('storage/upload/betta-11.jpg') }}" alt="product2">
                 </figure>
             </div>
             <a href="#">
-                <p class="highlighted category">T-Shirts</p>
+                <p class="highlighted category">Cá Betta Koi</p>
             </a>
             <a href="#">
                 <h6>Happy Doughnut</h6>
@@ -391,11 +391,11 @@
         <li>
             <div class="picture">
                 <figure class="liquid">
-                    <img src="images/items/32.png" alt="product3">
+                    <img src="{{ asset('storage/upload/betta-4.jpg') }}" alt="product3">
                 </figure>
             </div>
             <a href="#">
-                <p class="highlighted category">Custom Sneakers</p>
+                <p class="highlighted category">Cá Betta Koi</p>
             </a>
             <a href="#">
                 <h6>The Devil Walks</h6>
@@ -445,11 +445,11 @@
         <li>
             <div class="picture">
                 <figure class="liquid">
-                    <img src="images/items/15.png" alt="product1">
+                    <img src="{{ asset('storage/upload/betta-5.jpg') }}" alt="product1">
                 </figure>
             </div>
             <a href="#">
-                <p class="highlighted category">T-Shirts</p>
+                <p class="highlighted category">Cá Betta Koi</p>
             </a>
             <a href="#">
                 <h6>The Devil Pin 02</h6>

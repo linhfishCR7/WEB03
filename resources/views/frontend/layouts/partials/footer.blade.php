@@ -16,32 +16,32 @@
 					<!-- /LOGO -->
 
 					<!-- CONTACT INFO -->
-					<ul class="contact-info">
-						<li class="address">
-							<!-- SVG PIN -->
-							<svg class="svg-pin">
-								<use xlink:href="#svg-pin"></use>	
-							</svg>
-							<!-- /SVG PIN -->
-							<p>34th Street 1235, New York, NY</p>
-						</li>
-						<li class="phone">
-							<!-- SVG PHONE -->
-							<svg class="svg-phone">
-								<use xlink:href="#svg-phone"></use>	
-							</svg>
-							<!-- /SVG PHONE -->
-							<p>(044) 555 123 1234/35</p>
-						</li>
-						<li class="email">
-							<!-- SVG ENVELOPE -->
-							<svg class="svg-envelope">
-								<use xlink:href="#svg-envelope"></use>	
-							</svg>
-							<!-- /SVG ENVELOPE -->
-							<p><a href="mailto:questions@westeroscc.com">questions@westeroscc.com</a></p>
-						</li>
-					</ul>
+                <ul class="contact-info">
+                    <li class="address">
+                        <!-- SVG PIN -->
+                        <svg class="svg-pin">
+                            <use xlink:href="#svg-pin"></use>
+                        </svg>
+                        <!-- /SVG PIN -->
+                        <p>3/2, Hung Loi, Ninh Kieu, Can Tho</p>
+                    </li>
+                    <li class="phone">
+                        <!-- SVG PHONE -->
+                        <svg class="svg-phone">
+                            <use xlink:href="#svg-phone"></use>
+                        </svg>
+                        <!-- /SVG PHONE -->
+                        <p>(+84) 3428 78767</p>
+                    </li>
+                    <li class="email">
+                        <!-- SVG ENVELOPE -->
+                        <svg class="svg-envelope">
+                            <use xlink:href="#svg-envelope"></use>
+                        </svg>
+                        <!-- /SVG ENVELOPE -->
+                        <p><a href="mailto:linhfish10c1@gmail.com">linhfish10c1@gmail.com</a></p>
+                    </li>
+                </ul>
 					<!-- /CONTACT INFO -->
 
 					<!-- PAYMENT METHODS -->
@@ -156,10 +156,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/02.png')}}" alt="product1">
+									<img src="{{ asset('storage/upload/betta-1.jpg') }}" alt="product1">
 								</figure>
 							</a>
-							<a href="women-shop.html"><p class="highlighted category">T-Shirts</p></a>
+							<a href="women-shop.html"><p class="highlighted category">Cá Betta Fancy</p></a>
 							<a href="full-view.html"><h6>Crazy Bunny</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -206,10 +206,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/25.png')}}" alt="product2">
+									<img src="{{ asset('storage/upload/betta-2.jpg') }}" alt="product2">
 								</figure>
 							</a>
-							<a href="women-shop.html"><p class="highlighted category">T-Shirts</p></a>
+							<a href="women-shop.html"><p class="highlighted category">Cá Betta Fancy</p></a>
 							<a href="full-view.html"><h6>Happy Doughnut</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -257,10 +257,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/32.png')}}" alt="product3">
+									<img src="{{ asset('storage/upload/betta-3.jpg') }}" alt="product3">
 								</figure>
 							</a>
-							<a href="women-shop.html"><p class="highlighted category">Custom Sneakers</p></a>
+							<a href="women-shop.html"><p class="highlighted category">Cá Betta Galaxy</p></a>
 							<a href="full-view.html"><h6>The Devil Walks</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -314,10 +314,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/31.png')}}" alt="product1">
+									<img src="{{ asset('storage/upload/betta-20.jpg') }}" alt="product1">
 								</figure>
 							</a>
-							<a href="men-shop.html"><p class="highlighted category">Custom Sneakers</p></a>
+							<a href="men-shop.html"><p class="highlighted category">Cá Betta Galaxy</p></a>
 							<a href="full-view.html"><h6>Crazy-R Chucks</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -364,10 +364,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/16.png')}}" alt="product1">
+									<img src="{{ asset('storage/upload/betta-21.jpg') }}" alt="product1">
 								</figure>
 							</a>
-							<a href="men-shop.html"><p class="highlighted category">T-Shirts</p></a>
+							<a href="men-shop.html"><p class="highlighted category">Cá Betta Galaxy</p></a>
 							<a href="full-view.html"><h6>The Devil Pin 02</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -414,10 +414,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/07.png')}}" alt="product1">
+									<img src="{{ asset('storage/upload/betta-22.jpg') }}" alt="product1">
 								</figure>
 							</a>
-							<a href="women-shop.html"><p class="highlighted category">T-Shirts</p></a>
+							<a href="women-shop.html"><p class="highlighted category">Cá Betta Halfmoon</p></a>
 							<a href="full-view.html"><h6>Robo Planet</h6></a>
 							<!-- RATING -->
 							<ul class="rating">

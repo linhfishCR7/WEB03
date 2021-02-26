@@ -66,7 +66,7 @@ Phiếu nhập kho
                     </thead>
                     <tbody>
 
-                        @foreach ($dsphieunhap as $phieunhap)
+                        @foreach ($phieunhap as $phieunhap)
                         <tr>
                             <td>{{ $phieunhap->pn_ma }}</td>
                             <td>{{ $phieunhap->pn_nguoiGiao }}</td>
