@@ -32,7 +32,7 @@ class CreateNhanvien extends Migration
             $table->softDeletes()->comment('Xóa mềm');  // soft delete         
 
             $table->unique(['nv_taiKhoan', 'nv_email', 'nv_dienThoai']);
-            $table->foreign('q_ma')->references('q_ma')->on('quyen')->onDelete('RESTRICT')->onUpdate('CASCADE');
+            // $table->foreign('q_ma')->references('q_ma')->on('quyen')->onDelete('RESTRICT')->onUpdate('CASCADE');
         });
     }
 

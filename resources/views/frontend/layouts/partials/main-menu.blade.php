@@ -2,7 +2,7 @@
 	<nav id="main-menu">
 		<img class="pull-nav" src="{{ asset('themes/westeros/images/icons/pull-icon.png') }}" alt="pull-icon">
 		<ul>
-			<li><a href="index.html">Home</a></li>
+			<li><a href="/">Home</a></li>
 			<li>
 				<a href="#" class="submenu">New Arrivals</a>
 				<!-- SUBMENU MEDIUM -->

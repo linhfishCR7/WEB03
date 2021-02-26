@@ -39,7 +39,7 @@ class NhanVienTableSeeder extends Seeder {
             'nv_dienThoai' => "01234567890",
             'nv_taoMoi'    => $today->format('Y-m-d H:i:s'),
             'nv_capNhat'   => $today->format('Y-m-d H:i:s'),
-            'q_ma'         => 6
+            // 'q_ma'         => 6
         ]);
 
         for ($i=0, $count = 2; $i < $roles; $i++) {
@@ -67,7 +67,7 @@ class NhanVienTableSeeder extends Seeder {
                     'nv_dienThoai' => $phone,
                     'nv_taoMoi'    => $today->format('Y-m-d H:i:s'),
                     'nv_capNhat'   => $today->format('Y-m-d H:i:s'),
-                    'q_ma'         => $i+1
+                    // 'q_ma'         => $i+1
                 ]);
 
                 // if ($i == 0) {
@@ -99,7 +99,7 @@ class NhanVienTableSeeder extends Seeder {
             'nv_dienThoai' => "0342878767",
             'nv_taoMoi'    => $today->format('Y-m-d H:i:s'),
             'nv_capNhat'   => $today->format('Y-m-d H:i:s'),
-            'q_ma'         => 2
+            // 'q_ma'         => 2
         ]);
         DB::table('nhanvien')->insert($list);
     }

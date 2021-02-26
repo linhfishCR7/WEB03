@@ -22,9 +22,9 @@ class CreateHoadonsi extends Migration
             $table->string('hds_diaChi', 250)->comment('Địa chỉ # Địa chỉ đơn vị');
             $table->string('hds_maSoThue', 14)->comment('Mã số thuế # Mã số thuế đơn vị');
             $table->string('hds_soTaiKhoan', 20)->nullable()->default('NULL')->comment('Số tài khoản # Số tài khoản');
-            $table->unsignedSmallInteger('nv_lapHoaDon')->comment('Lập hóa đơn # nv_ma # nv_hoTen # Mã nhân viên (người lập hóa đơn)');
+            $table->unsignedBigInteger('nv_lapHoaDon')->comment('Lập hóa đơn # nv_ma # nv_hoTen # Mã nhân viên (người lập hóa đơn)');
             $table->dateTime('hds_ngayXuatHoaDon')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Thời điểm xuất # Thời điểm xuất hóa đơn');
-            $table->unsignedSmallInteger('nv_thuTruong')->default('1')->comment('Thủ trưởng # nv_ma # nv_hoTen # Mã nhân viên (thủ trưởng), 1-chưa phân công');
+            $table->unsignedBigInteger('nv_thuTruong')->default('1')->comment('Thủ trưởng # nv_ma # nv_hoTen # Mã nhân viên (thủ trưởng), 1-chưa phân công');
             $table->timestamp('hds_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Thời điểm tạo # Thời điểm đầu tiên tạo hóa đơn');
             $table->timestamp('hds_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Thời điểm cập nhật # Thời điểm cập nhật hóa đơn gần nhất');
             $table->unsignedTinyInteger('hds_trangThai')->default('1')->comment('Trạng thái # Trạng thái hóa đơn: 1-lập hóa đơn, 2-xuất hóa đơn, 3-hủy');
@@ -33,8 +33,8 @@ class CreateHoadonsi extends Migration
             $table->softDeletes()->comment('Xóa mềm');  // soft delete         
 
             $table->foreign('dh_ma')->references('dh_ma')->on('donhang')->onDelete('RESTRICT')->onUpdate('CASCADE');
-            $table->foreign('nv_lapHoaDon')->references('nv_ma')->on('nhanvien')->onDelete('RESTRICT')->onUpdate('CASCADE');
-            $table->foreign('nv_thuTruong')->references('nv_ma')->on('nhanvien')->onDelete('RESTRICT')->onUpdate('CASCADE');
+            $table->foreign('nv_lapHoaDon')->references('id')->on('users')->onDelete('RESTRICT')->onUpdate('CASCADE');
+            $table->foreign('nv_thuTruong')->references('id')->on('users')->onDelete('RESTRICT')->onUpdate('CASCADE');
             $table->foreign('tt_ma')->references('tt_ma')->on('thanhtoan')->onDelete('RESTRICT')->onUpdate('CASCADE');
         });
         DB::statement("ALTER TABLE `hoadonsi` comment 'Hóa đơn bán sỉ # Hóa đơn bán sỉ: sản phẩm, màu, số lượng, đơn giá, đơn hàng'");

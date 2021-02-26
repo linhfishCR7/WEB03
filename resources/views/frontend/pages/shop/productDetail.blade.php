@@ -125,32 +125,35 @@
                 </div>
                 <!-- /COUNTER -->
             </div>
-            <div class="options">
-                <a href="#" class="button medium fb"></a>
-                <a href="#" class="button medium twt"></a>
-                <a href="#compare-modal" class="button medium compare cmp-popup" data-effect="mfp-3d-unfold">
-                    <!-- SVG COMPARE -->
-                    <svg class="svg-compare">
-                        <use xlink:href="#svg-compare"></use>
-                    </svg>
-                    <!-- /SVG COMPARE -->
-                </a>
-                <a href="#" class="button medium wishlist">
-                    <!-- SVG WISHLIST -->
-                    <svg class="svg-wishlist">
-                        <use xlink:href="#svg-wishlist"></use>
-                    </svg>
-                    <!-- /SVG WISHLIST -->
-                </a>
-                <a href="#" class="button cart-add">
-                    <!-- SVG PLUS -->
-                    <svg class="svg-plus">
-                        <use xlink:href="#svg-plus"></use>
-                    </svg>
-                    <!-- /SVG PLUS -->
-                    Add to Cart
-                </a>
-            </div>
+            <ngcart-addtocart template-url="{{ asset('vendor/ngCart/template/ngCart/addtocart.html') }}" id="{{ $sp->sp_ma }}" name="{{ $sp->sp_ten }}" price="{{ $sp->sp_giaBan }}" quantity="1" quantity-max="30" data="{ sp_hinh_url: '{{ asset('storage/upload/' . $sp->sp_hinh) }}' }">
+                <div class="options">
+                    <a href="#" class="button medium fb"></a>
+                    <a href="#" class="button medium twt"></a>
+                    <a href="#compare-modal" class="button medium compare cmp-popup" data-effect="mfp-3d-unfold">
+                        <!-- SVG COMPARE -->
+                        <svg class="svg-compare">
+                            <use xlink:href="#svg-compare"></use>
+                        </svg>
+                        <!-- /SVG COMPARE -->
+                    </a>
+                    <a href="#" class="button medium wishlist">
+                        <!-- SVG WISHLIST -->
+                        <svg class="svg-wishlist">
+                            <use xlink:href="#svg-wishlist"></use>
+                        </svg>
+                        <!-- /SVG WISHLIST -->
+                    </a>
+
+                    <a href="#" class="button cart-add">
+                        <!-- SVG PLUS -->
+                        <svg class="svg-plus">
+                            <use xlink:href="#svg-plus"></use>
+                        </svg>
+                        <!-- /SVG PLUS -->
+                        ADD TO CART
+                    </a>
+                </div>
+            </ngcart-addtocart>
         </div>
         <!-- /PRODUCT DESCRIPTION -->
     </div>
