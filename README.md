@@ -39,11 +39,11 @@ php artisan db:seed
 - Ten miền ảo: http://cacanh.local/
 ## Step 6: thông tin tài khoản truy cập hệ thống
 Tài khoản Admin:
-admin / 123456
+qt@gmail.com / 12345678
 
 Tài khoản Quản lý kho:
-kho / 123456
+qlk@gmail.com / 12345678
 
 Tài khoản Khách hàng:
-khachhang / 123456
+kh@gmail.com / 12345678
 ...
