@@ -22,7 +22,7 @@ class PhieuNhapController extends Controller
         $phieunhap = PhieuNhap::all();
 
         return view('backend.nhapkho.index')
-            ->with('dsphieunhap', $phieunhap);
+            ->with('phieunhap', $phieunhap);
     }
 
     /**
@@ -158,7 +158,7 @@ class PhieuNhapController extends Controller
     public function print($id)
     {
         $pn = PhieuNhap::where("pn_ma", $id)->first();
-        $ctn = ChiTietNhap::where("pn_ma", $id)->first();
+        $ctn = ChiTietNhap::where("pn_ma", $id)->get();
 
         return view('backend.nhapkho.print')
             ->with('phieunhap', $pn)

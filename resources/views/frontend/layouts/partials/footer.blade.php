@@ -156,10 +156,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/02.png')}}" alt="product1">
+									<img src="{{ asset('storage/upload/betta-1.jpg') }}" alt="product1">
 								</figure>
 							</a>
-							<a href="women-shop.html"><p class="highlighted category">T-Shirts</p></a>
+							<a href="women-shop.html"><p class="highlighted category">Cá Betta Fancy</p></a>
 							<a href="full-view.html"><h6>Crazy Bunny</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -206,10 +206,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/25.png')}}" alt="product2">
+									<img src="{{ asset('storage/upload/betta-2.jpg') }}" alt="product2">
 								</figure>
 							</a>
-							<a href="women-shop.html"><p class="highlighted category">T-Shirts</p></a>
+							<a href="women-shop.html"><p class="highlighted category">Cá Betta Fancy</p></a>
 							<a href="full-view.html"><h6>Happy Doughnut</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -257,10 +257,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/32.png')}}" alt="product3">
+									<img src="{{ asset('storage/upload/betta-3.jpg') }}" alt="product3">
 								</figure>
 							</a>
-							<a href="women-shop.html"><p class="highlighted category">Custom Sneakers</p></a>
+							<a href="women-shop.html"><p class="highlighted category">Cá Betta Galaxy</p></a>
 							<a href="full-view.html"><h6>The Devil Walks</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -314,10 +314,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/31.png')}}" alt="product1">
+									<img src="{{ asset('storage/upload/betta-20.jpg') }}" alt="product1">
 								</figure>
 							</a>
-							<a href="men-shop.html"><p class="highlighted category">Custom Sneakers</p></a>
+							<a href="men-shop.html"><p class="highlighted category">Cá Betta Galaxy</p></a>
 							<a href="full-view.html"><h6>Crazy-R Chucks</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -364,10 +364,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/16.png')}}" alt="product1">
+									<img src="{{ asset('storage/upload/betta-21.jpg') }}" alt="product1">
 								</figure>
 							</a>
-							<a href="men-shop.html"><p class="highlighted category">T-Shirts</p></a>
+							<a href="men-shop.html"><p class="highlighted category">Cá Betta Galaxy</p></a>
 							<a href="full-view.html"><h6>The Devil Pin 02</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
@@ -414,10 +414,10 @@
 						<li>
 							<a href="full-view.html">
 								<figure class="liquid">
-									<img src="{{ asset('themes/westeros/images/items/07.png')}}" alt="product1">
+									<img src="{{ asset('storage/upload/betta-22.jpg') }}" alt="product1">
 								</figure>
 							</a>
-							<a href="women-shop.html"><p class="highlighted category">T-Shirts</p></a>
+							<a href="women-shop.html"><p class="highlighted category">Cá Betta Halfmoon</p></a>
 							<a href="full-view.html"><h6>Robo Planet</h6></a>
 							<!-- RATING -->
 							<ul class="rating">
