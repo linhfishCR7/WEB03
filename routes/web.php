@@ -49,6 +49,11 @@ Route::resource('backend/chude','Backend\ChuDeController',['as'=>'backend']);
 
 //api-thống kê
 Route::get('backend/thongke_3_sanpham_moinhat', 'Backend\BackendController@thongke_3_sanpham_moinhat')->name('backend.pages.thongke_3_sanpham_moinhat');
+Route::get('backend/gallery', 'Backend\BackendController@gallery')->name('backend.pages.gallery');
+Route::get('backend/profile/{id}', 'Backend\BackendController@profile')->name('backend.user.profile');
+Route::get('backend/team', 'Backend\BackendController@team')->name('backend.user.team');
+Route::get('backend/faqs', 'Backend\BackendController@faqs')->name('backend.user.faqs');
+
 
 
 
@@ -73,7 +78,7 @@ Route::post('/dang-nhap', 'Frontend\FrontendController@login')->name('frontend.l
 Route::get('/dang-xuat', 'Frontend\FrontendController@logout')->name('frontend.logout');
 Route::get('/profile', 'Frontend\FrontendController@profile')->name('frontend.profile');
 
-//api-tìm kiếm sản phẩm
+//api-tìm kiếm sản phẩm //test
 Route::get('timkiem', 'Frontend\FrontendController@timkiem')->name('frontend.pages.timkiem');
 
 //trang chức năng
@@ -84,6 +89,7 @@ Route::get('cau-hoi-thuong-gap/chi-tiet','Frontend\FrontendController@questionDe
 Route::get('huong-dan-su-dung','Frontend\FrontendController@guideUse')->name('frontend.pages.guideUse');
 Route::get('rieng-tu','Frontend\FrontendController@private')->name('frontend.pages.private');
 Route::get('boi-thuong','Frontend\FrontendController@compensation')->name('frontend.pages.compensation');
+Route::get('product','Frontend\FrontendController@product')->name('frontend.pages.product');
 
 //đa ngôn ngữ
 Route::get('setLocale/{locale}', function ($locale) {

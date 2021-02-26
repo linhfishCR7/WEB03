@@ -283,4 +283,33 @@ class FrontendController extends Controller
         Mail::to('linhfish10c1@gmail.com')->send(new ContactMailer($input));
         // return view('frontend.pages.contact');
     }
+    public function product(Request $request)
+    {
+        $ds_sanpham = DB::table('loai')
+            ->join('sanpham', 'loai.l_ma', '=', 'sanpham.l_ma')
+            ->orderBy('l_capNhat')->paginate(10);
+
+        // // Query tìm danh sách sản phẩm
+        // $danhsachsanpham = $this->searchSanPham($request);
+
+        // // Query Lấy các hình ảnh liên quan của các Sản phẩm đã được lọc
+        // $danhsachhinhanhlienquan = DB::table('hinhanh')
+        //     ->whereIn('sp_ma', $danhsachsanpham->pluck('sp_ma')->toArray())
+        //     ->get();
+
+        // Query danh sách Loại
+        $loai = Loai::all();
+
+        // Query danh sách màu
+        $danhsachmau = Mau::all();
+
+        // Hiển thị view `frontend.index` với dữ liệu truyền vào
+        return view('frontend.pages.shop.product')
+            ->with('ds_sanpham', $ds_sanpham)
+            // ->with('danhsachsanpham', $danhsachsanpham)
+            // ->with('danhsachhinhanhlienquan', $danhsachhinhanhlienquan)
+            ->with('danhsachmau', $danhsachmau)
+            ->with('loai', $loai);
+    }
+    
 }

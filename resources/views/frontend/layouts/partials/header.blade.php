@@ -5,7 +5,7 @@
         <section id="header-top" class="clearfix">
             <p class="contact">
                 Questions? Do you need help? Send us an email to:
-                <a href="mailto:questions@westeroscc.com">questions@westeroscc.com</a>
+                <a href="mailto:questions@westeroscc.com">info@havanlinh.tech</a>
             </p>
             <!-- WESTEROS DROPDOWN CONTAINER-->
             <div class="westeros-dropdown-container small">
@@ -154,10 +154,10 @@
                 <label for="categories" class="select-block">
                     <select name="categories" id="categories">
                         <option value="0">All Categories</option>
-                        <option value="1">T-Shirts</option>
-                        <option value="2">Pin Badges</option>
-                        <option value="3">Custom Sneakers</option>
-                        <option value="4">Phone Cases</option>
+                        <option value="1">Cá Betta Fancy</option>
+                        <option value="2">Cá Betta Galaxy</option>
+                        <option value="3">Cá Betta Giant</option>
+                        <option value="4">Cá Betta Halfmoon</option>
                     </select>
                     <!-- SVG ARROW -->
                     <svg class="svg-arrow select-arrow">
