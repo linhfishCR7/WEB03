@@ -34,7 +34,7 @@
         <!-- PRODUCT DESCRIPTION -->
         <div class="product-description">
             <a href="#">
-                <p class="highlighted category">{{ $sp->loaisanpham->l_ten}}</p>
+                {{-- <p class="highlighted category">{{ $sp->loaisanpham->l_ten}}</p> --}}
             </a>
             <a href="#">
                 <h6>{{ $sp->sp_ten}}</h6>

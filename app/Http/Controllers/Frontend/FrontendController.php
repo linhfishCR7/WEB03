@@ -61,8 +61,9 @@ class FrontendController extends Controller
     //chi tiết sản phẩm
     public function productDetail(Request $request, $id)
     {
-        $sanpham = SanPham::find($id);
-
+        $sanpham = DB::table('sanpham')
+        ->where('sp_ma', $id)
+        ->first();
         // Query Lấy các hình ảnh liên quan của các Sản phẩm đã được lọc
         $danhsachhinhanhlienquan = DB::table('hinhanh')
             ->where('sp_ma', $id)
@@ -74,7 +75,7 @@ class FrontendController extends Controller
         // Query danh sách màu
         $danhsachmau = Mau::all();
 
-        // dd($sanpham);
+         //dd($danhsachhinhanhlienquan);
         return view('frontend.pages.shop.productDetail')
             ->with('sp', $sanpham)
             ->with('danhsachhinhanhlienquan', $danhsachhinhanhlienquan)
