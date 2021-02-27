@@ -308,7 +308,7 @@
 			<li><a href="#">Sale</a></li>
 			<li><a href="#">Best Sale</a></li>
 			<li><a href="#">Best Betta</a></li>
-			<li><a href="#">Shop</a></li>
+			<li><a href="/product">Shop</a></li>
 			{{-- <li>
 				<a href="#" class="submenu">Shop</a>
 				<!-- SUBMENU LARGE -->

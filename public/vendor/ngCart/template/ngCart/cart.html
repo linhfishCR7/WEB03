@@ -1,205 +1,221 @@
 <!-- SHOP -->
 <div id="shop-wrap" ng-show="ngCart.getTotalItems() === 0">
-    <b style="font-weight: 900; font-size: 50px; color: brown;">Giỏ hàng trống.<a href="/" class="btn btn-info" >Click vào đây để tiếp tục mua hàng</a> </b>
+    <b style="font-weight: 900; font-size: 50px; color: brown;">Giỏ hàng trống.<a href="/" class="btn btn-info">Click
+            vào đây để tiếp tục mua hàng</a> </b>
     <br /><br />
 </div>
 <!-- /SHOP -->
 
 <form class="ngCart">
     <!-- SHOP -->
-<div id="shop-wrap"  ng-show="ngCart.getTotalItems() > 0">
-    <section id="shop" class="right">
-        <!-- SIDEBAR CONTROL -->
-        <div class="sidebar-control"></div>
-        <!-- /SIDEBAR CONTROL -->
-
-        <!-- SHOP SIDEBAR -->
-        <aside class="shop-sidebar checkout-cart">
+    <div id="shop-wrap" ng-show="ngCart.getTotalItems() > 0">
+        <section id="shop" class="right">
             <!-- SIDEBAR CONTROL -->
-            <svg class="svg-plus sidebar-control">
-                <use xlink:href="#svg-plus"></use>
-            </svg>
+            <div class="sidebar-control"></div>
             <!-- /SIDEBAR CONTROL -->
 
-            <h3 class="title">Cart Total</h3>
-            <!-- CART TOTAL -->
-            <div class="cart-total">
-                <!-- SUBTOTAL -->
-                <div class="subtotal">
-                    <h5>Cart Subtotal</h5>
-                    <h5>$361.00</h5>
-                </div>
-                <!-- /SUBTOTAL -->
+            <!-- SHOP SIDEBAR -->
+            <aside class="shop-sidebar checkout-cart">
+                <!-- SIDEBAR CONTROL -->
+                <svg class="svg-plus sidebar-control">
+                    <use xlink:href="#svg-plus"></use>
+                </svg>
+                <!-- /SIDEBAR CONTROL -->
 
-                <!-- SUBTOTAL -->
-                <div class="subtotal">
-                    <h5>Shipping</h5>
-                    <h5 ng-show="ngCart.getShipping()">
-                        <% ngCart.getShipping() | currency %>
-                    </h5>
-                </div>
-                <!-- /SUBTOTAL -->
-
-                <!-- SUBTOTAL -->
-                <div class="subtotal">
-                    <h5>Coupon Code</h5>
-                    <h5></h5>
-                </div>
-                <!-- /SUBTOTAL -->
-
-                <!-- TOTAL -->
-                <div class="total">
-                    <h5>Total Order</h5>
-                    <h5>
-                        <% ngCart.totalCost() | currency %>
-                    </h5>
-                </div>
-                <!-- /TOTAL -->
-            </div>
-            <!-- /CART TOTAL -->
-
-            <a href="#" class="button">Proceed to Checkout</a>
-        </aside>
-        <!-- /SHOP SIDEBAR -->
-
-        <!-- SHOP PRODUCTS -->
-        <div class="shop-products shop-cart" >
-            <h3 class="title">Shopping Cart</h3>
-
-            <!-- COMPARE MODAL -->
-            <div id="compare-modal" class="compare-modal mfp-with-anim mfp-hide">
-                <img src="images/icons/compare-modal-logo.png" alt="logo">
-                <h5>The item <span>product name</span></h5>
-                <h6>Has been sucessfully added to compare</h6>
-                <div class="options">
-                    <a class="button medium mfp-close">Return to store</a>
-                    <a href="compare.html" class="button medium compare">Go to compare</a>
-                </div>
-            </div>
-            <!-- /COMPARE MODAL -->
-
-            <!-- SHOPPING CART -->
-            <div class="shopping-cart wishlist-cart">
-                <!-- ROW -->
-                <div class="row header">
-                    <!-- CELL -->
-                    <div class="cell">
-                        <h5>Product Details</h5>
+                <h3 class="title">Cart Total</h3>
+                <!-- CART TOTAL -->
+                <div class="cart-total">
+                    <!-- SUBTOTAL -->
+                    <div class="subtotal">
+                        <h5>Cart Subtotal</h5>
+                        <h5></h5>
                     </div>
-                    <!-- /CELL -->
+                    <!-- /SUBTOTAL -->
 
-                    <!-- CELL -->
-                    <div class="cell">
-                        <h5>Unit Price</h5>
+                    <!-- SUBTOTAL -->
+                    <div class="subtotal">
+                        <h5>Shipping</h5>
+                        <h5 ng-show="ngCart.getShipping()">
+                            <% ngCart.getShipping() | currency %>
+                        </h5>
                     </div>
-                    <!-- /CELL -->
+                    <!-- /SUBTOTAL -->
 
-                    <!-- CELL -->
-                    <div class="cell">
-                        <h5>Quantity</h5>
+                    <!-- SUBTOTAL -->
+                    <div class="subtotal">
+                        <h5>Coupon Code</h5>
+                        <h5></h5>
                     </div>
-                    <!-- /CELL -->
+                    <!-- /SUBTOTAL -->
 
-                    <!-- CELL -->
-                    <div class="cell">
-                        <h5>Subtotal</h5>
+                    <!-- TOTAL -->
+                    <div class="total">
+                        <h5>Total Order</h5>
+                        <h5>
+                            <% ngCart.totalCost() | currency %>
+                        </h5>
                     </div>
-                    <!-- /CELL -->
-
-                    <!-- CELL -->
-                    <div class="cell">
-                    </div>
-                    <!-- /CELL -->
+                    <!-- /TOTAL -->
                 </div>
-                <!-- /ROW -->
+                <!-- /CART TOTAL -->
 
-                <!-- ROW -->
-                <div class="row" ng-repeat="item in ngCart.getCart().items track by $index">
-                    <!-- CELL -->
-                    <div class="cell cart-item">
-                        <div class="product-picture">
-                            <figure class="liquid">
-                                <img src="<% item.getData().sp_hinh_url %>" alt="product-picture">
-                            </figure>
+                <a href="#" class="button">Proceed to Checkout</a>
+
+            </aside>
+            <!-- /SHOP SIDEBAR -->
+
+            <!-- SHOP PRODUCTS -->
+            <div class="shop-products shop-cart">
+                <h3 class="title">Shopping Cart</h3>
+
+                <!-- COMPARE MODAL -->
+                <div id="compare-modal" class="compare-modal mfp-with-anim mfp-hide">
+                    <img src="images/icons/compare-modal-logo.png" alt="logo">
+                    <h5>The item <span>product name</span></h5>
+                    <h6>Has been sucessfully added to compare</h6>
+                    <div class="options">
+                        <a class="button medium mfp-close">Return to store</a>
+                        <a href="compare.html" class="button medium compare">Go to compare</a>
+                    </div>
+                </div>
+                <!-- /COMPARE MODAL -->
+
+                <!-- SHOPPING CART -->
+                <div class="shopping-cart wishlist-cart">
+                    <!-- ROW -->
+                    <div class="row header">
+                        <!-- CELL -->
+                        <div class="cell">
+                            <h5>Product Details</h5>
                         </div>
-                        <p class="highlighted">T-Shirts</p>
-                        <h3>
-                            <% item.getName() %>
-                        </h3>
-                        <p>Lorem ipsum dolor</p>
-                        <h6>Size: <span>Large</span></h6>
-                        <!-- COLORPICKER -->
-                        <ul class="colorpicker">
-                            <li><span data-color="#252525"></span></li>
-                        </ul>
-                        <!-- /COLORPICKER -->
-                    </div>
-                    <!-- /CELL -->
+                        <!-- /CELL -->
 
-                    <!-- CELL -->
-                    <div class="cell">
-                        <p class="highlighted">
-                            <% item.getPrice() | currency %>
-                        </p>
-                    </div>
-                    <!-- /CELL -->
+                        <!-- CELL -->
+                        <div class="cell">
+                            <h5>Unit Price</h5>
+                        </div>
+                        <!-- /CELL -->
 
-                    <!-- CELL -->
-                    <div class="cell">
-                        <!-- COUNTER -->
-                        <div class="counter">
-                            <div class="control left"></div>
+                        <!-- CELL -->
+                        <div class="cell">
+                            <h5>Quantity</h5>
+                        </div>
+                        <!-- /CELL -->
+
+                        <!-- CELL -->
+                        <div class="cell">
+                            <h5>Subtotal</h5>
+                        </div>
+                        <!-- /CELL -->
+
+                        <!-- CELL -->
+                        <div class="cell">
+                        </div>
+                        <!-- /CELL -->
+                    </div>
+                    <!-- /ROW -->
+
+                    <!-- ROW -->
+                    <div class="row" ng-repeat="item in ngCart.getCart().items track by $index">
+                        <!-- CELL -->
+                        <div class="cell cart-item">
+                            <div class="product-picture">
+                                <figure class="liquid">
+                                    <img src="<% item.getData().sp_hinh_url %>" alt="product-picture">
+                                </figure>
+                            </div>
+                            <p class="highlighted"></p>
+                            <h3>
+                                <% item.getName() %>
+                            </h3>
+                            <!-- <p>Lorem ipsum dolor</p>
+                            <h6>Size: <span>Large</span></h6> -->
+                            <!-- COLORPICKER -->
+                            <!-- <ul class="colorpicker">
+                                <li><span data-color="#252525"></span></li>
+                            </ul> -->
+                            <!-- /COLORPICKER -->
+                        </div>
+                        <!-- /CELL -->
+
+                        <!-- CELL -->
+                        <div class="cell">
+                            <p class="highlighted">
+                                <% item.getPrice() | currency %>
+                            </p>
+                        </div>
+                        <!-- /CELL -->
+
+                        <!-- CELL -->
+                        <div class="cell">
+                            <!-- COUNTER -->
+                            <div class="counter">
+
+                                <div class="control left" ng-class="{'disabled':item.getQuantity()==1}"
+                                ng-click="item.setQuantity(-1, true)"></div>
                             <div class="value">
                                 <h5>
                                     <% item.getQuantity() | number %>
                                 </h5>
                             </div>
-                            <div class="control right"></div>
+                            <div class="control right" ng-click="item.setQuantity(1, true)"></div>
+                                
+                            </div>
+                            <!-- /COUNTER -->
+                           
                         </div>
-                        <!-- /COUNTER -->
-                    </div>
-                    <!-- /CELL -->
+                        <!-- /CELL -->
 
-                    <!-- CELL -->
-                    <div class="cell">
-                        <p class="highlighted">
-                            <% item.getTotal() | currency %>
-                        </p>
-                    </div>
-                    <!-- /CELL -->
-
-                    <!-- CELL -->
-                    <div class="cell buttons small">
-                        <!-- ACTIONS -->
-                        <div class="actions">
-                            <a href="#compare-modal" class="button medium compare cmp-popup"
-                                data-effect="mfp-3d-unfold">
-                                <!-- SVG COMPARE -->
-                                <svg class="svg-compare">
-                                    <use xlink:href="#svg-compare"></use>
-                                </svg>
-                                <!-- /SVG COMPARE -->
-                            </a>
-
-                            <a href="#" class="button medium no-stock" ng-click="ngCart.removeItemById(item.getId())">
-                                <!-- SVG PLUS -->
-                                <svg class="svg-plus">
-                                    <use xlink:href="#svg-plus"></use>
-                                </svg>
-                                <!-- /SVG PLUS -->
-                            </a>
+                        <!-- CELL -->
+                        <div class="cell">
+                            <p class="highlighted">
+                                <% item.getTotal() | currency %>
+                            </p>
                         </div>
-                        <!-- /ACTIONS -->
+                        <!-- /CELL -->
+
+                        <!-- CELL -->
+                        <div class="cell buttons small">
+                            <!-- ACTIONS -->
+                            <div class="actions">
+                                <a href="#compare-modal" class="button medium compare cmp-popup"
+                                    data-effect="mfp-3d-unfold">
+                                    <!-- SVG COMPARE -->
+                                    <svg class="svg-compare">
+                                        <use xlink:href="#svg-compare"></use>
+                                    </svg>
+                                    <!-- /SVG COMPARE -->
+                                </a>
+
+                                <a href="#" class="button medium no-stock"
+                                    ng-click="ngCart.removeItemById(item.getId())">
+                                    <!-- SVG PLUS -->
+                                    <svg class="svg-plus">
+                                        <use xlink:href="#svg-plus"></use>
+                                    </svg>
+                                    <!-- /SVG PLUS -->
+                                </a>
+                            </div>
+                            <!-- /ACTIONS -->
+                        </div>
+                        <!-- /CELL -->
                     </div>
-                    <!-- /CELL -->
+                    <!-- /ROW -->
+
                 </div>
-                <!-- /ROW -->
-
+                <!-- /SHOPPING CART -->
             </div>
-            <!-- /SHOPPING CART -->
-        </div>
-        <!-- /SHOP PRODUCTS -->
-    </section>
-</div>
-<!-- /SHOP -->
+            <!-- /SHOP PRODUCTS -->
+        </section>
+    </div>
+    <!-- /SHOP -->
 </form>
+<style>
+    .ngCart.cart span[ng-click] {
+        cursor: pointer;
+    }
+
+    .ngCart.cart .glyphicon.disabled {
+        color: #aaa;
+    }
+</style>

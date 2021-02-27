@@ -17,14 +17,6 @@ Product
 </style>
 @endsection
 @section('main-content')
-<!-- SECTION-NAV -->
-<div id="section-nav-wrap">
-    <section id="section-nav">
-        <p>Home / Shop / <a href="#">Men's Section</a></p>
-    </section>
-</div>
-<!-- /SECTION-NAV -->
-
 
 <!-- SHOP -->
 <div id="shop-wrap">
@@ -695,7 +687,7 @@ Product
 
                 @foreach($ds_sanpham as $sanpham)
                 <!-- PRODUCT -->
-                <li class="list-item">
+                <li class="list-item" style="height:300px">
                     <!-- ACTIONS -->
                     <div class="actions">
                         <figure class="liquid">
@@ -895,33 +887,29 @@ Product
                             <p class="highlighted current">{{$sanpham->sp_giaBan}}</p>
                         </div>
 
-                        <!-- SOCIAL LINKS -->
-                        <div class="social">
-                            <a href="#" class="button medium fb"></a>
-                            <a href="#" class="button medium twt"></a>
-                        </div>
-                        <!-- SOCIAL LINKS -->
+                        <ngcart-addtocart template-url="{{ asset('vendor/ngCart/template/ngCart/addtocart.html') }}" id="{{ $sanpham->sp_ma }}" name="{{ $sanpham->sp_ten }}" price="{{ $sanpham->sp_giaBan }}" quantity="1" quantity-max="30" data="{ sp_hinh_url: '{{ asset('storage/upload/' . $sanpham->sp_hinh) }}' }">
+                            <!-- CART OPTIONS -->
+                            <div class="cart-options">
+                                <a href="#" class="button medium wishlist">
+                                    <!-- SVG WISHLIST -->
+                                    <svg class="svg-wishlist">
+                                        <use xlink:href="#svg-wishlist"></use>
+                                    </svg>
+                                    <!-- /SVG WISHLIST -->
+                                    <span>Add to Wishlist</span>
+                                </a>
+                                <a href="#" class="button cart-add">
+                                    <!-- SVG PLUS -->
+                                    <svg class="svg-plus">
+                                        <use xlink:href="#svg-plus"></use>
+                                    </svg>
+                                    <!-- /SVG PLUS -->
+                                    Add to Cart
+                                </a>
+                            </div>
+                            <!-- /CART OPTIONS -->
+                        </ngcart-addtocart>
 
-                        <!-- CART OPTIONS -->
-                        <div class="cart-options">
-                            <a href="#" class="button medium wishlist">
-                                <!-- SVG WISHLIST -->
-                                <svg class="svg-wishlist">
-                                    <use xlink:href="#svg-wishlist"></use>
-                                </svg>
-                                <!-- /SVG WISHLIST -->
-                                <span>Add to Wishlist</span>
-                            </a>
-                            <a href="#" class="button cart-add">
-                                <!-- SVG PLUS -->
-                                <svg class="svg-plus">
-                                    <use xlink:href="#svg-plus"></use>
-                                </svg>
-                                <!-- /SVG PLUS -->
-                                Add to Cart
-                            </a>
-                        </div>
-                        <!-- /CART OPTIONS -->
                     </div>
                     <!-- /DESCRIPTION -->
                 </li>
