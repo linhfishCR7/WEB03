@@ -39,13 +39,13 @@
             @foreach($ds_sanpham as $ds_sanpham)
 
             <!-- PRODUCT -->
-            <li class="list-item" style="height:530px">
+            <li class="list-item" style="height:570px">
                 <!-- ACTIONS -->
-                @include('frontend.widgets.quickProduct', ['ds_sanpham' => $ds_sanpham])
+                @include('frontend.widgets.quickFeatureProduct', ['ds_sanpham' => $ds_sanpham])
                 <!-- /ACTIONS -->
                 
                 <!-- DESCRIPTION -->
-                @include('frontend.widgets.description', ['ds_sanpham' => $ds_sanpham])
+                @include('frontend.widgets.descriptionFeature', ['ds_sanpham' => $ds_sanpham])
                 <!-- /DESCRIPTION -->
             </li>
             <!-- /PRODUCT -->

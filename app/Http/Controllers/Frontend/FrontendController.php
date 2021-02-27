@@ -35,6 +35,10 @@ class FrontendController extends Controller
             ->join('sanpham', 'loai.l_ma', '=', 'sanpham.l_ma')
             ->orderBy('l_capNhat')->get();
 
+        $ds_sanpham_giamdan = DB::table('loai')
+            ->join('sanpham', 'loai.l_ma', '=', 'sanpham.l_ma')
+            ->orderBy('sp_ma','DESC')->get();
+//dd($ds_sanpham_giamdan);
         // // Query tìm danh sách sản phẩm
         // $danhsachsanpham = $this->searchSanPham($request);
 
@@ -52,6 +56,7 @@ class FrontendController extends Controller
         // Hiển thị view `frontend.index` với dữ liệu truyền vào
         return view('frontend.pages.home')
             ->with('ds_sanpham', $ds_sanpham)
+            ->with('ds_sanpham_giamdan', $ds_sanpham_giamdan)
             // ->with('danhsachsanpham', $danhsachsanpham)
             // ->with('danhsachhinhanhlienquan', $danhsachhinhanhlienquan)
             ->with('danhsachmau', $danhsachmau)
@@ -62,8 +67,8 @@ class FrontendController extends Controller
     public function productDetail(Request $request, $id)
     {
         $sanpham = DB::table('sanpham')
-        ->where('sp_ma', $id)
-        ->first();
+            ->where('sp_ma', $id)
+            ->first();
         // Query Lấy các hình ảnh liên quan của các Sản phẩm đã được lọc
         $danhsachhinhanhlienquan = DB::table('hinhanh')
             ->where('sp_ma', $id)
@@ -75,7 +80,7 @@ class FrontendController extends Controller
         // Query danh sách màu
         $danhsachmau = Mau::all();
 
-         //dd($danhsachhinhanhlienquan);
+        //dd($danhsachhinhanhlienquan);
         return view('frontend.pages.shop.productDetail')
             ->with('sp', $sanpham)
             ->with('danhsachhinhanhlienquan', $danhsachhinhanhlienquan)
@@ -146,14 +151,13 @@ class FrontendController extends Controller
             //$kh = DB::select($sql);
             //dd($kh);
             return view('frontend.profile')->with('kh', $kh);
-        }
-        else{
+        } else {
             return view('errors.440');
         }
 
         //dd($kh);
         //$kh = Khachhang::find('$kh_email');
-       
+
     }
 
     /**
@@ -165,15 +169,32 @@ class FrontendController extends Controller
         // Data gởi mail
         $dataMail = [];
         try {
-            $kh_email = session('data')['kh_email'];
-            if (!empty($kh_email)) {
-                $khachhang = Khachhang::find($kh_email);
-                // Hiển thị câu thông báo 1 lần (Flash session)
-                $dataMail['khachhang'] = $khachhang->toArray();
-            } else {
-                $request->session()->flash('alert-info', 'Vui lòng đăng nhập, nếu chưa có tài khoản vui lòng đăng ký');
-                return redirect('gio-hang');
+            // $kh_email = session('data')['kh_email'];
+            // if (!empty($kh_email)) {
+            //     $khachhang = Khachhang::find($kh_email);
+            //     // Hiển thị câu thông báo 1 lần (Flash session)
+            //     $dataMail['khachhang'] = $khachhang->toArray();
+            // } else {
+            //     $request->session()->flash('alert-info', 'Vui lòng đăng nhập, nếu chưa có tài khoản vui lòng đăng ký');
+            //     return redirect('gio-hang');
+            // }
+            // Tạo mới khách hàng
+            $khachhang = new Khachhang();
+            $khachhang->kh_taiKhoan = $request->khachhang['kh_taiKhoan'];
+            $khachhang->kh_matKhau = bcrypt('123456');
+            $khachhang->kh_hoTen = $request->khachhang['kh_hoTen'];
+            $khachhang->kh_gioiTinh = $request->khachhang['kh_gioiTinh'];
+            $khachhang->kh_email = $request->khachhang['kh_email'];
+            $khachhang->kh_ngaySinh = $request->khachhang['kh_ngaySinh'];
+            if (!empty($request->khachhang['kh_diaChi'])) {
+                $khachhang->kh_diaChi = $request->khachhang['kh_diaChi'];
             }
+            if (!empty($request->khachhang['kh_dienThoai'])) {
+                $khachhang->kh_dienThoai = $request->khachhang['kh_dienThoai'];
+            }
+            $khachhang->kh_trangThai = 2; // Khả dụng
+            $khachhang->save();
+            $dataMail['khachhang'] = $khachhang->toArray();
 
             // Tạo mới đơn hàng
             $donhang = new Donhang();
@@ -233,7 +254,7 @@ class FrontendController extends Controller
      */
     public function orderFinish()
     {
-        return view('frontend.pages.order-finish');
+        return view('frontend.pages.shop.order-finish');
     }
 
     //tìm kiếm sản phẩm
@@ -311,5 +332,4 @@ class FrontendController extends Controller
             ->with('danhsachmau', $danhsachmau)
             ->with('loai', $loai);
     }
-    
 }

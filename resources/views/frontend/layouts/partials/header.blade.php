@@ -142,7 +142,7 @@
         <section id="header-bottom">
             <!-- LOGO -->
             <div class="logo-container">
-                <a href="index.html">
+                <a href="/">
                     <figure class="logo">
                         <img src="{{ asset('themes/westeros/images/logo.png')}}" alt="logo">
                         <figcaption>Westeros</figcaption>
