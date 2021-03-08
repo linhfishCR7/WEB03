@@ -13,6 +13,7 @@ Khách hàng
 @endsection
 
 @section('custom-css')
+
 <style>
     .chucNang {
         float: left;
@@ -20,6 +21,7 @@ Khách hàng
     }
 
 </style>
+
 @endsection
 
 @section('content')
@@ -36,8 +38,8 @@ Khách hàng
 
                 <h4 class="header-title">Danh sách khách hàng</h4>
                 <p class="text-muted font-13 mb-4"></p>
-                <a href="{{ route('backend.khachhang.create') }}" class="btn btn-primary"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a><br><br>
-                <table id="selection-datatable" class="table dt-responsive nowrap my-3">
+                <a href="{{ route('backend.khachhang.index-card') }}" class="btn btn-primary">Card index</a><br><br>
+                <table id="selection-datatable" class="table table-striped table-responsive table-bordered">
                     <thead>
                         <tr>
                             <th>Mã</th>
@@ -105,6 +107,7 @@ Khách hàng
 @endsection
 
 @section('custom-scripts')
+
 <script>
     $(document).ready(function() {
         $('#selection-datatable').DataTable();

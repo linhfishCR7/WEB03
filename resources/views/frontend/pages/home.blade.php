@@ -12,6 +12,7 @@ Index
 @endsection
 
 @section('custom-css')
+
 <style>
 ul.product-list .list-item figure {
     width: 250px;

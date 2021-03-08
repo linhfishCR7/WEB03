@@ -6,6 +6,7 @@ use App\DanhMuc;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DanhMucController extends Controller
 {
@@ -55,19 +56,21 @@ class DanhMucController extends Controller
     public function store(Request $request)
     {
         //
-        $dm_ten = $request->dm_ten;
-        $dm_trangThai = $request->dm_trangThai;
-
+        $validatedData = $request->validate([
+            'dm_ten' => 'required|unique:danhmuc|max:20',
+        ]);
+        // $data = array();
+        // $data['dm_ten'] = $request->dm_ten;
+        // $data['dm_trangThai'] = $request->dm_trangThai;
+        // DB::table('danhmuc')->insert($data);
         $danhmuc = new DanhMuc();
-        $danhmuc->dm_ten = $dm_ten;
-        $danhmuc->dm_trangThai = $dm_trangThai;
+        $danhmuc->dm_ten = $request->dm_ten;
+        $danhmuc->dm_trangThai = $request->dm_trangThai;
         $danhmuc->dm_taoMoi = Carbon::now();
         $danhmuc->dm_capNhat = Carbon::now();
         $danhmuc->save();
 
         $request->session()->flash('alert-success', 'Thêm thành công');
-        //dd($request);
-        //điều hướng
         return redirect(route('backend.danhmuc.index'));
     }
 
@@ -93,10 +96,10 @@ class DanhMucController extends Controller
     public function edit($id)
     {
         //lấy lại dữ liệu 
-        $dm = DanhMuc::where("dm_ma", $id)->first();
+        $danhmuc = DanhMuc::where("dm_ma", $id)->first();
 
         return view('backend.danhmuc.edit')
-            ->with('dm', $dm);
+            ->with('danhmuc', $danhmuc);
     }
 
     /**

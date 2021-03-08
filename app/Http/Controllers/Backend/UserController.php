@@ -8,6 +8,8 @@ use App\Quyen;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Gate;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
         /**
@@ -92,6 +94,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        // Bổ sung ràng buộc Validate
+        $validation = $request->validate([
+            'sp_hinh' => 'image|mimes:jpeg,png,gif,webp|max:2048',
+
+        ]);
         // // Tìm object Sản phẩm theo khóa chính
         $user->name = $request->name;
         $user->username = $request->username;
@@ -102,7 +109,22 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->updated_at = Carbon::now();
         $user->active = $request->active;
+
+        // Kiểm tra xem người dùng có upload hình ảnh Đại diện hay không?
+        if ($request->hasFile('image')) {
+            // Xóa hình cũ để tránh rác
+            Storage::delete('public/upload/' . $user->image);
+
+            // Upload hình mới
+            // Lưu tên hình vào column sp_hinh
+            $file = $request->image;
+            $user->image = $file->getClientOriginalName();
+
+            // Chép file vào thư mục "photos"
+            $fileSaved = $file->storeAs('public/upload', $user->image);
+        }
         $user->save();
+
         $user->quyens()->sync($request->quyen);
         $request->session()->flash('alert-info', 'Cập nhật thành công');
 

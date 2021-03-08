@@ -70,13 +70,18 @@ Team Members
             @endif
             <div class="clearfix"></div>
             <div class="pt-2 pb-2">
+            @if($user->image == '')
                 @if($user->genre == 'F')
                 <img src="{{ asset('themes/Minton_green/assets/images/users/avatar-9.jpg')}}" class="rounded-circle img-thumbnail avatar-xl" alt="profile-image">
                 @else
                 <img src="{{ asset('themes/Minton_green/assets/images/users/avatar-'.$user->id.'.jpg')}}" class="rounded-circle img-thumbnail avatar-xl" alt="profile-image">
                 @endif
+                @else
+                <img src="{{ asset('storage/upload/'.$user->image) }}" class="rounded-circle img-thumbnail avatar-xl" alt="profile-image">
+            @endif
+                
 
-                <h4 class="mt-3 font-17"><a href="extras-profile.html" class="text-dark">Freddie J. Plourde</a></h4>
+                <h4 class="mt-3 font-17"><a href="#" class="text-dark">{{$user->name}}</a></h4>
                 <p class="text-muted">@Founder <span> | </span> <span> <a href="#" class="text-pink">websitename.com</a> </span></p>
 
                 <p class="text-muted font-13 mb-3">

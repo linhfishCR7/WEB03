@@ -44,7 +44,7 @@ Phiếu nhập kho
                     {{-- <a href="{{ route('backend.phieunhap.excel') }}" class="btn btn-primary mb-2"><i class="remixicon-file-excel-2-line" data-toggle="tooltip" data-placement="top" title="EXCEL"></i></a> --}}
                 </div>
 
-                <table id="selection-datatable" class="table dt-responsive nowrap my-3">
+                <table id="selection-datatable" class="table table-striped table-responsive table-bordered">
                     <thead>
                         <tr>
                             <th>ID</th>

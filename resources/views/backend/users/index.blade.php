@@ -18,7 +18,10 @@ User
         float: left;
         margin-right: 5px;
     }
-
+    .img-hinhdaidien {
+        width: 120px;
+        height: 100px;
+    }
 </style>
 @endsection
 
@@ -39,7 +42,7 @@ User
                     This example shows the multi option. Note how a click on a row will toggle its selected state without effecting other rows,
                     unlike the os and single options shown in other examples.
                 </p>
-                {{-- <a href="{{ route('backend.user.create') }}" class="btn btn-primary"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a><br><br> --}}
+                <a href="{{ route('backend.user.team') }}" class="btn btn-primary">Card index</a><br><br>
 
                 <table id="selection-datatable" class="table dt-responsive table-responsive nowrap my-3">
                     <thead>
@@ -47,6 +50,7 @@ User
                             <th>Mã</th>
                             <th>Tên</th>
                             <th>Tài khoản</th>
+                            <th>Image</th>
                             <th>Giới tính</th>
                             <th>Ngày sinh</th>
                             <th>Số điện thoại</th>
@@ -66,6 +70,7 @@ User
                             <td>{{$user['id']}}</td>
                             <td>{{$user['name']}}</td>
                             <td>{{$user['username']}}</td>
+                            <td><img src="{{ asset('storage/upload/'.$user['image']) }}" alt="hinh san pham" class="img-fluid img-hinhdaidien"></td>
                             <td>{{$user['genre']}}</td>
                             <td>{{$user['birthday']}}</td>
                             <td>{{$user['phone']}}</td>
