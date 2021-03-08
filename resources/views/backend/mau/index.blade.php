@@ -48,6 +48,7 @@ Màu
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Trạng thái</th>
                             <th>tạo mới</th>
                             <th>cập nhật</th>
                             <th width="280px">Action</th>
@@ -58,6 +59,7 @@ Màu
                         <tr id="customer_id_{{ $mau->m_ma }}">
                             <td>{{ $mau->m_ma }}</td>
                             <td>{{ $mau->m_ten }}</td>
+                            <td>{{ $mau->m_trangThai }}</td>
                             <td>{{ $mau->m_taoMoi }}</td>
                             <td>{{ $mau->m_capNhat }}</td>
                             <td>
@@ -93,25 +95,21 @@ Màu
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label>Màu:</label>
-                                <input type="text" name="m_ten" id="m_ten" class="form-control" placeholder="Name" onchange="validate()">
+                                <input type="text" name="m_ten" id="m_ten" class="form-control" placeholder="Name" >
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="hex-colorpicker">Màu Hexan:</label>
-                                <input type="text" name="hex_colorpicker" value="#4a81d4" id="hex-colorpicker" class="form-control" placeholder="Hexan" onchange="validate()">
+                                <input type="text" name="hex_colorpicker" value="#4a81d4" id="hex-colorpicker" class="form-control" placeholder="Hexan" >
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="m_trangThai">Trạng thái hiện tại:</label>
-                                <input type="text" name="m_trangThai" id="m_trangThai" value="<% m_trangThai %>" class="form-control" disabled placeholder="Vui lòng chọn trạng thái">
-                            </div>
-                            <div class="form-group">
                                 <label for="m_trangThai">Chọn trạng thái: </label>
-                                <select name="m_trangThai" class="form-control" ng-model="m_trangThai">
-                                    <option value="1">KÍCH HOẠT</option>
-                                    <option value="2">KHÓA</option>
+                                <select name="m_trangThai" id="m_trangThai" class="form-control" >
+                                <option value="1" {{old('m_trangThai') == 1 ? 'selected': ''}}>Khóa</option>
+                                <option value="2" {{old('m_trangThai') == 2 ? 'selected': ''}}>Kich hoạt</option>
                                 </select>
                             </div>
                         </div>
@@ -212,7 +210,7 @@ Màu
                 $('#m_ma').val(data.m_ma);
                 $('#m_ten').val(data.m_ten);
                 $('#m_hexan').val(data.m_hexan);
-                $('#m_trangThai').val(data.m_trangThai);
+                $('#m_trangThai option:selected').text(data.m_trangThai);
             })
         });
 

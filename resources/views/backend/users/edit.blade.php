@@ -29,7 +29,7 @@ Cập nhật User
             <div class="card-body">
                 <h2>Cập nhật User - {{ $user->name}} </h2>
                 <div>
-                    <form action="{{route('backend.user.update',$user)}}" method="post" name="frmUpdate" id="frmUpdate">
+                    <form action="{{route('backend.user.update',$user)}}" method="post" name="frmUpdate" id="frmUpdate" enctype="multipart/form-data">
                         {{csrf_field() }}
                         <input type="hidden" name="_method" value="put" />
 
@@ -42,8 +42,12 @@ Cập nhật User
                             <input type="text" name="username" class="form-control" id="username" value="{{  $user->username }}">
                         </div>
                         <div class="form-group">
+                            <label for="image">Hình ảnh</label>
+                            <input type="file" name="image" class="form-control" id="image" value="{{ old('image', $user->image) }}">
+                        </div>
+                        <div class="form-group">
                             <label for="genre">Giới tính</label>
-                            <select name="genre" id="genre" class="form-control form-control-md" >
+                            <select name="genre" id="genre" class="form-control form-control-md">
                                 <option value="F" {{old('genre',$user->genre) == 'F' ? 'selected': ''}}>Female</option>
                                 <option value="M" {{old('genre',$user->genre) == 'M'? 'selected': ''}}>Male</option>
                                 <option value="O" {{old('genre',$user->genre) == 'O' ? 'selected': ''}}>Unknow</option>
@@ -109,4 +113,33 @@ Cập nhật User
     </div>
     @endsection
     @section('custom-scripts')
+        <script>
+        $(document).ready(function() {
+            $("#image").fileinput({
+                theme: 'fas'
+                , showUpload: false
+                , showCaption: true
+                , fileType: "any"
+                , append: false
+                , showRemove: false
+                , autoReplace: true
+                , previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
+                , overwriteInitial: false
+                , initialPreviewShowDelete: false
+                , initialPreviewAsData: true
+                , initialPreview: [
+                    "{{ asset('storage/upload/' . $user->image) }}"
+                ]
+                , initialPreviewConfig: [{
+                    caption: "{{ $user->image }}"
+                    , size: {{ Storage::exists('public/upload/'.$user->image) ? Storage::size('public/upload/'.$user->image) : 0 }}
+                    , width: "120px"
+                    , url: "{$url}"
+                    , key: 1
+                }, ]
+            });
+            
+        });
+
+    </script>
     @endsection

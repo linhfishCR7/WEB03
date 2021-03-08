@@ -13,6 +13,8 @@ Xuất xứ
 @endsection
 
 @section('custom-css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
 <style>
     .chucNang {
         float: left;
@@ -36,10 +38,10 @@ Xuất xứ
 
                 <h4 class="header-title">Danh sách xuất xứ</h4>
                 <p class="text-muted font-13 mb-4"></p>
-                <a href="{{ route('backend.xuatxu.create') }}" class="btn btn-primary"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a><br><br>
-                <table id="selection-datatable" class="table dt-responsive nowrap my-3">
+                <a href="{{ route('backend.xuatxu.create') }}" class="btn btn-primary btn-lg"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a><br><br>
+                <table id="example" class="table table-striped table-responsive table-bordered">
                     <thead>
-                        <tr>
+                        <tr class="table-info">
                             <th>Mã</th>
                             <th>Tên</th>
                             <th>Tạo mới</th>
@@ -81,7 +83,7 @@ Xuất xứ
                         @endforeach
                     </tbody>
                 </table>
-        {{ $danhsachxuatxu->links() }}
+        {{-- {{ $danhsachxuatxu->links() }} --}}
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
@@ -91,12 +93,18 @@ Xuất xứ
 @endsection
 
 @section('custom-scripts')
-{{-- <script>
+<script>
+    // $(document).ready(function() {
+    //     $('#selection-datatable').DataTable();
+    // });
     $(document).ready(function() {
-        $('#selection-datatable').DataTable();
-    });
+    $('#example').DataTable();
+} );
 
-</script> --}}
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(function() {
         //class frmDelete thêm vào chỗ nút delete

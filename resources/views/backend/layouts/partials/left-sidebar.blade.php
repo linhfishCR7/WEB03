@@ -64,7 +64,7 @@
                                         <a href="/backend/quyen">Quyền người dùng</a>
                                     </li>
                                     <li>
-                                        <a href="/backend/khachhang'">Khách hàng</a>
+                                        <a href="/backend/khachhang">Khách hàng</a>
                                     </li>
                                     <li>
                                         <a href="/backend/chude">Chủ đề</a>

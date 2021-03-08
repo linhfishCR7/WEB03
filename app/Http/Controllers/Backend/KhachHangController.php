@@ -22,6 +22,14 @@ class KhachHangController extends Controller
             ->with('danhsachkhachhang', $dskhachHang);
     }
 
+    public function index_card()
+    {
+        // $dskhachHang = KhachHang::all(); 
+        $khachHang = KhachHang::paginate(9); 
+        return view('backend.khachhang.index-card')
+            ->with('danhsachkhachhang1', $khachHang);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

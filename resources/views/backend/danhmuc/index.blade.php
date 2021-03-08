@@ -13,12 +13,12 @@ Danh mục
 @endsection
 
 @section('custom-css')
+
 <style>
     .chucNang {
         float: left;
         margin-right: 5px;
     }
-
 </style>
 @endsection
 
@@ -39,13 +39,9 @@ Danh mục
                     This example shows the multi option. Note how a click on a row will toggle its selected state without effecting other rows,
                     unlike the os and single options shown in other examples.
                 </p>
-                <a href="{{ route('backend.danhmuc.create') }}" class="btn btn-primary"><i class="remixicon-file-add-line" data-toggle="tooltip" data-placement="top" title="Thêm mới"></i></a><br><br>
-                <!-- Tạo nút xem biểu mẫu khi in trên web
-- Theo quy ước, các route đã được đăng ký trong file `web.php` đều phải được đặt tên để dễ dàng bảo trì code sau này.
-- Đường dẫn URL là đường dẫn được tạo ra bằng route có tên `admin.danhmuc.print`
-- Sẽ có dạng http://tenmiencuaban.com/admin/sanpham/print
--->
-                <table id="selection-datatable" class="table dt-responsive nowrap my-3">
+                <a href="#" class="btn btn-primary btn-lg" style="float: right;" data-toggle="modal" data-target="#exampleModal">Add new</a><br><br><br>
+
+                <table id="example" class="table table-striped table-responsive table-bordered">
                     <thead>
                         <tr>
                             <th>Mã</th>
@@ -66,24 +62,23 @@ Danh mục
                             <td>{{$danhmuc->dm_capNhat}}</td>
                             <td>
                                 <?php
-                                    $tenTrangThai='';
-                                    if($danhmuc->dm_trangThai == 1){
-                                        $tenTrangThai='Khóa';
-                                    }else if($danhmuc->dm_trangThai == 2){
-                                        $tenTrangThai='Còn bán';
-                                    }
-                                    
+                                $tenTrangThai = '';
+                                if ($danhmuc->dm_trangThai == 1) {
+                                    $tenTrangThai = 'Khóa';
+                                } else if ($danhmuc->dm_trangThai == 2) {
+                                    $tenTrangThai = 'Kích hoạt';
+                                }
+
                                 ?>
                                 {{$tenTrangThai}}
                             <td>
-
                                 <form method="POST" action="{{ route('backend.danhmuc.destroy',['danhmuc' => $danhmuc->dm_ma]) }}" class="frmDelete chucNang" data-id="{{$danhmuc->dm_ma}}">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="DELETE" />
                                     <button class="btn btn-danger" type="submit"><i class="remixicon-delete-bin-6-line" data-toggle="tooltip" data-placement="top" title="Xóa"></i></button>
                                 </form>
+
                                 <a href="{{ route('backend.danhmuc.edit',['danhmuc'=> $danhmuc->dm_ma]) }}" class="btn btn-warning"><i class="remixicon-edit-box-line" data-toggle="tooltip" data-placement="top" title="Sửa"></i></a>
-                                {{-- <a href="{{ route('admin.danhmuc.destroy',['danhmuc' => $danhmuc->dm_ma]) }}" class="btn btn-danger"> Xóa </a> --}}
                                 <button data-url="{{ route('backend.danhmuc.show',$danhmuc->dm_ma) }}" ​ type="button" data-target="#show" data-toggle="modal" class="btn btn-info btn-show"><i class="remixicon-settings-5-fill" data-toggle="tooltip" data-placement="top" title="Chi tiết"></i></button>
 
                             </td>
@@ -108,9 +103,26 @@ Danh mục
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <h2>Thông tin danh mục:</h2>
-                ID: <h1 id="id"></h1>
-                Name: <h1 id="hoten"></h1>
+
+                <h2>Thông tin danh mục</h2>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="">ID:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <h3 id="id"></h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="">Name:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <h3 id="hoten"></h3>
+                    </div>
+                </div>
+
 
             </div>
             <div class="modal-footer">
@@ -119,39 +131,73 @@ Danh mục
         </div>
     </div>
 </div>
-
+<!-- Modal Add -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{route('backend.danhmuc.store')}}" method="post">
+                {{csrf_field() }}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="dm_ten">Danh mục</label>
+                        <input type="text" class="form-control" id="dm_ten" name="dm_ten" placeholder="Tên danh mục">
+                    </div>
+                    <div class="form-group">
+                        <label for="dm_trangThai">Trạng thái</label>
+                        <select name="dm_trangThai" id="dm_trangThai" class="form-control form-control-lg">
+                            <option value="1" {{old('dm_trangThai') == 1 ? 'selected': ''}}>Khóa</option>
+                            <option value="2" {{old('dm_trangThai') == 2 ? 'selected': ''}}>Kích hoạt</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
-
 @section('custom-scripts')
 <script>
+    // $(document).ready(function() {
+    //     $('#selection-datatable').DataTable();
+    // });
     $(document).ready(function() {
-        $('#selection-datatable').DataTable();
+        $('#example').DataTable();
     });
-
 </script>
+
 <script>
     $(document).ready(function() {
         /* Show customer */
         $('.btn-show').click(function() {
             var url = $(this).attr('data-url');
             $.ajax({
-                
-                type: 'get'
-                , url: url 
-                , success: function(response) {
+
+                type: 'get',
+                url: url,
+                success: function(response) {
                     //console.log(response)
                     $('#id').text(response.data.dm_ma)
                     $('#hoten').text(response.data.dm_ten)
-                    
-                }
-                , error: function(jqXHR, textStatus, errorThrown) {
+
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
                     //xử lý lỗi tại đây
                 }
             })
         })
     });
-
 </script>
+
 <script>
     $(function() {
         //class frmDelete thêm vào chỗ nút delete
@@ -162,13 +208,13 @@ Danh mục
             var danhmuc = $(this).data('id');
             //debugger;
             Swal.fire({
-                title: 'Are you sure?'
-                , text: "You won't be able to revert this!"
-                , icon: 'warning'
-                , showCancelButton: true
-                , confirmButtonColor: '#3085d6'
-                , cancelButtonColor: '#d33'
-                , confirmButtonText: 'Yes, delete it!'
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) { //nếu yes thì sử lý
                     //hàm lấy tất cả dữ liệu
@@ -184,9 +230,9 @@ Danh mục
 
                         data: {
                             //id là phải cùng với para trong action destroy
-                            danhmuc: danhmuc
-                            , _token: $(this).find('[name=_token').val()
-                            , _method: $(this).find('[name=_method').val(),
+                            danhmuc: danhmuc,
+                            _token: $(this).find('[name=_token').val(),
+                            _method: $(this).find('[name=_method').val(),
 
                         },
                         //dataType: 'JSON'
@@ -194,20 +240,16 @@ Danh mục
                         success: function(data, textStatus, jqXHR) {
                             //load lại trang khi đã xóa
                             Swal.fire(
-                                'Deleted!'
-                                , 'Your file has been deleted.'
-                                , 'success'
+                                'Deleted!', 'Your file has been deleted.', 'success'
                             );
                             location.href = '{{ route('backend.danhmuc.index')}}'
-                        }
-                        , error: function(jqXHR, textStatus, errorThrown) {}
-                    , });
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {},
+                    });
 
                 } else {
                     Swal.fire(
-                        'Cancelled!'
-                        , 'Your imaginary file is safe :)'
-                        , 'error'
+                        'Cancelled!', 'Your imaginary file is safe :)', 'error'
                     );
                 }
             })
@@ -215,7 +257,6 @@ Danh mục
         });
 
     });
-
 </script>
 
 @endsection

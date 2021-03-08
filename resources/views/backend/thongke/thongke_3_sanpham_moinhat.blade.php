@@ -30,7 +30,7 @@
             <div class="card-body">
                 <h4 class="header-title">Danh sách sản phẩm</h4>
                 
-                <table id="selection-datatable" class="table dt-responsive table-bordered">
+                <table id="selection-datatable" class="table table-striped table-responsive table-bordered">
                     <thead>
                         <tr class="table-primary">
                             <th>STT</th>
