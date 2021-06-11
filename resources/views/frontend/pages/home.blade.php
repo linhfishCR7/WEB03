@@ -67,7 +67,6 @@ ul.product-list .list-item figure {
 	</div>
 	<!-- /ADVERTISING -->
 	@include('frontend.widgets.featureProduct', [$ds_sanpham = $ds_sanpham])
-
 	{{-- @include('frontend.widgets.saleProduct', [$ds_sanpham_giamdan = $ds_sanpham_giamdan]) --}}
 
 	<!-- /PRODUCT SHOWCASE -->
@@ -2137,6 +2136,7 @@ ul.product-list .list-item figure {
 		</section>
 	</div>
 	<!-- /BRANDS -->
+
 @endsection
 @section('custom-scripts')
 <script>

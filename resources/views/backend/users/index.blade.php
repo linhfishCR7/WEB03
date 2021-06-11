@@ -19,7 +19,7 @@ User
         margin-right: 5px;
     }
     .img-hinhdaidien {
-        width: 120px;
+        width: 200px;
         height: 100px;
     }
 </style>

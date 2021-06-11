@@ -16,13 +16,13 @@
     <link href="{{ asset('themes/Minton_green/assets/libs/datatables/select.bootstrap4.css') }}" rel="stylesheet" type="text/css">
 
     <!-- third party css end -->
+
     <!-- Plugins css-->
+    <link href="{{ asset('themes/Minton_green/assets/libs/x-editable/bootstrap-editable.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('themes/Minton_green/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('themes/Minton_green/assets/libs/clockpicker/bootstrap-clockpicker.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('themes/Minton_green/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('themes/Minton_green/assets/libs/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
-    <link href="{{ asset('themes/Minton_green/assets/libs/x-editable/bootstrap-editable.css')}}" rel="stylesheet" type="text/css">
-
     <!-- App css -->
     <link rel="stylesheet" href="{{ asset('themes/Minton_green/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('themes/Minton_green/assets/css/icons.min.css') }}">
@@ -121,8 +121,8 @@
     <script src="{{ asset('themes/Minton_green/assets/libs/datatables/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/pdfmake/vfs_fonts.js') }}"></script>
-
     <!-- third party js ends -->
+
     <!-- Các script dành cho thư viện bootstrap-fileinput -->
     <script src="{{ asset('vendor/bootstrap-fileinput/js/plugins/sortable.js') }}" type="text/javascript"></script>
     <script src="{{ asset('vendor/bootstrap-fileinput/js/fileinput.js') }}" type="text/javascript"></script>
@@ -131,17 +131,17 @@
     <script src="{{ asset('vendor/bootstrap-fileinput/themes/explorer-fas/theme.js') }}" type="text/javascript"></script>
 
     <!-- Plugins js -->
-    <script src="{{ asset('themes/Minton_green/assets/libs/moment/moment.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/x-editable/bootstrap-editable.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/clockpicker/bootstrap-clockpicker.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/libs/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('themes/Minton_green/assets/libs/moment/moment.min.js') }}"></script>
 
     <!-- Init js-->
-    <script src="{{ asset('themes/Minton_green/assets/js/pages/form-xeditable.init.js')}}"></script>
     <script src="{{ asset('themes/Minton_green/assets/js/pages/dashboard-1.init.js') }}"></script>
     <script src="{{ asset('themes/Minton_green/assets/js/pages/form-pickers.init.js')}}"></script>
+    <script src="{{ asset('themes/Minton_green/assets/js/pages/form-xeditable.init.js')}}"></script>
 
     <!-- App js -->
     <script src="{{ asset('themes/Minton_green/assets/js/app.min.js') }}"></script>
@@ -178,7 +178,7 @@
     </script>
 
     <!-- Các custom script dành riêng cho từng view -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
     @yield('custom-scripts')
