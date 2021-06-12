@@ -110,3 +110,8 @@ Route::namespace('Backend')->prefix('backend')->name('backend.')->middleware('ca
   Route::resource('/user', 'UserController',[ 'except' => ['show','create','store']]);
 });
 
+//it-startup
+
+Route::get('/index','Frontend\NewFrontendController@index')->name('frontend.new.index');
+Route::get('/contact','Frontend\NewFrontendController@contact')->name('frontend.new.contact');
+Route::post('/contact/send-mail','Frontend\FrontendController@sendMailContactForm')->name('frontend.pages.contact.new.sendMail');

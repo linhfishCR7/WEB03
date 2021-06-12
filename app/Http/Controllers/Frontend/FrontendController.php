@@ -26,7 +26,7 @@ class FrontendController extends Controller
 {
     public function contact()
     {
-        return view('frontend.pages.contact');
+        return view('frontend.westeros.pages.contact');
     }
     //trang chủ tạm thời trỏ về trang thah toán
     public function index(Request $request)
@@ -54,7 +54,7 @@ class FrontendController extends Controller
         $danhsachmau = Mau::all();
 
         // Hiển thị view `frontend.index` với dữ liệu truyền vào
-        return view('frontend.pages.home')
+        return view('frontend.westeros.pages.home')
             ->with('ds_sanpham', $ds_sanpham)
             ->with('ds_sanpham_giamdan', $ds_sanpham_giamdan)
             // ->with('danhsachsanpham', $danhsachsanpham)
@@ -81,7 +81,7 @@ class FrontendController extends Controller
         $danhsachmau = Mau::all();
 
         //dd($danhsachhinhanhlienquan);
-        return view('frontend.pages.shop.productDetail')
+        return view('frontend.westeros.pages.shop.productDetail')
             ->with('sp', $sanpham)
             ->with('danhsachhinhanhlienquan', $danhsachhinhanhlienquan)
             ->with('danhsachmau', $danhsachmau)
@@ -97,13 +97,13 @@ class FrontendController extends Controller
         // Query danh sách phương thức thanh toán
         $danhsachphuongthucthanhtoan = Thanhtoan::all();
 
-        return view('frontend.pages.shop.shopping-cart')
+        return view('frontend.westeros.pages.shop.shopping-cart')
             ->with('danhsachvanchuyen', $danhsachvanchuyen)
             ->with('danhsachphuongthucthanhtoan', $danhsachphuongthucthanhtoan);
     }
     public function xacThuc()
     {
-        return view('frontend.pages.shop.xacThuc');
+        return view('frontend.westeros.pages.shop.xacThuc');
     }
 
     public function register(Request $request)
@@ -150,7 +150,7 @@ class FrontendController extends Controller
             //$sql = "SELECT * FROM khachhang where kh_email = '$kh_email'";
             //$kh = DB::select($sql);
             //dd($kh);
-            return view('frontend.profile')->with('kh', $kh);
+            return view('frontend.westeros.profile')->with('kh', $kh);
         } else {
             return view('errors.440');
         }
@@ -254,7 +254,7 @@ class FrontendController extends Controller
      */
     public function orderFinish()
     {
-        return view('frontend.pages.shop.order-finish');
+        return view('frontend.westeros.pages.shop.order-finish');
     }
 
     //tìm kiếm sản phẩm
@@ -262,36 +262,36 @@ class FrontendController extends Controller
     {
         // Hiển thị view Thống kê
         $loai = Loai::all();
-        return view('frontend.pages.search-test')->with('loai', $loai);
+        return view('frontend.westeros.pages.search-test')->with('loai', $loai);
     }
 
     //câu hỏi thường gặp
     public function question()
     {
-        return view('frontend.pages.blog');
+        return view('frontend.westeros.pages.blog');
     }
 
     //câu hỏi thường gặp chi tiết
     public function questionDetail()
     {
-        return view('frontend.pages.post');
+        return view('frontend.westeros.pages.post');
     }
 
     //hướng dẫn sử dụng
     public function guideUse()
     {
-        return view('frontend.pages.guideUse');
+        return view('frontend.westeros.pages.guideUse');
     }
     //riêng tư
     public function private()
     {
-        return view('frontend.pages.private');
+        return view('frontend.westeros.pages.private');
     }
 
     //bồi thường
     public function compensation()
     {
-        return view('frontend.pages.compensation');
+        return view('frontend.westeros.pages.compensation');
     }
 
     /** 
@@ -302,7 +302,7 @@ class FrontendController extends Controller
     {
         $input = $request->all();
         Mail::to('linhfish10c1@gmail.com')->send(new ContactMailer($input));
-        // return view('frontend.pages.contact');
+        // return view('frontend.westeros.pages.contact');
     }
     public function product(Request $request)
     {
@@ -325,7 +325,7 @@ class FrontendController extends Controller
         $danhsachmau = Mau::all();
 
         // Hiển thị view `frontend.index` với dữ liệu truyền vào
-        return view('frontend.pages.shop.product')
+        return view('frontend.westeros.pages.shop.product')
             ->with('ds_sanpham', $ds_sanpham)
             // ->with('danhsachsanpham', $danhsachsanpham)
             // ->with('danhsachhinhanhlienquan', $danhsachhinhanhlienquan)
