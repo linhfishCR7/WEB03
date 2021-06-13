@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('frontend.westeros.layouts.master')
 
 @section('title')
 404

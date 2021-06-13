@@ -11,8 +11,8 @@
                 </div>
             </div>
 
-            <div class="evolta-nav">
-                <div class="container-fluid">
+            <div class="@yield('class')">
+                <div class="@yield('subclass')">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="index">
                             <img src="{{ asset('themes/it-startups/assets/img/black-logo.png')}}" alt="logo">
@@ -29,7 +29,7 @@
 
                                         <li class="nav-item"><a href="team" class="nav-link">Team</a></li>
 
-                                        <li class="nav-item"><a href="services" class="nav-link">Services</a>
+                                        <li class="nav-item"><a href="service" class="nav-link">Services</a>
                                         </li>
 
                                         <li class="nav-item"><a href="shop" class="nav-link">Shop</a>

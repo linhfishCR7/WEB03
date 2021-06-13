@@ -1,6 +1,6 @@
         <footer class="footer-area">
             <div class="container">
-                <div class="subscribe-area">
+                {{-- <div class="subscribe-area">
                     <h3>Subscribe To Our Newsletter</h3>
 
                     <form class="newsletter-form" data-toggle="validator">
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> --}}
 
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6">
