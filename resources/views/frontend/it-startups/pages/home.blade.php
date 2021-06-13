@@ -3,6 +3,12 @@
 @section('title')
 Index
 @endsection
+@section('class')
+evolta-nav
+@endsection
+@section('subclass')
+container-fluid
+@endsection
 @section('custom-css')
 @endsection
 <!-- Start Main Banner Area -->

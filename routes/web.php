@@ -115,3 +115,8 @@ Route::namespace('Backend')->prefix('backend')->name('backend.')->middleware('ca
 Route::get('/index','Frontend\NewFrontendController@index')->name('frontend.new.index');
 Route::get('/contact','Frontend\NewFrontendController@contact')->name('frontend.new.contact');
 Route::post('/contact/send-mail','Frontend\FrontendController@sendMailContactForm')->name('frontend.pages.contact.new.sendMail');
+Route::get('/faq','Frontend\NewFrontendController@faq')->name('frontend.new.faq');
+Route::get('/about','Frontend\NewFrontendController@about')->name('frontend.new.about');
+Route::get('/team','Frontend\NewFrontendController@team')->name('frontend.new.team');
+Route::get('/service','Frontend\NewFrontendController@service')->name('frontend.new.service');
+Route::get('/project','Frontend\NewFrontendController@project')->name('frontend.new.project');
