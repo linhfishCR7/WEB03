@@ -1,21 +1,23 @@
 	<!-- SVG ORDER BOX -->
 
-	<svg class="svg-order-box">
+	<!-- <svg class="svg-order-box">
 		<use xlink:href="#svg-order-box"></use>
-	</svg>
+	</svg> -->
 	<!-- /SVG ORDER BOX -->
 
 	<!-- SVG ARROW -->
-	<svg class="svg-arrow select-arrow">
+	<!-- <svg class="svg-arrow select-arrow">
 		<use xlink:href="#svg-arrow"></use>
-	</svg>
+	</svg> -->
 	<!-- /SVG ARROW -->
-	<h6>Your Total Order</h6>
+	<!-- <h6>Your Total Order</h6>
 	<p class="cart-content-short">(<% ngCart.getTotalItems() %>)</p>
 	<p class="cart-content-long">
 		<% ngCart.getTotalItems() %> item (s) -
 	</p>
 	<p class="highlighted">
 		<% ngCart.totalCost() | currency %>
-	</p>
-
+	</p> -->
+<span class="font-weight-bold"><% ngCart.getTotalItems() %> item (s) - <% ngCart.totalCost() | currency %>
+</span>
+	

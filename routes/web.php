@@ -120,3 +120,4 @@ Route::get('/about','Frontend\NewFrontendController@about')->name('frontend.new.
 Route::get('/team','Frontend\NewFrontendController@team')->name('frontend.new.team');
 Route::get('/service','Frontend\NewFrontendController@service')->name('frontend.new.service');
 Route::get('/project','Frontend\NewFrontendController@project')->name('frontend.new.project');
+Route::get('/shop','Frontend\NewFrontendController@shop')->name('frontend.new.shop');

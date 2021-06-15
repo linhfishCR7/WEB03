@@ -63,8 +63,7 @@
                             </ul>
 
                             <div class="others-options">
-                                <a href="cart.html" class="cart-btn"><i class="flaticon-shopping-basket"></i></a>
-
+                                <a href="cart" class="cart-btn"><i class="flaticon-shopping-basket"></i><ngcart-summary class="js-show-cart highlighted" template-url="{{ asset('vendor/ngCart/template/ngCart/summary.html') }}"></ngcart-summary></a>
                                 <div class="option-item"><i class="search-btn flaticon-search"></i>
                                     <i class="close-btn fas fa-times"></i>
                                     

@@ -35,9 +35,7 @@
     <!-- Các custom style dành riêng cho từng view -->
     @yield('custom-css')
 </head>
-
     <body>
-
         <!-- Start Preloader Area -->
         @include('frontend.it-startups.layouts.partials.preloader')
         <!-- End Preloader Area -->
