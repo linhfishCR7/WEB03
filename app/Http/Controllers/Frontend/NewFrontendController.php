@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMailer;
-
+use Carbon\Carbon;
+use App\SanPham;
+use App\Loai;
+use App\HinhAnh;
+use Illuminate\Support\Facades\DB;
 class NewFrontendController extends Controller
 {
     
@@ -46,5 +50,10 @@ class NewFrontendController extends Controller
     public function project()
     {
         return view('frontend.it-startups.pages.project');
+    }
+    public function shop(Request $request){
+        $ds_sanpham = SanPham::paginate(9);
+        return view('frontend.it-startups.pages.shop')
+        ->with('ds_sanpham', $ds_sanpham);
     }
 }

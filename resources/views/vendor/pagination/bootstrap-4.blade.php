@@ -1,4 +1,5 @@
 @if ($paginator->hasPages())
+
 <nav class="nav nav-pills flex-column flex-sm-row">
     <ul class="pagination flex-sm-fill text-sm-left nav-link">
 
@@ -44,13 +45,14 @@
         @endif
 
     </ul>
-    <ul class="page-item flex-sm-fill text-sm-right nav-link">
+    {{-- <ul class="page-item flex-sm-fill text-sm-right nav-link">
         <li>
         <b>{{ $paginator->count() }}
-            of
-            {{ $paginator->total() }}</b>
-            
-        </li>
-    </ul>
+    of
+    {{ $paginator->total() }}</b>
+
+    </li>
+    </ul> --}}
 </nav>
+
 @endif
