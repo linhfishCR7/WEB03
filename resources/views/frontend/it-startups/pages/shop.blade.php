@@ -45,7 +45,7 @@ container
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-product-box">
                     <div class="product-image">
-                        <a href="#">
+                        <a href="{{route('frontend.new.shop-detail',['id'=> $sanpham->sp_ma])}}">
                             <img src="{{ asset('storage/upload/'.$sanpham->sp_hinh) }}" width="350px;" alt="image">
                             <img src="{{ asset('storage/upload/'.$sanpham->sp_hinh) }}" width="350px;" alt="image">
                         </a>

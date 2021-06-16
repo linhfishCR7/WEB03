@@ -121,3 +121,5 @@ Route::get('/team','Frontend\NewFrontendController@team')->name('frontend.new.te
 Route::get('/service','Frontend\NewFrontendController@service')->name('frontend.new.service');
 Route::get('/project','Frontend\NewFrontendController@project')->name('frontend.new.project');
 Route::get('/shop','Frontend\NewFrontendController@shop')->name('frontend.new.shop');
+Route::get('/shop-detail/{id}','Frontend\NewFrontendController@shopDetail')->name('frontend.new.shop-detail');
+Route::get('/cart','Frontend\NewFrontendController@cart')->name('frontend.new.cart');
