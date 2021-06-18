@@ -63,10 +63,12 @@
                             </ul>
 
                             <div class="others-options">
-                                <a href="cart" class="cart-btn"><i class="flaticon-shopping-basket"></i><ngcart-summary class="js-show-cart highlighted" template-url="{{ asset('vendor/ngCart/template/ngCart/summary.html') }}"></ngcart-summary></a>
+                                <a href="cart" class="cart-btn"><i class="flaticon-shopping-basket"></i>
+                                    <ngcart-summary class="js-show-cart highlighted" template-url="{{ asset('vendor/ngCart/template/ngCart/summary.html') }}"></ngcart-summary>
+                                </a>
                                 <div class="option-item"><i class="search-btn flaticon-search"></i>
                                     <i class="close-btn fas fa-times"></i>
-                                    
+
                                     <div class="search-overlay search-popup">
                                         <div class='search-box'>
                                             <form class="search-form">
@@ -77,8 +79,11 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <a href="contact.html" class="btn btn-primary">Free Quote</a>
+                                @if (session('data'))
+                                <a href="/profile" class="btn btn-primary">{{session('data')['kh_email']}}</a>
+                                @else
+                                <a href="preLogin" class="btn btn-primary">Login</a>
+                                @endif
                             </div>
                         </div>
                     </nav>

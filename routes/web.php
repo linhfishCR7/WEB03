@@ -123,3 +123,6 @@ Route::get('/project','Frontend\NewFrontendController@project')->name('frontend.
 Route::get('/shop','Frontend\NewFrontendController@shop')->name('frontend.new.shop');
 Route::get('/shop-detail/{id}','Frontend\NewFrontendController@shopDetail')->name('frontend.new.shop-detail');
 Route::get('/cart','Frontend\NewFrontendController@cart')->name('frontend.new.cart');
+Route::get('/preLogin','Frontend\NewFrontendController@preLogin')->name('frontend.new.preLogin');
+Route::post('/newLogin','Frontend\NewFrontendController@login')->name('frontend.new.login');
+Route::get('/logout','Frontend\NewFrontendController@logout')->name('frontend.new.logout');

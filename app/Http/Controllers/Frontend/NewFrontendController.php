@@ -92,4 +92,45 @@ class NewFrontendController extends Controller
             ->with('danhsachvanchuyen', $danhsachvanchuyen)
             ->with('danhsachphuongthucthanhtoan', $danhsachphuongthucthanhtoan);
     }
+    public function preLogin()
+    {
+        return view('frontend.it-startups.layouts.auth.login');
+    }
+    // public function preRegister()
+    // {
+    //     return view('frontend.it-startups.layouts.auth.register');
+    // }
+    public function login(Request $request)
+    {
+        
+        $request->session()->put('data', $request->input());
+        //dd($request);
+        return redirect('/shop');
+    }
+    // public function register(Request $request)
+    // {
+
+    //     // Tạo mới khách hàng
+    //     $khachhang = new Khachhang();
+    //     $khachhang->kh_taiKhoan = $request->khachhang['kh_taiKhoan'];
+    //     $khachhang->kh_matKhau = bcrypt($request->khachhang['kh_matKhau']);
+    //     $khachhang->kh_hoTen = $request->khachhang['kh_hoTen'];
+    //     $khachhang->kh_gioiTinh = $request->khachhang['kh_gioiTinh'];
+    //     $khachhang->kh_email = $request->khachhang['kh_email'];
+    //     $khachhang->kh_ngaySinh = $request->khachhang['kh_ngaySinh'];
+    //     if (!empty($request->khachhang['kh_diaChi'])) {
+    //         $khachhang->kh_diaChi = $request->khachhang['kh_diaChi'];
+    //     }
+    //     if (!empty($request->khachhang['kh_dienThoai'])) {
+    //         $khachhang->kh_dienThoai = $request->khachhang['kh_dienThoai'];
+    //     }
+    //     $khachhang->kh_trangThai = 2; // Khả dụng
+    //     $khachhang->save();
+    // }
+    public function logout(Request $request)
+    {
+        $request->session()->forget('data');
+        dd($request);
+        return redirect('preLogin');
+    }
 }
